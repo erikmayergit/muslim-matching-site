@@ -324,3 +324,9 @@ footer .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;ga
   .device-float,.float-card,.pulse::after{animation:none}
   html{scroll-behavior:auto}
 }
+
+/* force-center beehiiv subscribe form in signup band */
+.cta-band .wrap>div[style*="justify-content"]{display:flex!important;flex-direction:column!important;align-items:center!important;text-align:center}
+.cta-band .wrap>div[style*="justify-content"]>*{margin-left:auto!important;margin-right:auto!important}
+.cta-band form{margin-left:auto!important;margin-right:auto!important;display:block}
+.cta-band [data-beehiiv-form],.cta-band [class*="beehiiv"],.cta-band [class*="bh-"]{margin-left:auto!important;margin-right:auto!important}
