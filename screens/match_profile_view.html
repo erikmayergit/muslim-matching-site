@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=393, height=852, initial-scale=1.0">
+<title>match_profile_view</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+<style>
+:root {
+--mm-blue: #1E3FF5;
+--mm-rose: #E84A78;
+--mm-ink: #1A1A2E;
+--mm-white: #FFFFFF;
+}
+.iphone-frame {
+width: 393px;
+height: 852px;
+background-color: #ffffff;
+position: relative;
+border-radius: 0px;
+box-shadow: 0 0 20px rgba(0,0,0,0.1);
+overflow: hidden;
+margin: 0 auto;
+}
+.neo-border {
+border: 3px solid var(--mm-ink);
+}
+.neo-shadow {
+box-shadow: 6px 6px 0px 0px var(--mm-ink);
+}
+.neo-shadow-sm {
+box-shadow: 4px 4px 0px 0px var(--mm-ink);
+}
+.arc-container {
+position: relative;
+height: 220px;
+background-color: var(--mm-blue);
+clip-path: ellipse(110% 80% at 50% 15%);
+}
+.headline-massive {
+line-height: 0.85;
+letter-spacing: -0.04em;
+}
+.mono-label {
+font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.active-press:active {
+transform: translate(3px, 3px);
+box-shadow: 3px 3px 0px 0px var(--mm-ink);
+}
+.hide-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.hide-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+@keyframes pulse-badge {
+0% { transform: scale(1); }
+50% { transform: scale(1.05); }
+100% { transform: scale(1); }
+}
+.hover-glyph {
+animation: pulse-badge 3s ease-in-out infinite;
+}
+</style>
+</head>
+<body class="bg-slate-50 text-[var(--mm-ink)] font-sans">
+<div class="iphone-frame flex flex-col">
+<!-- #header_001 -->
+<header class="flex-shrink-0 z-20 bg-white relative">
+<!-- Nav Actions -->
+<div class="absolute top-6 left-6 z-30">
+<button class="w-10 h-10 bg-white neo-border rounded-full flex items-center justify-center active:scale-95 transition-transform">
+<iconify-icon icon="ph:arrow-left-bold" class="text-xl"></iconify-icon>
+</button>
+</div>
+<div class="absolute top-6 right-6 z-30">
+<button class="w-10 h-10 bg-white neo-border rounded-full flex items-center justify-center active:scale-95 transition-transform">
+<iconify-icon icon="ph:question-bold" class="text-xl"></iconify-icon>
+</button>
+</div>
+
+<div class="arc-container flex items-center justify-center">
+<!-- #hero-glyph_004 -->
+<div class="w-32 h-32 bg-[#F5E6E0] rounded-full flex items-center justify-center neo-border mt-[-20px] shadow-xl overflow-hidden hover-glyph">
+<iconify-icon icon="ph:user-circle-bold" class="text-[90px] text-[var(--mm-ink)] opacity-60"></iconify-icon>
+</div>
+<!-- /#hero-glyph_004 -->
+</div>
+
+<div class="px-8 pt-4 pb-2">
+<span class="text-[14px] font-black text-[var(--mm-blue)] uppercase tracking-tight">PROFILE UNLOCKED</span>
+<h1 class="headline-massive text-[48px] font-black text-[var(--mm-ink)] uppercase mt-2 tracking-tighter">
+SHROUK · 24 · CAIRO
+</h1>
+<p class="text-[16px] font-bold uppercase opacity-60 mt-1">Egyptian · Sunni</p>
+</div>
+</header>
+<!-- /#header_001 -->
+
+<!-- #scroll-content_002 -->
+<div class="flex-1 overflow-y-auto hide-scrollbar">
+<!-- #hero-quote_003 -->
+<div class="px-6 pb-6">
+<!-- #quote-box_005 -->
+<div class="mt-4 w-full p-5 bg-[var(--mm-blue)] text-white neo-border neo-shadow">
+<p class="text-xl font-black leading-tight uppercase">
+"Niqab. Quran memorisation. Hijra for Allah. Marriage with Sunnah."
+</p>
+</div>
+<!-- /#quote-box_005 -->
+</div>
+
+<!-- #basics_006 -->
+<section class="px-6 py-4">
+<h2 class="mono-label text-[11px] font-black tracking-widest uppercase opacity-40 mb-3">THE BASICS</h2>
+<div class="grid grid-cols-2 gap-3">
+<div class="p-3 bg-white neo-border flex flex-col gap-0.5">
+<span class="text-[9px] font-black opacity-40 uppercase">Marital Status</span>
+<p class="font-black uppercase text-xs">Never married</p>
+</div>
+<div class="p-3 bg-white neo-border flex flex-col gap-0.5">
+<span class="text-[9px] font-black opacity-40 uppercase">Children</span>
+<p class="font-black uppercase text-xs">None</p>
+</div>
+<div class="p-3 bg-white neo-border flex flex-col gap-0.5">
+<span class="text-[9px] font-black opacity-40 uppercase">Citizenship</span>
+<p class="font-black uppercase text-xs truncate">Egyptian</p>
+</div>
+<div class="p-3 bg-white neo-border flex flex-col gap-0.5">
+<span class="text-[9px] font-black opacity-40 uppercase">Raised In</span>
+<p class="font-black uppercase text-xs">Egypt</p>
+</div>
+<div class="p-3 bg-white neo-border flex flex-col gap-0.5">
+<span class="text-[9px] font-black opacity-40 uppercase">Settled Since</span>
+<p class="font-black uppercase text-xs truncate">Over 10 years</p>
+</div>
+<div class="p-3 bg-white neo-border flex flex-col gap-0.5">
+<span class="text-[9px] font-black opacity-40 uppercase">Looks Like</span>
+<p class="font-black uppercase text-xs truncate">Khaleeji / Arab</p>
+</div>
+</div>
+<!-- Appearance Detail Block -->
+<div class="mt-3 grid grid-cols-2 gap-3">
+<div class="p-3 bg-slate-100 neo-border border-dashed flex flex-col gap-1">
+<span class="text-[9px] font-black opacity-40 uppercase">Height / Weight / Build</span>
+<p class="font-black uppercase text-[10px]">5ft1 – 5ft2 · 56-60kg · Petite</p>
+</div>
+<div class="p-3 bg-slate-100 neo-border border-dashed flex flex-col gap-1">
+<span class="text-[9px] font-black opacity-40 uppercase">Skin / Hair / Wears</span>
+<p class="font-black uppercase text-[10px]">Olive · Black · Niqab</p>
+</div>
+</div>
+<div class="mt-3 p-3 bg-white neo-border flex justify-between items-center">
+<div class="flex flex-col gap-0.5">
+<span class="text-[9px] font-black opacity-40 uppercase">Revert Status</span>
+<p class="font-black uppercase text-xs">No</p>
+</div>
+<div class="flex flex-col gap-0.5 text-right">
+<span class="text-[9px] font-black opacity-40 uppercase">Prays</span>
+<p class="font-black uppercase text-xs text-[var(--mm-blue)]">5x Daily · Always</p>
+</div>
+</div>
+</section>
+<!-- /#basics_006 -->
+
+<!-- #life_012 -->
+<section class="px-6 py-4">
+<h2 class="mono-label text-[11px] font-black tracking-widest uppercase opacity-40 mb-3">LIFE</h2>
+<div class="space-y-3">
+<div class="flex items-start gap-4 p-4 bg-white neo-border">
+<iconify-icon icon="ph:student-bold" class="text-2xl mt-1"></iconify-icon>
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase">Qualification</p>
+<p class="font-black uppercase text-sm">University — Bachelor's</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white neo-border">
+<iconify-icon icon="ph:briefcase-bold" class="text-2xl mt-1"></iconify-icon>
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase">Doing Now</p>
+<p class="font-black uppercase text-sm">Not working · family support</p>
+<p class="text-[9px] font-bold opacity-40 mt-1 uppercase">Field: Mass communication grad</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white neo-border">
+<iconify-icon icon="ph:translate-bold" class="text-2xl mt-1"></iconify-icon>
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase">Languages</p>
+<div class="flex flex-wrap gap-2 mt-1">
+<span class="px-2 py-0.5 bg-slate-100 text-[9px] font-black neo-border">ENGLISH (FLUENT)</span>
+<span class="px-2 py-0.5 bg-slate-100 text-[9px] font-black neo-border">ARABIC (NATIVE)</span>
+<span class="px-2 py-0.5 bg-slate-100 text-[9px] font-black neo-border">FUSHA (LEARNING)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /#life_012 -->
+
+<!-- #deen_016 -->
+<section class="px-6 py-4">
+<h2 class="mono-label text-[11px] font-black tracking-widest uppercase opacity-40 mb-3">DEEN</h2>
+<div class="p-5 bg-white neo-border neo-shadow-sm space-y-4">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase">Sect</p>
+<p class="font-black uppercase text-sm">Sunni — Ahlul Sunnah</p>
+</div>
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase">Madhab</p>
+<p class="font-black uppercase text-sm">—</p>
+</div>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase">Mindset</p>
+<p class="font-black uppercase text-sm">Conservative</p>
+</div>
+<div class="text-right">
+<p class="text-[10px] font-black opacity-40 uppercase">Practising Since</p>
+<p class="font-black uppercase text-sm">Early 20s</p>
+</div>
+</div>
+<hr class="border-t-2 border-[var(--mm-ink)] opacity-10">
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase mb-2">Practices</p>
+<div class="flex flex-wrap gap-2">
+<span class="flex items-center gap-1 px-2 py-1 bg-[var(--mm-blue)]/5 neo-border text-[9px] font-black uppercase">
+<iconify-icon icon="ph:check-bold" class="text-[var(--mm-blue)]"></iconify-icon>
+Pray on time
+</span>
+<span class="flex items-center gap-1 px-2 py-1 bg-[var(--mm-blue)]/5 neo-border text-[9px] font-black uppercase">
+<iconify-icon icon="ph:check-bold" class="text-[var(--mm-blue)]"></iconify-icon>
+Recite Quran daily
+</span>
+<span class="flex items-center gap-1 px-2 py-1 bg-[var(--mm-blue)]/5 neo-border text-[9px] font-black uppercase">
+<iconify-icon icon="ph:check-bold" class="text-[var(--mm-blue)]"></iconify-icon>
+Modest behavior
+</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase mb-2">Scholars</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-slate-50 neo-border text-[9px] font-black uppercase">Bin Baz</span>
+<span class="px-2 py-1 bg-slate-50 neo-border text-[9px] font-black uppercase">Ibn Uthaymeen</span>
+<span class="px-2 py-1 bg-slate-50 neo-border text-[9px] font-black uppercase">Othman al-Khamees</span>
+</div>
+</div>
+</div>
+</section>
+<!-- /#deen_016 -->
+
+<!-- #marriage-view_019 -->
+<section class="px-6 py-4 bg-[var(--mm-ink)] text-white mt-4">
+<h2 class="mono-label text-[11px] font-black tracking-widest uppercase opacity-60 mb-4 text-white">HER MARRIAGE VIEW</h2>
+<div class="space-y-6">
+<div>
+<p class="text-[10px] font-black opacity-60 uppercase mb-2">Wants to build</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 border border-white/20 text-[9px] font-black uppercase tracking-tight">Hajj & worship together</span>
+<span class="px-2 py-1 border border-white/20 text-[9px] font-black uppercase tracking-tight">Seek Islamic knowledge</span>
+<span class="px-2 py-1 border border-white/20 text-[9px] font-black uppercase tracking-tight">Balance deen & dunya</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-black opacity-60 uppercase mb-2">Open to</p>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex items-center gap-2 p-2 bg-white/5 border border-white/20">
+<iconify-icon icon="ph:check-bold" class="text-[var(--mm-blue)]"></iconify-icon>
+<span class="text-[9px] font-black uppercase">Marrying within a year</span>
+</div>
+<div class="flex items-center gap-2 p-2 bg-white/5 border border-white/20">
+<iconify-icon icon="ph:check-bold" class="text-[var(--mm-blue)]"></iconify-icon>
+<span class="text-[9px] font-black uppercase">Relocating abroad</span>
+</div>
+<div class="flex items-center gap-2 p-2 bg-white/5 border border-white/20">
+<iconify-icon icon="ph:check-bold" class="text-[var(--mm-blue)]"></iconify-icon>
+<span class="text-[9px] font-black uppercase">Never-married man</span>
+</div>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-black opacity-60 uppercase mb-3">Three Hadiths she anchors to</p>
+<div class="space-y-3">
+<div class="p-4 bg-white text-[var(--mm-ink)] neo-border">
+<p class="text-xs italic font-bold leading-snug">"Beware of entering the homes of women alone."</p>
+<p class="text-[9px] font-black uppercase mt-2 opacity-50">— Bukhari 5232</p>
+</div>
+<div class="p-4 bg-white text-[var(--mm-ink)] neo-border">
+<p class="text-xs italic font-bold leading-snug">"The best enjoyment is a pious and virtuous wife."</p>
+<p class="text-[9px] font-black uppercase mt-2 opacity-50">— Muslim 715</p>
+</div>
+<div class="p-4 bg-white text-[var(--mm-ink)] neo-border">
+<p class="text-xs italic font-bold leading-snug">"Act kindly towards women..."</p>
+<p class="text-[9px] font-black uppercase mt-2 opacity-50">— Muslim 1468</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- /#marriage-view_019 -->
+
+<!-- #who-she-wants_021 -->
+<section class="px-6 py-6">
+<h2 class="mono-label text-[11px] font-black tracking-widest uppercase opacity-40 mb-3">WHO SHE WANTS</h2>
+<div class="p-4 bg-white neo-border">
+<p class="text-[10px] font-black opacity-40 uppercase mb-1">In her words</p>
+<p class="text-sm font-bold leading-relaxed mb-4">
+"I want my future husband to be gentle, kind, caring and lovely, someone who knows how to treat his wife by..." <span class="text-[var(--mm-blue)] font-black cursor-pointer">Read more →</span>
+</p>
+<p class="text-[10px] font-black opacity-40 uppercase mb-2">Hard No's</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-2 py-1 bg-[var(--mm-rose)] text-white neo-border text-[10px] font-black uppercase">Polygyny — not open</span>
+</div>
+<p class="text-[10px] font-black opacity-40 uppercase mb-2">Marriage Prerequisites</p>
+<div class="space-y-2">
+<div class="p-3 bg-slate-50 border-l-4 border-[var(--mm-ink)] flex justify-between items-center">
+<p class="text-[10px] font-bold uppercase">Islamic Nikah Only</p>
+<iconify-icon icon="ph:check-circle-fill" class="text-[var(--mm-blue)]"></iconify-icon>
+</div>
+<div class="p-3 bg-slate-50 border-l-4 border-[var(--mm-ink)] flex justify-between items-center">
+<p class="text-[10px] font-bold uppercase">Walī present at nikah</p>
+<iconify-icon icon="ph:check-circle-fill" class="text-[var(--mm-blue)]"></iconify-icon>
+</div>
+</div>
+</div>
+</section>
+<!-- /#who-she-wants_021 -->
+
+<!-- #who-she-is_022 -->
+<section class="px-6 py-4 pb-12">
+<h2 class="mono-label text-[11px] font-black tracking-widest uppercase opacity-40 mb-3">WHO SHE IS</h2>
+<div class="space-y-4">
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase mb-2">Personality</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-[var(--mm-blue)] text-white neo-border rounded-sm text-[9px] font-black uppercase">Respectful</span>
+<span class="px-3 py-1 bg-[var(--mm-blue)] text-white neo-border rounded-sm text-[9px] font-black uppercase">Sensitive</span>
+<span class="px-3 py-1 bg-[var(--mm-blue)] text-white neo-border rounded-sm text-[9px] font-black uppercase">Honest</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-black opacity-40 uppercase mb-2">Hobbies</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-white neo-border text-[10px] font-black uppercase">Exploring nature</span>
+<span class="px-2 py-1 bg-white neo-border text-[10px] font-black uppercase">Islamic events</span>
+<span class="px-2 py-1 bg-white neo-border text-[10px] font-black uppercase">Cooking / Baking</span>
+</div>
+</div>
+<div class="p-4 bg-white neo-border">
+<p class="text-[10px] font-black opacity-40 uppercase mb-1">In her own words</p>
+<p class="text-sm font-bold leading-relaxed">
+"I am a Muslim girl who wears the niqab. I love Allah and His Messenger ﷺ deeply..." <span class="text-[var(--mm-blue)] font-black cursor-pointer">Read more →</span>
+</p>
+</div>
+</div>
+</section>
+<!-- /#who-she-is_022 -->
+</div>
+<!-- /#scroll-content_002 -->
+
+<!-- #footer_023 -->
+<footer class="flex-shrink-0 h-[104px] bg-white border-t-4 border-[var(--mm-ink)] px-6 pt-4 pb-8 z-50">
+<button class="w-full bg-[var(--mm-blue)] text-white h-[56px] neo-border neo-shadow active-press transition-all flex items-center justify-center gap-2">
+<span class="text-xl font-black uppercase tracking-widest">TAKE THE READ-CHECK</span>
+<iconify-icon icon="ph:arrow-right-bold" class="text-2xl"></iconify-icon>
+</button>
+<div class="flex items-center justify-center gap-2 mt-2">
+<iconify-icon icon="ph:clock-bold" class="text-[var(--mm-rose)]"></iconify-icon>
+<p class="text-[11px] font-black uppercase tracking-tight">
+Match expires in <span class="text-[var(--mm-rose)]">23h</span> · take the quiz to start Phase 1
+</p>
+</div>
+</footer>
+<!-- /#footer_023 -->
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=393, height=852, initial-scale=1.0">
+<title>match_quiz_r1</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+<style>
+:root {
+--mm-blue: #1E3FF5;
+--mm-rose: #E84A78;
+--mm-ink: #1A1A2E;
+--mm-white: #FFFFFF;
+}
+.iphone-frame {
+width: 393px;
+height: 852px;
+background-color: #ffffff;
+position: relative;
+border-radius: 0px;
+box-shadow: 0 0 20px rgba(0,0,0,0.1);
+overflow: hidden;
+margin: 0 auto;
+}
+.neo-border {
+border: 3px solid var(--mm-ink);
+}
+.neo-shadow {
+box-shadow: 6px 6px 0px 0px var(--mm-ink);
+}
+.arc-container-small {
+position: relative;
+height: 120px;
+background-color: var(--mm-blue);
+clip-path: ellipse(110% 80% at 50% 0%);
+}
+.headline-massive {
+line-height: 0.85;
+letter-spacing: -0.04em;
+}
+.active-press:active {
+transform: translate(3px, 3px);
+box-shadow: 3px 3px 0px 0px var(--mm-ink);
+}
+.hide-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.hide-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.option-card {
+padding: 12px 16px;
+border: 2px solid var(--mm-ink);
+border-radius: 12px;
+font-size: 13px;
+font-weight: 900;
+text-transform: uppercase;
+transition: all 0.2s;
+background: white;
+}
+.option-selected {
+background-color: var(--mm-blue) !important;
+color: white !important;
+border-color: var(--mm-ink);
+box-shadow: 3px 3px 0px 0px var(--mm-ink);
+}
+</style>
+</head>
+<body class="bg-slate-50 text-[var(--mm-ink)] font-sans">
+<div class="iphone-frame flex flex-col bg-white">
+<!-- #header_001 -->
+<header class="flex-shrink-0 z-20 bg-white">
+<div class="arc-container-small flex items-center justify-center">
+<span class="text-white font-black uppercase tracking-widest mt-[-20px]">ROUND 1 OF 5</span>
+</div>
+<div class="px-8 pt-6 pb-2">
+<h1 class="headline-massive text-[40px] font-black text-[var(--mm-ink)] uppercase tracking-tighter">
+BASICS + DEEN IDENTITY
+</h1>
+</div>
+</header>
+<!-- #scroll-content_002 -->
+<div class="flex-1 overflow-y-auto px-8 py-4 hide-scrollbar space-y-8">
+<!-- Marital Status -->
+<div class="space-y-3">
+<h3 class="text-[14px] font-black uppercase tracking-tight opacity-40">Marital Status</h3>
+<div class="flex flex-wrap gap-2">
+<button class="option-card option-selected">Never married</button>
+<button class="option-card">Divorced</button>
+<button class="option-card">Widowed</button>
+</div>
+</div>
+<!-- Children -->
+<div class="space-y-3">
+<h3 class="text-[14px] font-black uppercase tracking-tight opacity-40">Children</h3>
+<div class="flex flex-wrap gap-2">
+<button class="option-card">Has children</button>
+<button class="option-card option-selected">No children</button>
+</div>
+</div>
+<!-- Sect -->
+<div class="space-y-3">
+<h3 class="text-[14px] font-black uppercase tracking-tight opacity-40">Sect</h3>
+<div class="flex flex-wrap gap-2">
+<button class="option-card option-selected">Sunni — Ahlul Sunnah</button>
+<button class="option-card">Sunni — Salafi</button>
+<button class="option-card">Sufi</button>
+<button class="option-card">Shia</button>
+<button class="option-card">Other</button>
+</div>
+</div>
+<!-- Madhab -->
+<div class="space-y-3">
+<h3 class="text-[14px] font-black uppercase tracking-tight opacity-40">Madhab</h3>
+<div class="flex flex-wrap gap-2">
+<button class="option-card">Hanafi</button>
+<button class="option-card">Maliki</button>
+<button class="option-card">Shafi'i</button>
+<button class="option-card">Hanbali</button>
+<button class="option-card option-selected">No specific madhab</button>
+<button class="option-card text-[10px]">Still learning</button>
+</div>
+</div>
+<!-- Mindset -->
+<div class="space-y-3 pb-6">
+<h3 class="text-[14px] font-black uppercase tracking-tight opacity-40">Mindset</h3>
+<div class="flex flex-wrap gap-2">
+<button class="option-card option-selected">Conservative</button>
+<button class="option-card">Practising — moderate</button>
+<button class="option-card">Practising — relaxed</button>
+<button class="option-card">Reformist</button>
+<button class="option-card text-[10px]">Still figuring it out</button>
+</div>
+</div>
+</div>
+<!-- #footer_006 -->
+<footer class="flex-shrink-0 px-8 pt-4 pb-12 bg-white border-t-2 border-slate-100">
+<button class="w-full bg-[var(--mm-blue)] text-white py-5 rounded-full text-xl font-black active-press transition-all neo-border neo-shadow uppercase tracking-widest">
+Continue to Round 2 →
+</button>
+</footer>
+</div>
+</body>
+</html>

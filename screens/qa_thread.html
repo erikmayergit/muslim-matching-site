@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=393, height=852, initial-scale=1.0">
+    <title>qa_thread</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
+    <style>
+        :root {
+            --mm-blue: #1E3FF5;
+            --mm-rose: #E84A78;
+            --mm-ink: #1A1A2E;
+            --mm-white: #FFFFFF;
+        }
+        .iphone-frame {
+            width: 393px;
+            height: 852px;
+            background-color: #ffffff;
+            position: relative;
+            border-radius: 0px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        .brand-heading {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-[var(--mm-ink)]">
+    <div class="iphone-frame flex flex-col bg-white">
+        <!-- #header_001 -->
+        <header class="flex-shrink-0 p-6 flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+                <button class="p-2 -ml-2 active:opacity-60">
+                    <iconify-icon icon="lucide:chevron-left" class="text-3xl"></iconify-icon>
+                </button>
+                <div class="bg-red-50 text-[var(--mm-rose)] px-3 py-1 rounded-full border border-[var(--mm-rose)] flex items-center gap-1.5">
+                    <iconify-icon icon="ph:timer-bold" class="text-lg"></iconify-icon>
+                    <span class="text-[10px] font-black uppercase tracking-widest">47h 52m remaining</span>
+                </div>
+                <button class="p-2 -mr-2 active:opacity-60">
+                    <iconify-icon icon="ph:dots-three-outline-vertical-fill" class="text-2xl"></iconify-icon>
+                </button>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center border-2 border-[var(--mm-ink)]">
+                    <iconify-icon icon="ph:mask-happy-bold" class="text-3xl text-[var(--mm-rose)]"></iconify-icon>
+                </div>
+                <div>
+                    <h2 class="text-xl font-black uppercase">Zaynab K.</h2>
+                    <span class="text-[10px] uppercase font-bold text-[var(--mm-blue)] tracking-widest flex items-center gap-1">
+                        <iconify-icon icon="solar:check-read-linear"></iconify-icon>
+                        AI Moderated Active
+                    </span>
+                </div>
+            </div>
+        </header>
+        <!-- /#header_001 -->
+
+        <!-- #scroll-content_002 -->
+        <div class="flex-1 overflow-y-auto px-6 py-4 space-y-8 bg-gray-50">
+            <!-- #question-block_003 -->
+            <div class="space-y-4">
+                <div class="flex justify-center">
+                    <span class="bg-white px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest border border-gray-200 text-gray-400 shadow-sm">Round 1: Priorities</span>
+                </div>
+
+                <!-- Sent Question -->
+                <div class="flex flex-col items-end">
+                    <div class="max-w-[85%] bg-[var(--mm-blue)] text-white p-5 rounded-[24px] rounded-tr-none shadow-md">
+                        <p class="text-[10px] uppercase font-black opacity-60 mb-1">You asked</p>
+                        <p class="font-bold text-lg">How do you manage your time between work and family obligations?</p>
+                    </div>
+                </div>
+
+                <!-- Received Answer -->
+                <div class="flex flex-col items-start">
+                    <div class="max-w-[85%] bg-white border-2 border-[var(--mm-ink)] p-5 rounded-[24px] rounded-tl-none shadow-md">
+                        <p class="text-[10px] uppercase font-black text-[var(--mm-rose)] mb-1">Zaynab answered</p>
+                        <p class="font-bold">I believe in strict boundaries. Work stays at work. Family time is sacred, especially dinner and weekends.</p>
+                    </div>
+                    <div class="mt-2 ml-4 flex items-center gap-1.5">
+                        <iconify-icon icon="ph:shield-check-fill" class="text-[var(--mm-blue)]"></iconify-icon>
+                        <span class="text-[8px] font-black uppercase tracking-[0.2em] text-gray-400">Verified Response</span>
+                    </div>
+                </div>
+            </div>
+            <!-- /#question-block_003 -->
+
+            <!-- #pending-question_004 -->
+            <div class="pt-4">
+                <div class="bg-white border-2 border-dashed border-gray-300 p-8 rounded-[32px] text-center">
+                    <iconify-icon icon="ph:question-bold" class="text-4xl text-gray-200 mb-2"></iconify-icon>
+                    <p class="text-sm font-bold text-gray-400 uppercase">Waiting for next move...</p>
+                </div>
+            </div>
+            <!-- /#pending-question_004 -->
+        </div>
+        <!-- /#scroll-content_002 -->
+
+        <!-- #footer_005 -->
+        <footer class="flex-shrink-0 p-6 pb-10 bg-white border-t-2 border-gray-100">
+            <button class="w-full bg-[var(--mm-ink)] text-white py-5 rounded-full text-lg font-bold active:scale-95 transition-transform uppercase tracking-wider flex items-center justify-center gap-2">
+                Choose Next Question
+                <iconify-icon icon="ph:chat-circle-dots-bold" class="text-2xl"></iconify-icon>
+            </button>
+        </footer>
+        <!-- /#footer_005 -->
+    </div>
+</body>
+</html>
