@@ -330,3 +330,6 @@ footer .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;ga
 .cta-band .wrap>div[style*="justify-content"]>*{margin-left:auto!important;margin-right:auto!important}
 .cta-band form{margin-left:auto!important;margin-right:auto!important;display:block}
 .cta-band [data-beehiiv-form],.cta-band [class*="beehiiv"],.cta-band [class*="bh-"]{margin-left:auto!important;margin-right:auto!important}
+
+/* shrink-wrap + center the beehiiv embed container */
+.cta-band .wrap>div[style*="justify-content"]{display:block!important;width:max-content!important;max-width:100
