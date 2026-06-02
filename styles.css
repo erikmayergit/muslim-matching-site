@@ -297,6 +297,8 @@ section{position:relative}
 
 /* ============================================================ CTA BAND */
 .cta-band{background:var(--ink);color:#fff;text-align:center}
+.cta-band .wrap>div[style*="justify-content"]{text-align:center;width:100%}
+.cta-band iframe{margin-left:auto;margin-right:auto;display:block;max-width:100%}
 .cta-band h2{font-size:clamp(2.1rem,5vw,3.6rem);letter-spacing:-.04em}
 .cta-band .lead{margin-top:1rem;color:rgba(255,255,255,.7);max-width:46ch;margin-inline:auto}
 .cta-band .waitlist{margin-top:2rem}
