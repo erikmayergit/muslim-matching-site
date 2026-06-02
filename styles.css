@@ -333,3 +333,5 @@ footer .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;ga
 
 /* shrink-wrap + center the beehiiv embed container */
 .cta-band .wrap>div[style*="justify-content"]{display:block!important;width:max-content!important;max-width:100
+/* shrink-wrap + center the beehiiv embed container */
+.cta-band .wrap>div[style*="justify-content"]{display:block!important;width:max-content!important;max-width:100%!important;margin-left:auto!important;margin-right:auto!important;text-align:center}
