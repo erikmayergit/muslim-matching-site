@@ -3,16 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Muslim Matching — Halal nikah for serious Muslims</title>
-<meta name="description" content="Get to know someone the halal way. No chat, no calls, no pictures. By the time the wali meets you, the only thing left to check is chemistry." />
-<link rel="icon" href="/assets/logo.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
-<link href="https://api.fontshare.com/v2/css?f[]=hanken-grotesk@400,500,600,700,800&display=swap" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/styles.css" />
-<!-- Google Analytics (GA4) -->
+<title>Muslim Matching — Find your Nasib</title>
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-P8EQRTMVTN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,244 +13,627 @@
   gtag('js', new Date());
   gtag('config', 'G-P8EQRTMVTN');
 </script>
+<meta name="description" content="Find your spouse for Jannah, in shā' Allah. The halal-by-structure nikah platform. No chat, no calls, no pictures." />
+
+<!-- Brand fonts: Mona Sans · General Sans · Amiri · JetBrains Mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,400..900;1,400..900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+  :root{ --ink:#1A1A2E; --ink-muted:#5A5A6E; --divider:#E5E5E5; --field:#F5F5F7; }
+  *{font-family:'General Sans',system-ui,-apple-system,sans-serif;}
+  .display{font-family:'Mona Sans','General Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;}
+  .serif{font-family:'Amiri',Georgia,serif;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+  body{background:#fff;}
+  .scrim{background:linear-gradient(to top right, rgba(8,8,20,.78) 0%, rgba(8,8,20,.34) 32%, rgba(8,8,20,0) 58%);}
+  .fade-up{animation:fadeUp .5s cubic-bezier(0.23,1,0.32,1) both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .nasib-scroll::-webkit-scrollbar{width:8px;}
+  .nasib-scroll::-webkit-scrollbar-thumb{background:#dcdbe6;border-radius:8px;}
+  @media (prefers-reduced-motion: reduce){ .fade-up{animation:none;} }
+</style>
 </head>
-<body id="top">
+<body>
+<div id="root"></div>
 
-<div class="announce">
-  <span><span class="pill">Building now</span></span>
-  <span class="sep">·</span>
-  <span>Halal nikah for serious Muslims</span>
-  <span class="sep">·</span>
-  <span><b>Free to use</b></span>
-</div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
 
-<header class="nav" id="nav">
-  <div class="wrap nav-inner">
-    <a class="brand" href="/"><img src="/assets/logo.png" alt="Muslim Matching" />Muslim Matching</a>
-    <nav class="nav-links">
-      <a href="/how-it-works/">How it works</a>
-      <a href="/revolution/">The revolution</a>
-      <a href="/pricing/">Pricing</a>
-      <a href="/story/">Our story</a>
+/* ───────────────────────── Constants ───────────────────────── */
+const VIDEO_URL = "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260602_150901_c45b90ec-18d7-42ff-90e2-b95d7109e330.mp4";
+// Waitlist capture → Supabase Edge Function (holds the beehiiv key server-side, mirrors Lampengrün).
+const SUBSCRIBE_URL = "https://myfgtmmolbrbhqtalauv.supabase.co/functions/v1/mm-subscribe";
+const SKIN = ['#F3DEC9','#E7C29A','#C99E70','#9B6A45','#4D2F22'];
+const HAIR = ['#0B0A0C','#5C4033','#DEB877','#B5510E','#C9C6C1'];
+const BEARDS = [{key:'Clean shaven',label:'Shaven'},{key:'Stubble',label:'Stubble'},{key:'Letting it grow',label:'Growing'},{key:'Sunnah length',label:'Sunnah'}];
+const COVERING = ['Hijab','Niqab','Burqa'];
+const HIJAB_STYLES = ['Full','Some hair','Loose'];
+const DRESSING = ['Jeans','Dresses','Both'];
+const BRO_DRESSING = ['Thobe','Western','Both'];
+const YESNO = ['Yes','No'];
+const ULTRA='#1E3FF5', ROSE='#E84A78', INK='#1A1A2E', INK_MUTED='#5A5A6E', DIVIDER='#E5E5E5', FIELD='#F5F5F7';
+const TABS = [["how","How it works"],["revolution","The revolution"],["pricing","Pricing"],["story","Our story"],["blog","Blog"]];
+
+/* ───────────────────────── Glyph (faithful port of app Glyph.tsx) ───────────────────────── */
+function Glyph({ skinTone='#C19675', hairColor='#4B3621', covering=null, hijabStyle=null, beard=null, gender=null, size=120 }){
+  const isSister = gender === 'sister';
+  const hijab = covering==='Hijab', niqab = covering==='Niqab', burqa = covering==='Burqa';
+  const hasCovering = isSister && !!covering;
+  const k = hijabStyle || 'Full';
+  const hijabFringe = hijab && (k==='Some hair' || k==='Loose');
+  const hijabNeck = hijab && k==='Loose';
+  const cover = ROSE, veil = '#F4A8C6', garment = '#E3E4EC';
+  const dHEAD='M50 8 C63 8 73 19 73 33 C73 49 64 63 50 63 C36 63 27 49 27 33 C27 19 37 8 50 8 Z';
+  const dNECK='M43 55 L57 55 L60 80 L40 80 Z';
+  const dSHO='M10 112 C10 85 27 75 50 75 C73 75 90 85 90 112 Z';
+  const dHAIR='M27 35 C25 17 37 7 50 7 C63 7 75 17 73 35 C70 28 64 24 50 24 C36 24 30 28 27 35 Z';
+  const dHOOD='M50 2 C73 2 87 18 87 43 C87 66 81 82 75 96 L25 96 C19 82 13 66 13 43 C13 18 27 2 50 2 Z';
+  const dNIQF='M27 31 C27 19 36 8 50 8 C64 8 73 19 73 31 Z';
+  const dNIQL='M26 39 C28 54 38 63 50 63 C62 63 72 54 74 39 Z';
+  const dBURQA='M26 30 L74 30 L74 41 C60 43 40 43 26 41 Z';
+  const dLONG='M50 4 C74 4 87 19 87 44 C87 60 84 73 80 80 C64 77 36 77 20 80 C16 73 13 60 13 44 C13 19 26 4 50 4 Z';
+  const bb = beard==='Sunnah length'?82:beard==='Letting it grow'?73:65;
+  const dBEARD=`M29 43 C31 58 40 ${bb} 50 ${bb} C60 ${bb} 69 58 71 43 C67 50 60 54 50 54 C40 54 33 50 29 43 Z`;
+  const showBeard = !isSister && !!beard && beard!=='Clean shaven';
+  return (
+    <svg width={size} height={size*1.12} viewBox="0 0 100 112" role="img" aria-label={isSister?"Sister avatar":"Brother avatar"}>
+      {hasCovering ? (
+        <g><path d={dSHO} fill={cover}/><path d={dHOOD} fill={cover}/>
+          {hijab && <>{hijabNeck && <path d={dNECK} fill={skinTone}/>}<path d={dHEAD} fill={skinTone}/>{hijabFringe && <path d={dHAIR} fill={hairColor}/>}</>}
+          {niqab && <><path d={dHEAD} fill={skinTone}/><path d={dNIQF} fill={cover}/><path d={dNIQL} fill={cover}/></>}
+          {burqa && <path d={dBURQA} fill={veil}/>}
+        </g>
+      ) : isSister ? (
+        <g><path d={dSHO} fill={garment}/><path d={dLONG} fill={hairColor}/><path d={dNECK} fill={skinTone}/><path d={dHEAD} fill={skinTone}/><path d={dHAIR} fill={hairColor}/></g>
+      ) : (
+        <g><path d={dSHO} fill={garment}/><path d={dNECK} fill={skinTone}/><path d={dHEAD} fill={skinTone}/><path d={dHAIR} fill={hairColor}/>{showBeard && <path d={dBEARD} fill={hairColor} opacity={beard==='Stubble'?0.45:1}/>}</g>
+      )}
+    </svg>
+  );
+}
+const JEANS='M33 14 L67 14 L64 88 L53 88 L50 48 L47 88 L36 88 Z';
+const DRESS='M40 12 L60 12 L64 40 L72 88 L28 88 L36 40 Z';
+const THOBE='M38 12 L62 12 L66 32 L63 88 L37 88 L34 32 Z';
+function DressIcon({ kind, color, female=true }){
+  return (<svg width={42} height={42} viewBox="0 0 100 100" aria-hidden="true">
+    {(kind==='Jeans'||kind==='Western') ? <path d={JEANS} fill={color}/> : kind==='Dresses' ? <path d={DRESS} fill={color}/> : kind==='Thobe' ? <path d={THOBE} fill={color}/> :
+      <><path d={female?DRESS:THOBE} fill={color} transform="translate(-2 22) scale(0.5)"/><path d={JEANS} fill={color} transform="translate(50 22) scale(0.5)"/></>}
+  </svg>);
+}
+
+/* ───────────────────────── Atoms ───────────────────────── */
+function Swatch({ color, selected, onPick, accent }){
+  return (<button onClick={onPick} aria-label={"colour "+color} className="rounded-full flex items-center justify-center focus:outline-none"
+    style={{ width:32, height:32, border:'2px solid '+(selected?accent:'transparent') }}>
+    <span style={{ width:22, height:22, borderRadius:11, background:color, border:'1px solid '+DIVIDER }}/></button>);
+}
+function Tile({ selected, onPick, accent, label, children, dim=false, clear=false, onClear }){
+  return (<button onClick={onPick} className="relative flex-1 flex flex-col items-center justify-center rounded-2xl transition-all"
+    style={{ height:78, opacity:dim?0.45:1, border:selected?'2px solid '+accent:'1px solid '+DIVIDER, background:selected?accent+'1F':'#fff' }}>
+    <span className="flex items-center justify-center" style={{height:48}}>{children}</span>
+    <span className="text-[11px] font-medium leading-none mt-0.5" style={{color:selected?INK:INK_MUTED}}>{label}</span>
+    {clear && <span onClick={(e)=>{e.stopPropagation(); onClear&&onClear();}} className="absolute flex items-center justify-center text-white" style={{top:6,left:6,width:18,height:18,borderRadius:9,background:accent,fontSize:9,lineHeight:'11px'}}>✕</span>}
+  </button>);
+}
+function Chip({ label, selected, onPick, accent }){
+  return (<button onClick={onPick} className="text-[13px] px-4 py-2.5 rounded-full border transition-all"
+    style={ selected ? {background:accent,color:'#fff',borderColor:accent,fontWeight:600} : {background:'#fff',color:INK,borderColor:DIVIDER,fontWeight:500} }>{label}</button>);
+}
+function FieldLabel({ children }){ return <div className="mono text-[11px] mb-2" style={{color:INK_MUTED, letterSpacing:'0.12em', textTransform:'uppercase'}}>{children}</div>; }
+
+/* content-page atoms */
+function Eyebrow({ children, color }){ return <div className="mono text-[11px] mb-2" style={{color:color||ULTRA, letterSpacing:'0.14em', textTransform:'uppercase'}}>{children}</div>; }
+function Panel({ children, className }){ return <div className={"backdrop-blur-md rounded-3xl shadow-xl p-6 sm:p-8 "+(className||"")} style={{background:'rgba(255,255,255,0.96)'}}>{children}</div>; }
+function H2({ children }){ return <h2 className="display text-2xl sm:text-3xl leading-tight" style={{fontWeight:800, color:INK}}>{children}</h2>; }
+function Lead({ children }){ return <p className="text-[15px] sm:text-base leading-relaxed" style={{color:INK_MUTED}}>{children}</p>; }
+function PageHero({ title, sub }){
+  return (<div className="text-center max-w-3xl mx-auto pt-4 pb-2 fade-up">
+    <h1 className="display text-white text-3xl sm:text-5xl leading-[1.05] drop-shadow-lg" style={{fontWeight:800}}>{title}</h1>
+    {sub && <p className="text-white/90 text-base sm:text-lg mt-5 drop-shadow leading-relaxed max-w-2xl mx-auto">{sub}</p>}
+  </div>);
+}
+function Hadith({ arabic, translation, source, note }){
+  return (<div className="rounded-2xl p-4 sm:p-5" style={{background:FIELD, borderLeft:'3px solid '+ROSE}}>
+    <p className="serif text-right text-xl sm:text-2xl leading-loose" dir="rtl" style={{color:INK}}>{arabic}</p>
+    <p className="text-[15px] mt-3 italic" style={{color:INK}}>“{translation}”</p>
+    <p className="mono text-[10px] mt-2" style={{color:INK_MUTED, letterSpacing:'0.06em'}}>{source}</p>
+    {note && <p className="text-[14px] mt-3 leading-relaxed" style={{color:INK_MUTED}}>{note}</p>}
+  </div>);
+}
+function CTASection({ heading, lead, setPage }){
+  return (<Panel className="text-center">
+    <H2>{heading}</H2>
+    <div className="mt-2"><Lead>{lead}</Lead></div>
+    <button onClick={()=>setPage('home')} className="mt-5 text-white text-[15px] font-semibold px-7 py-3.5 rounded-2xl transition-transform hover:-translate-y-0.5" style={{background:ULTRA}}>Find your Nasib&nbsp;→</button>
+    <div className="mono text-[11px] mt-4" style={{color:INK_MUTED, letterSpacing:'0.14em', textTransform:'uppercase'}}>Certainty first · Chemistry last</div>
+  </Panel>);
+}
+function PageWrap({ children }){ return <div className="w-full max-w-3xl mx-auto flex flex-col gap-5 pb-14 fade-up">{children}</div>; }
+
+/* ───────────────────────── Nav (router) ───────────────────────── */
+function Nav({ page, setPage }){
+  return (
+    <nav className="bg-white/65 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 w-full sm:w-auto flex items-center gap-3 sm:gap-6 self-start z-30 relative">
+      <button onClick={()=>setPage('home')} className="flex items-center gap-2 shrink-0">
+        <img src="./assets/logo.png" alt="Muslim Matching" className="shrink-0" style={{height:28, width:'auto', display:'block'}}/>
+        <span className="display text-[15px] text-gray-900 whitespace-nowrap">Muslim Matching</span>
+      </button>
+      <div className="hidden md:flex items-center gap-5">
+        {TABS.map(([k,l])=>(
+          <button key={k} onClick={()=>setPage(k)} className="text-sm transition-opacity whitespace-nowrap pb-0.5"
+            style={ page===k ? {color:INK, fontWeight:600, borderBottom:'2px solid '+INK} : {color:'#374151', fontWeight:500} }>{l}</button>
+        ))}
+      </div>
+      <button onClick={()=>setPage('home')} className="ml-auto text-white text-sm font-medium px-4 sm:px-5 py-2 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap" style={{background:INK}}>Find your Nasib</button>
     </nav>
-    <div class="nav-cta">
-      <a href="#join" class="btn btn-primary js-magnetic">Join the waitlist<span class="arr">&rarr;</span></a>
-      <button class="menu-btn" id="menuOpen" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
-    </div>
-  </div>
-</header>
+  );
+}
 
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mm-top">
-    <a class="brand" href="/"><img src="/assets/logo.png" alt="" />Muslim Matching</a>
-    <button class="menu-btn" id="menuClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-  </div>
-  <nav>
-    <a href="/how-it-works/">How it works</a>
-    <a href="/revolution/">The revolution</a>
-    <a href="/pricing/">Pricing</a>
-      <a href="/story/">Our story</a>
-  </nav>
-  <a href="#join" class="btn btn-primary btn-block">Join the waitlist</a>
-</div>
+/* ───────────────────────── HOME — the Find-your-Nasib funnel ───────────────────────── */
+function HomeFunnel(){
+  const [gender,setGender]=useState("brother");
+  const [skin,setSkin]=useState(SKIN[2]);
+  const [hair,setHair]=useState(HAIR[0]);
+  const [beard,setBeard]=useState("Sunnah length");
+  const [covering,setCover]=useState("");
+  const [hijabStyle,setHS]=useState("Full");
+  const [dressing,setDress]=useState("");
+  const [makeup,setMakeup]=useState("");
+  const [step,setStep]=useState("build");
+  const [email,setEmail]=useState("");
+  const [sending,setSending]=useState(false);
+  const [hp,setHp]=useState("");       // honeypot — bots fill it, humans never see it
+  const [error,setError]=useState("");
 
-<main>
+  const isSister = gender==="sister";
+  const accent = isSister ? ROSE : ULTRA;
+  const effDress = dressing || (isSister?"Dresses":"Western");
+  const showFace = covering==="Hijab" || covering==="Niqab";
+  const me = { gender, skinTone:skin, hairColor:hair, beard, covering:isSister?(covering||null):null, hijabStyle };
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <span class="kicker reveal">Halal nikah for serious Muslims</span>
-      <h1 class="reveal" data-d="1">Certainty first.<br><span class="rose">Chemistry last.</span></h1>
-      <p class="sub reveal" data-d="2">Get to know someone the halal way. No chat, no calls, no pictures. By the time the wali meets you, the only thing left to check is chemistry.</p>
-      <div class="cta-row reveal" data-d="3">
-        <a href="#join" class="btn btn-primary js-magnetic">Join the waitlist<span class="arr">&rarr;</span></a>
-        <a href="/how-it-works/" class="btn btn-ghost">See how it works</a>
+  const submit = async (e)=>{
+    e.preventDefault();
+    const addr = (email||"").trim();
+    if(hp) return;                                                          // honeypot → silently drop bots
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(addr)){ setError("Please enter a valid email."); return; }
+    setError(""); setSending(true);
+    try{
+      const r = await fetch(SUBSCRIBE_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:addr})});
+      if(!r.ok) throw new Error('subscribe_failed');
+      setStep("done");
+    }catch(err){ setError("Hmm — that didn’t go through. Try again in a moment."); }
+    finally{ setSending(false); }
+  };
+
+  return (
+    <>
+      <div className="flex-1 min-h-[1.5rem] lg:hidden" />
+      <div className="flex flex-col gap-6 lg:contents">
+        <p className="text-white text-3xl sm:text-4xl xl:text-5xl font-medium leading-tight shrink-0 display lg:absolute lg:left-8 lg:bottom-8 lg:max-w-[44%] lg:z-10" style={{fontWeight:700, textShadow:'0 2px 24px rgba(0,0,0,0.6)'}}>
+          Find your spouse<br/>for <span className="serif italic" style={{fontWeight:400}}>Jannah</span>, <span className="serif italic text-white/90" style={{fontWeight:400}}>in shā’ Allah.</span>
+        </p>
+
+        <div id="nasib" className="w-full lg:absolute lg:top-6 lg:bottom-6 lg:right-6 lg:w-[min(456px,42%)] z-20">
+          <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden p-4 sm:p-5 flex flex-col gap-4 lg:h-full lg:overflow-y-auto nasib-scroll">
+
+            {step==="build" && (
+              <div className="flex flex-col gap-4 fade-up" key="build">
+                <div className="flex gap-1.5 p-1 rounded-2xl" style={{background:FIELD}}>
+                  {[["brother","Brother",ULTRA],["sister","Sister",ROSE]].map(([id,lab,col])=>{
+                    const on = gender===id;
+                    return <button key={id} onClick={()=>setGender(id)} className="flex-1 text-sm font-semibold py-2.5 rounded-xl transition-all" style={ on ? {background:col,color:"#fff"} : {color:INK_MUTED} }>{lab}</button>;
+                  })}
+                </div>
+                <div>
+                  <h2 className="display text-xl sm:text-2xl" style={{fontWeight:800, color:INK}}>Build your avatar.</h2>
+                  <p className="text-[13px] mt-0.5" style={{color:INK_MUTED}}>How do you present yourself as a Muslim?</p>
+                </div>
+                <div className="flex gap-3 sm:gap-4">
+                  <div className="shrink-0 rounded-2xl flex items-center justify-center" style={{width:124,height:138,background:'#fff',border:'1px solid '+DIVIDER}}><Glyph {...me} size={100}/></div>
+                  <div className="flex-1 flex flex-col justify-center gap-3">
+                    <div><FieldLabel>Skin tone</FieldLabel><div className="flex justify-between">{SKIN.map(c=> <Swatch key={c} color={c} selected={skin===c} accent={accent} onPick={()=>setSkin(c)}/>)}</div></div>
+                    <div><FieldLabel>Hair colour</FieldLabel><div className="flex justify-between">{HAIR.map(c=> <Swatch key={c} color={c} selected={hair===c} accent={accent} onPick={()=>setHair(c)}/>)}</div></div>
+                  </div>
+                </div>
+                <div className="rounded-2xl flex flex-col gap-3 p-3" style={{background:FIELD, border:'1px solid '+DIVIDER}}>
+                  {isSister ? (
+                    <>
+                      <div>
+                        <FieldLabel>{covering==="Hijab" ? "How you wear it" : "Covering"}</FieldLabel>
+                        <div className="flex gap-2">
+                          {covering==="Hijab" ? (
+                            <>
+                              <Tile dim clear label="Hijab" accent={accent} onPick={()=>setCover("")} onClear={()=>setCover("")}><Glyph gender="sister" skinTone={skin} hairColor={hair} covering="Hijab" hijabStyle={hijabStyle} size={38}/></Tile>
+                              {HIJAB_STYLES.map(s=> <Tile key={s} label={s} selected={hijabStyle===s} accent={accent} onPick={()=>setHS(s)}><Glyph gender="sister" skinTone={skin} hairColor={hair} covering="Hijab" hijabStyle={s} size={40}/></Tile>)}
+                            </>
+                          ) : COVERING.map(c=> <Tile key={c} label={c} selected={covering===c} accent={accent} clear={covering===c} onClear={()=>setCover("")} onPick={()=>setCover(covering===c?"":c)}><Glyph gender="sister" skinTone={skin} hairColor={hair} covering={c} size={48}/></Tile>)}
+                        </div>
+                      </div>
+                      <div>
+                        <FieldLabel>Dressing</FieldLabel>
+                        <div className="flex gap-2">{DRESSING.map(d=> <Tile key={d} label={d} selected={effDress===d} accent={accent} onPick={()=>setDress(effDress===d?"":d)}><DressIcon kind={d} color={effDress===d?accent:INK} female={true}/></Tile>)}</div>
+                      </div>
+                      {showFace && (
+                        <div className="fade-up"><FieldLabel>{covering==="Niqab" ? "Eyeliner/Mascara outside" : "Makeup outside"}</FieldLabel>
+                          <div className="flex gap-2">{YESNO.map(yn=> <Chip key={yn} label={yn} selected={makeup===yn} accent={accent} onPick={()=>setMakeup(yn)}/>)}</div></div>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <div><FieldLabel>Beard</FieldLabel><div className="flex gap-2">{BEARDS.map(b=> <Tile key={b.key} label={b.label} selected={beard===b.key} accent={accent} onPick={()=>setBeard(b.key)}><Glyph gender="brother" skinTone={skin} hairColor={hair} beard={b.key} size={42}/></Tile>)}</div></div>
+                      <div><FieldLabel>Dressing</FieldLabel><div className="flex gap-2">{BRO_DRESSING.map(d=> <Tile key={d} label={d} selected={effDress===d} accent={accent} onPick={()=>setDress(effDress===d?"":d)}><DressIcon kind={d} color={effDress===d?accent:INK} female={false}/></Tile>)}</div></div>
+                    </>
+                  )}
+                </div>
+                <p className="text-[11px] text-center leading-snug" style={{color:INK_MUTED}}>Attraction is more than looks. We don’t do pictures — the real you comes through in a call or meeting with your walī.</p>
+                <button onClick={()=>setStep("email")} className="w-full text-white text-[15px] font-semibold py-3.5 rounded-2xl transition-transform hover:-translate-y-0.5" style={{background:accent}}>Find your Nasib&nbsp;→</button>
+              </div>
+            )}
+
+            {step==="email" && (
+              <form onSubmit={submit} className="flex flex-col gap-4 fade-up" key="email">
+                <button type="button" onClick={()=>setStep("build")} className="self-start text-[13px]" style={{color:INK_MUTED}}>← Back to your avatar</button>
+                <div className="flex items-center gap-3">
+                  <div className="shrink-0 rounded-2xl flex items-center justify-center" style={{width:72,height:80,background:'#fff',border:'1px solid '+DIVIDER}}><Glyph {...me} size={58}/></div>
+                  <div><h2 className="display text-xl sm:text-2xl" style={{fontWeight:800, color:INK}}>Your avatar is ready.</h2><p className="text-[13px] mt-0.5" style={{color:INK_MUTED}}>Join the waitlist — be first in when it opens, in shā’ Allah.</p></div>
+                </div>
+                <input type="email" required value={email} onChange={e=>{setEmail(e.target.value); if(error) setError("");}} placeholder="you@email.com" className="w-full text-sm px-4 py-3 rounded-xl border bg-transparent placeholder-gray-400 focus:outline-none focus:ring-2 transition" style={{borderColor: error ? '#E11D48' : DIVIDER, "--tw-ring-color":accent}}/>
+                <input type="text" name="company" value={hp} onChange={e=>setHp(e.target.value)} tabIndex={-1} autoComplete="off" aria-hidden="true" style={{position:'absolute',left:'-9999px',width:1,height:1,opacity:0,pointerEvents:'none'}}/>
+                {error && <p className="text-[12px] -mt-1" style={{color:'#E11D48'}}>{error}</p>}
+                <button type="submit" disabled={sending} className="w-full text-white text-[15px] font-semibold py-3.5 rounded-2xl transition-transform hover:-translate-y-0.5 disabled:opacity-60" style={{background:accent}}>{sending ? "Joining…" : "Find your Nasib →"}</button>
+                <p className="text-[11px] text-center" style={{color:"#9b9aa8"}}>No chat · no calls · no pictures. Your email joins the waitlist.</p>
+              </form>
+            )}
+
+            {step==="done" && (
+              <div className="flex flex-col items-center text-center gap-4 py-6 fade-up" key="done">
+                <div className="rounded-2xl flex items-center justify-center" style={{width:96,height:104,background:'#fff',border:'1px solid '+DIVIDER}}><Glyph {...me} size={78}/></div>
+                <div className="w-11 h-11 rounded-full flex items-center justify-center text-white -mt-1" style={{background:accent}}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                <div><h2 className="display text-2xl" style={{fontWeight:800, color:INK}}>You’re on the list — in shā’ Allah.</h2><p className="text-sm mt-1 max-w-[18rem]" style={{color:INK_MUTED}}>Be first to download Muslim Matching the day it ships.</p></div>
+                <div className="flex flex-col sm:flex-row gap-2.5 w-full pt-1">
+                  <a href="#" className="flex-1 flex items-center justify-center gap-2 text-white rounded-2xl px-4 py-3 hover:opacity-90 transition-opacity" style={{background:INK}}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.8-3.5.8-.7 0-1.8-.8-3-.8-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.2 0 2-1.1 2.8-2.2.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8zM14.2 5.9c.6-.8 1-1.9.9-3-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-.9 2.9 1 .1 2-.5 2.7-1.3z"/></svg>
+                    <span className="text-left leading-tight"><span className="block text-[9px] opacity-70">Download on the</span><span className="block text-sm font-semibold -mt-0.5">App Store</span></span></a>
+                  <a href="#" className="flex-1 flex items-center justify-center gap-2 text-white rounded-2xl px-4 py-3 hover:opacity-90 transition-opacity" style={{background:INK}}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4 3.3v17.4c0 .5.5.8.9.6l9.6-8.7c.3-.3.3-.8 0-1L4.9 2.7c-.4-.2-.9.1-.9.6zM15.9 13.6l2.7-2.4 2.9 1.6c.6.4.6 1.2 0 1.6l-2.9 1.6-2.7-2.4zM14.5 12l-9-8.2 11 6.3-2 1.9zm0 0l2 1.9-11 6.3 9-8.2z"/></svg>
+                    <span className="text-left leading-tight"><span className="block text-[9px] opacity-70">GET IT ON</span><span className="block text-sm font-semibold -mt-0.5">Google Play</span></span></a>
+                </div>
+                <p className="text-[11px] pt-1" style={{color:"#9b9aa8"}}>Building now — links go live at launch.</p>
+              </div>
+            )}
+
+          </div>
+        </div>
       </div>
-      <div class="meta reveal" data-d="3"><span class="pulse"></span> Free to use. We are building it now.</div>
-    </div>
-    <div class="hero-media reveal" data-d="2">
-      <div class="device device-tilt device-float">
-        <div class="bezel"></div>
-        <div class="screen"><div class="notch"></div><iframe src="/screens/discovery_swipe.html" title="Muslim Matching discovery screen" loading="lazy"></iframe></div>
+    </>
+  );
+}
+
+/* ───────────────────────── CONTENT PAGES ───────────────────────── */
+function TwoFears(){
+  return (
+    <Panel>
+      <Eyebrow>Two people, two sets of worries</Eyebrow>
+      <H2>Name the problem first.</H2>
+      <div className="mt-2"><Lead>The brother and the sister walk in with different fears. The app answers both.</Lead></div>
+      <div className="grid sm:grid-cols-2 gap-3 mt-5">
+        <div className="rounded-2xl p-4" style={{background:FIELD, borderTop:'3px solid '+ULTRA}}>
+          <div className="mono text-[11px] mb-1" style={{color:ULTRA, letterSpacing:'0.1em'}}>THE BROTHER</div>
+          <h3 className="display text-lg" style={{fontWeight:800,color:INK}}>You don’t know what to ask.</h3>
+          <p className="text-[14px] mt-1 leading-relaxed" style={{color:INK_MUTED}}>No structure, no references, a profile that tells you nothing real. You want a real read on who she is before emotions take over — and a dignified way to reach her walī.</p>
+          <p className="text-[13px] mt-2 font-medium" style={{color:INK}}>→ Structured questions hand you the right ones, deal breakers first.</p>
+        </div>
+        <div className="rounded-2xl p-4" style={{background:FIELD, borderTop:'3px solid '+ROSE}}>
+          <div className="mono text-[11px] mb-1" style={{color:ROSE, letterSpacing:'0.1em'}}>THE SISTER</div>
+          <h3 className="display text-lg" style={{fontWeight:800,color:INK}}>You won’t hand him to your walī unsure.</h3>
+          <p className="text-[14px] mt-1 leading-relaxed" style={{color:INK_MUTED}}>You can’t vet from a profile that lies, and you won’t vet through a chat that shouldn’t be happening. You want to be sure, on your own terms, before anyone is involved.</p>
+          <p className="text-[13px] mt-2 font-medium" style={{color:INK}}>→ You vet fully and privately, and set the pace, before the walī is ever involved.</p>
+        </div>
       </div>
-      <div class="float-card">
-        <div class="ic blue"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <div><b>5 phases</b><div class="lab">before the wali<br>ever steps in</div></div>
+    </Panel>
+  );
+}
+const STEPS = [
+  ["00","Your profile","Show who you are. Not how you photograph.","Your deen, your practice, your intentions, your life. Stated plainly. No pictures shown to anyone until the walī is involved and consents."],
+  ["01","Discovery","Match on what matters.","Filter by what counts: walī-verified, same madhab, near you. No faces, no swiping for looks. Then a match opens the door."],
+  ["02","Read & understand","Read the full profile. Then prove you read it.","On match, everything unlocks, and you both pass a short check that you actually understood it. Seriousness, proven, before a word is exchanged."],
+  ["03","Structured Q&A","Ask everything that matters. On the record.","Turn-based, guarded, to the point. Deal breakers first. Pick vetted questions or write your own. Anything that tries to leave the app is blocked, not sent."],
+  ["04","Rate & note","Keep your own honest record.","Rate every answer. Note what resonates and what concerns you. At the end you get the whole picture in one place — decide with your eyes open, not your memory."],
+  ["05","The walī","Hand off, informed.","When both of you decide to move forward, the walī steps in with the full history. The meeting becomes a confirmation of chemistry, not an interrogation."],
+];
+function HowItWorks({ setPage }){
+  return (
+    <PageWrap>
+      <PageHero title="From match to walī, the halal way." sub="Five guarded phases turn a match into a decision. No chat, nothing off the record, and the walī walks in already informed. Here is the real thing." />
+      <TwoFears/>
+      <Panel>
+        <Eyebrow>The process</Eyebrow>
+        <H2>Here is how the app answers all of it.</H2>
+        <div className="mt-2 mb-5"><Lead>Guarded steps. No chat. Nothing off the record.</Lead></div>
+        <div className="flex flex-col gap-3">
+          {STEPS.map(([n,t,h,b])=>(
+            <div key={n} className="flex gap-4 rounded-2xl p-4" style={{background:FIELD}}>
+              <div className="mono text-2xl shrink-0" style={{color:ULTRA}}>{n}</div>
+              <div><div className="mono text-[10px] mb-0.5" style={{color:INK_MUTED,letterSpacing:'0.1em',textTransform:'uppercase'}}>{t}</div><h3 className="display text-lg" style={{fontWeight:800,color:INK}}>{h}</h3><p className="text-[14px] mt-1 leading-relaxed" style={{color:INK_MUTED}}>{b}</p></div>
+            </div>
+          ))}
+        </div>
+      </Panel>
+      <Panel>
+        <Eyebrow color={ROSE}>Why there is no chat</Eyebrow>
+        <H2>Chatting is not clearly forbidden. That is the trap.</H2>
+        <div className="mt-2 mb-4"><Lead>It sits in the grey, and the grey does not stay grey.</Lead></div>
+        <div className="flex flex-col gap-3">
+          <Hadith arabic="لاَ يَخْلُوَنَّ رَجُلٌ بِامْرَأَةٍ إِلاَّ كَانَ ثَالِثَهُمَا الشَّيْطَانُ" translation="A man is not alone with a woman but the third of them is Ash-Shaytan." source="Jami‘ at-Tirmidhi 2165 · Sahih" note="A private chat is that same room, with a screen in between. The one thing you cannot do is touch. Everything else, you can. So we removed it." />
+          <Hadith arabic="الْحَلاَلُ بَيِّنٌ وَالْحَرَامُ بَيِّنٌ وَبَيْنَهُمَا أُمُورٌ مُشْتَبِهَاتٌ" translation="The lawful is clear and the unlawful is clear, and between them are doubtful matters. Whoever grazes at the edge of a sanctuary is soon to graze inside it." source="Bukhari & Muslim · Agreed upon" note="The safe move is not to fence the grey. It is to stay out of it: no chat, structured questions only." />
+        </div>
+      </Panel>
+      <Panel>
+        <Eyebrow color={ROSE}>Why no pictures</Eyebrow>
+        <H2>You choose on deen. You see last.</H2>
+        <div className="mt-2 mb-4"><Lead>The Prophet ﷺ named four things people marry for, and told us which to choose. Looks are last — confirmed in person when the time is right.</Lead></div>
+        <div className="flex flex-col gap-3">
+          <Hadith arabic="تُنْكَحُ الْمَرْأَةُ لِأَرْبَعٍ ... فَاظْفَرْ بِذَاتِ الدِّينِ تَرِبَتْ يَدَاكَ" translation="A woman is married for four things: her wealth, her status, her beauty, and her deen. So choose the one with deen, or you will be a loser." source="Sahih al-Bukhari 5090" note="So we don’t lead with a photo. Appearance is the last thing checked, not the first." />
+          <Hadith arabic="انْظُرْ إِلَيْهَا فَإِنَّهُ أَحْرَى أَنْ يُؤْدَمَ بَيْنَكُمَا" translation="Look at her, for it is more likely to make things better between the two of you." source="Jami‘ at-Tirmidhi 1087 · Sahih" note="Seeing each other is encouraged — at the right moment. Certainty first. Chemistry last." />
+        </div>
+      </Panel>
+      <Panel>
+        <Eyebrow>The cost</Eyebrow>
+        <H2>Bringing your walī in is free.</H2>
+        <div className="mt-2"><Lead>The whole path — matching, the full Q&amp;A, and the walī handoff — costs nothing. We only charge for Premium: unlimited requests and seeing who wants you. The path to nikah is never paywalled.</Lead></div>
+        <button onClick={()=>setPage('pricing')} className="mt-4 text-[14px] font-semibold" style={{color:ULTRA}}>See the pricing →</button>
+      </Panel>
+      <CTASection heading="Ready when you are." lead="Join the waitlist and be first in when it opens." setPage={setPage} />
+    </PageWrap>
+  );
+}
+
+const WAVES = [
+  ["2000s","The listing","SingleMuslim.com in 2000, and the rest. You wrote yourself down once and waited. A profile is a CV — enough for a job, never for a marriage."],
+  ["2010s","The groups","The same profile, pasted into a Telegram channel or a Facebook group. Wider reach, identical idea: a post, then a private message."],
+  ["2015 →","The swipe","Muzz, Minder, the rest — right after Tinder and copying it. They kept the profile and added what made it worse: chat, calls, photos. Halal Tinder."],
+];
+const BROKEN = [
+  ["The profile lies.","Written once, rarely updated. You meet a ‘21’ who is now 24. People change, habits change, the deen changes. A static profile cannot tell you who someone is today."],
+  ["Halal in name only.","Most ‘Muslim’ apps run on dating-app rules: DMs before any walī, voice notes, video calls, photo swiping. Users call them what they are. Halal Tinder."],
+  ["Pay to be heard.","Messages locked behind a paywall, matches hidden until you upgrade. People pay and still cannot speak. The serious get treated like a revenue line."],
+  ["Ghosting by design.","Everyone says ‘serious only,’ then goes silent after one reply. Endless options make every single person feel disposable."],
+  ["No references, no community.","Online, your mother cannot ask around. No family knows their family. The only person you have is the walī — and you reach him already biased by a profile."],
+];
+function Revolution({ setPage }){
+  return (
+    <PageWrap>
+      <PageHero title="Fourteen centuries one way. Thirty years like this." sub="Matchmaking by profile is barely thirty years old, against fourteen hundred years of this deen. A rounding error. And in that window it didn’t get reinvented — it got degraded. We’re not patching that. We’re starting over." />
+      <Panel>
+        <Eyebrow>Twenty years, three waves</Eyebrow>
+        <H2>The same mistake, three times.</H2>
+        <div className="grid sm:grid-cols-3 gap-3 mt-5">
+          {WAVES.map(([y,t,b])=>(
+            <div key={y} className="rounded-2xl p-4" style={{background:FIELD}}>
+              <div className="mono text-[12px] mb-1" style={{color:ULTRA,letterSpacing:'0.08em'}}>{y}</div>
+              <h3 className="display text-base" style={{fontWeight:800,color:INK}}>{t}</h3>
+              <p className="text-[13px] mt-1 leading-relaxed" style={{color:INK_MUTED}}>{b}</p>
+            </div>
+          ))}
+        </div>
+      </Panel>
+      <Panel>
+        <Eyebrow color={ROSE}>What is broken</Eyebrow>
+        <H2>The apps were never built to get you married.</H2>
+        <div className="mt-2 mb-4"><Lead>They were built to keep you on them. Here is what that looks like from the inside.</Lead></div>
+        <div className="flex flex-col gap-2.5">
+          {BROKEN.map(([t,b],i)=>(
+            <div key={i} className="flex gap-3 rounded-2xl p-4" style={{background:FIELD}}>
+              <div className="mono text-sm shrink-0" style={{color:ROSE}}>{String(i+1).padStart(2,'0')}</div>
+              <div><h3 className="display text-base" style={{fontWeight:800,color:INK}}>{t}</h3><p className="text-[14px] mt-0.5 leading-relaxed" style={{color:INK_MUTED}}>{b}</p></div>
+            </div>
+          ))}
+        </div>
+      </Panel>
+      <Panel>
+        <Eyebrow>The activity trap</Eyebrow>
+        <H2>They measure activity. You wanted a decision.</H2>
+        <div className="mt-2 mb-5"><Lead>A solved customer is a lost customer — so the incentive is to keep you searching, not to get you married.</Lead></div>
+        <div className="grid grid-cols-3 gap-3">
+          {[["∞","profiles, because volume is the business model"],["1,000","messages they celebrate. That is you, still not knowing."],["0","of it is the decision you actually came for"]].map(([n,l],i)=>(
+            <div key={i} className="rounded-2xl p-4 text-center" style={{background:FIELD}}>
+              <div className="display text-3xl sm:text-4xl" style={{fontWeight:800,color:i===2?ROSE:ULTRA}}>{n}</div>
+              <p className="text-[12px] mt-1 leading-snug" style={{color:INK_MUTED}}>{l}</p>
+            </div>
+          ))}
+        </div>
+      </Panel>
+      <Panel>
+        <Eyebrow color={ROSE}>The chatting trap</Eyebrow>
+        <H2>Chatting does not make you sure. It makes you attached.</H2>
+        <div className="mt-2 mb-4"><Lead>There’s no single clean ruling that says a chat box is haram. That is the trap. It builds the same dopamine, and dopamine builds attachment — and attachment keeps you a year in something you already knew was wrong.</Lead></div>
+        <Hadith arabic="الْحَلاَلُ بَيِّنٌ وَالْحَرَامُ بَيِّنٌ وَبَيْنَهُمَا أُمُورٌ مُشْتَبِهَاتٌ" translation="The lawful is clear and the unlawful is clear, and between them are doubtful matters. Whoever grazes at the edge of a sanctuary is soon to graze inside it." source="Bukhari & Muslim · Agreed upon" note="The safe move is to stay out of the grey. So we removed it — no chat, structured questions only." />
+      </Panel>
+      <Panel>
+        <div className="grid sm:grid-cols-2 gap-4">
+          <div><h3 className="display text-lg" style={{fontWeight:800,color:INK}}>She will not bring you to her walī yet. She is right.</h3><p className="text-[14px] mt-1 leading-relaxed" style={{color:INK_MUTED}}>She can’t get sure from a profile that lies, and she won’t get sure through a chat that shouldn’t be happening. So she stalls.</p></div>
+          <div><h3 className="display text-lg" style={{fontWeight:800,color:INK}}>And you stall with her.</h3><p className="text-[14px] mt-1 leading-relaxed" style={{color:INK_MUTED}}>The gap between a match and a marriage is where the time gets wasted and the lines get crossed. Online never built for it. We did.</p></div>
+        </div>
+      </Panel>
+      <Panel className="text-center">
+        <Eyebrow>Modern problem, modern solution</Eyebrow>
+        <H2>We are the reset.</H2>
+        <div className="mt-2 max-w-xl mx-auto"><Lead>A modern problem with no precedent needs a deliberately built answer. So we put the structure back: get sure about everything that matters, without crossing a line, so the only thing left to find out is chemistry. Not a patch on the old apps — the first one built right.</Lead></div>
+      </Panel>
+      <CTASection heading="Be part of the reset." lead="Join the waitlist and be first in when it opens." setPage={setPage} />
+    </PageWrap>
+  );
+}
+
+function Pricing({ setPage }){
+  const FREE = [
+    "Build your profile and browse — free.",
+    "Match, read the full profile, pass the comprehension check.",
+    "The entire structured Q&A — your ratings, your notes, the summary.",
+    "Bring your walī in. The handoff is free — a moment in the flow, not a paywall.",
+  ];
+  const PREMIUM = [
+    "Unlimited match requests (free accounts send 3 a month).",
+    "See who has already requested you.",
+    "Accept the ones you want and open the vetting.",
+  ];
+  const TRUTHS = [
+    ["We never paywall the marriage.","Finding, vetting, the Q&A, and the walī are free, and always will be. Premium never gates your ability to get sure and marry — only how many you can reach, and who you can see chose you."],
+    ["You pay for the inbox, not the deen.","Premium opens the inbound side: unlimited requests and seeing who picked you. The path to nikah underneath it stays open to everyone, paid or not."],
+    ["If she can’t afford it, she swears it.","A sister who genuinely cannot pay affirms it by Allah and gets Premium free. The oath is the price — no proof, no forms, no hardship desk."],
+  ];
+  return (
+    <PageWrap>
+      <PageHero title="The path to nikah is free." sub="Finding, vetting, deciding, and bringing your walī in cost nothing. Premium only opens the inbound side — seeing who wants you, and reaching more than a handful a month." />
+      <div className="grid sm:grid-cols-2 gap-4">
+        <Panel>
+          <Eyebrow>Free · forever</Eyebrow>
+          <div className="display text-5xl mt-1" style={{fontWeight:800,color:INK}}>$0</div>
+          <div className="mono text-[11px] mt-2 mb-4" style={{color:INK_MUTED,letterSpacing:'0.08em'}}>THE WHOLE PATH TO NIKAH</div>
+          <div className="flex flex-col gap-2">
+            {FREE.map((p,i)=>(<div key={i} className="flex gap-2.5 items-start"><svg className="mt-0.5 shrink-0" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={ULTRA} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span className="text-[14px]" style={{color:INK_MUTED}}>{p}</span></div>))}
+          </div>
+        </Panel>
+        <Panel>
+          <Eyebrow color={ROSE}>Premium · the only charge</Eyebrow>
+          <div className="display text-5xl mt-1" style={{fontWeight:800,color:INK}}>$49.99<span className="text-xl" style={{color:INK_MUTED}}> /yr</span></div>
+          <div className="mono text-[11px] mt-2 mb-4" style={{color:INK_MUTED,letterSpacing:'0.08em'}}>OR $9.99 / WEEK</div>
+          <div className="flex flex-col gap-2">
+            {PREMIUM.map((p,i)=>(<div key={i} className="flex gap-2.5 items-start"><svg className="mt-0.5 shrink-0" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke={ROSE} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span className="text-[14px]" style={{color:INK_MUTED}}>{p}</span></div>))}
+          </div>
+          <div className="mt-4 rounded-xl p-3 text-[13px] leading-snug" style={{background:ROSE+'14', color:INK}}><b>Sisters — the oath option:</b> can’t afford it? Affirm it by Allah and Premium is free.</div>
+        </Panel>
+      </div>
+      <Panel>
+        <Eyebrow>The honest part</Eyebrow>
+        <H2>Why we charge here, and nowhere else.</H2>
+        <div className="mt-2 mb-4"><Lead>Of course we want to make money. We just refused the version that paywalls the marriage itself.</Lead></div>
+        <div className="flex flex-col gap-2.5">
+          {TRUTHS.map(([t,b],i)=>(
+            <div key={i} className="flex gap-3 rounded-2xl p-4" style={{background:FIELD}}>
+              <div className="mono text-sm shrink-0" style={{color:ULTRA}}>{String(i+1).padStart(2,'0')}</div>
+              <div><h3 className="display text-base" style={{fontWeight:800,color:INK}}>{t}</h3><p className="text-[14px] mt-0.5 leading-relaxed" style={{color:INK_MUTED}}>{b}</p></div>
+            </div>
+          ))}
+        </div>
+      </Panel>
+      <Panel>
+        <Eyebrow>The difference</Eyebrow>
+        <H2>Them versus us.</H2>
+        <div className="grid sm:grid-cols-2 gap-3 mt-5">
+          <div className="rounded-2xl p-5" style={{background:FIELD}}>
+            <div className="mono text-[11px] mb-3" style={{color:INK_MUTED,letterSpacing:'0.1em'}}>OTHER APPS</div>
+            {["Paywall the messages themselves","Hide your matches to upsell","Monetise you staying single"].map((x,i)=> <div key={i} className="flex gap-2 items-center text-[14px] py-1" style={{color:INK_MUTED}}><span style={{color:ROSE}}>✕</span>{x}</div>)}
+          </div>
+          <div className="rounded-2xl p-5" style={{background:ULTRA+'12', border:'1px solid '+ULTRA+'33'}}>
+            <div className="mono text-[11px] mb-3" style={{color:ULTRA,letterSpacing:'0.1em'}}>MUSLIM MATCHING</div>
+            {["Vetting, Q&A and the walī — always free","Premium only opens who wants you","A sister who can’t afford it gets it free"].map((x,i)=> <div key={i} className="flex gap-2 items-center text-[14px] py-1" style={{color:INK}}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ULTRA} strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>{x}</div>)}
+          </div>
+        </div>
+      </Panel>
+      <CTASection heading="Free to start. Free to get sure." lead="Get on the waitlist and be first in when it opens." setPage={setPage} />
+    </PageWrap>
+  );
+}
+
+function Story({ setPage }){
+  const PARAS = [
+    "I grew up in Germany. At eighteen I left school, went abroad, and built a life in business. Two years ago I reverted to Islam, and I wanted to marry.",
+    "I had the sincerity. I did not have the knowledge. So I did it the way the people around me did it: getting to know a woman mostly by texting, then a long engagement, with the walī brought in late and the whole process upside down. There were cultural conditions stacked on top — owning an apartment first, a drawn-out engagement, even a wedding with music. None of it sat right, and it did not work out. What does not start right does not end right.",
+    "As a revert, I had no family who could ask around for me, and my friends were recent and scattered across the world. So I started paying attention. I talked to Muslims from Egypt, Pakistan, Indonesia, Tanzania, Syria, India — and it was the same story everywhere. Reverts with no community to vouch for them. Born Muslims told they are ‘not ready yet,’ or boxed in by cultural conditions that have nothing to do with the deen. And online, the same broken loop for all of them: a profile, then a chat, then attachment, then wasted years.",
+    "So I built Muslim Matching. A real process that gets you sure, the halal way, and a meeting where the only thing left is chemistry. No chat. No calls. No pictures. Free to find, vet, decide, and bring your walī in — we charge only for Premium, never for the path to nikah, because the goal is to get you married, not to keep you here.",
+    "This is the thing I wish existed when I needed it. I hope it saves you the time it cost me.",
+  ];
+  return (
+    <PageWrap>
+      <PageHero title="I built the thing I wish existed." />
+      <Panel>
+        <Eyebrow>From the founder</Eyebrow>
+        <div className="flex flex-col gap-4 mt-2">
+          {PARAS.map((p,i)=> <p key={i} className="text-[15px] sm:text-base leading-relaxed" style={{color:i===0?INK:INK_MUTED}}>{p}</p>)}
+        </div>
+        <div className="mono text-[12px] mt-5" style={{color:INK,letterSpacing:'0.06em'}}>— The founder, Muslim Matching</div>
+      </Panel>
+      <Panel className="text-center">
+        <H2>We never paywall the path to nikah.</H2>
+        <div className="mt-2 max-w-xl mx-auto"><Lead>Find, vet, decide, and bring your walī in — always free. Premium only opens the inbound side. That is the whole model.</Lead></div>
+      </Panel>
+      <CTASection heading="Be first in." lead="If you have been waiting for someone to take this as seriously as you do, you can stop waiting." setPage={setPage} />
+    </PageWrap>
+  );
+}
+
+function Blog({ setPage }){
+  const POSTS = [
+    ["The market","Why the apps are built to keep you single","A solved customer is a lost customer. The quiet incentive behind every swipe — and why the math only works if you never marry.",6],
+    ["Attachment","Chatting does not make you sure. It makes you attached.","Movement is not progress. How a chat box builds the same dopamine as the thing it replaces, and traps you in the wrong choice.",5],
+    ["The bind","Why she will not bring you to her walī yet","The bind every serious sister knows — she can’t vet from a profile that lies, and won’t vet through a chat that shouldn’t happen.",7],
+    ["History","Thirty years, one chat box, and a worse result","The short, strange history of online Muslim matchmaking: the listing, the group, the swipe, and the structure we threw away.",4],
+  ];
+  return (
+    <PageWrap>
+      <PageHero title="The Blog." sub="Things nobody else will say. Honest writing on marriage, the deen, and why getting to know someone online quietly broke. No pieces published yet — join the waitlist and the first ones land in your inbox." />
+      <div className="text-center -mt-1">
+        <button onClick={()=>setPage('home')} className="text-white text-sm font-semibold px-6 py-2.5 rounded-xl transition-transform hover:-translate-y-0.5" style={{background:ULTRA}}>Subscribe — join the waitlist</button>
+      </div>
+      <div className="rounded-3xl shadow-xl overflow-hidden backdrop-blur-md" style={{background:'rgba(255,255,255,0.97)'}}>
+        {POSTS.map(([cat,t,d,read],i)=>(
+          <div key={i} className="px-5 sm:px-8 py-6 transition-colors hover:bg-gray-50" style={ i>0 ? {borderTop:'1px solid '+DIVIDER} : {} }>
+            <h3 className="display text-xl sm:text-2xl leading-tight" style={{fontWeight:800,color:INK}}>{t}</h3>
+            <p className="text-[15px] mt-2 leading-relaxed" style={{color:INK_MUTED}}>{d}</p>
+            <div className="flex items-center gap-2.5 mt-3 text-[12px]" style={{color:'#9b9aa8'}}>
+              <span className="mono" style={{letterSpacing:'0.08em',textTransform:'uppercase'}}>{cat}</span>
+              <span>·</span><span>{read} min read</span><span>·</span>
+              <span style={{color:ULTRA,fontWeight:600}}>Coming soon</span>
+            </div>
+          </div>
+        ))}
+      </div>
+      <CTASection heading="Get the first pieces." lead="Join the waitlist and we’ll send them as they go out." setPage={setPage} />
+    </PageWrap>
+  );
+}
+
+/* ───────────────────────── Shell + App ───────────────────────── */
+function Shell({ page, setPage, locked, children }){
+  return (
+    <div id="top" className="min-h-screen bg-white p-3 sm:p-4 md:p-6">
+      <div className={"relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] "+(locked?"lg:h-[calc(100vh-48px)]":"")}
+           style={{background:"linear-gradient(165deg,#cfe0f4 0%,#eaf0f7 45%,#e3ead9 100%)"}}>
+        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline><source src={VIDEO_URL} type="video/mp4" /></video>
+        <div className="absolute inset-0 scrim" style={ locked ? {} : {background:'linear-gradient(to bottom, rgba(8,8,20,.66) 0%, rgba(8,8,20,.80) 55%, rgba(8,8,20,.88) 100%)'} }></div>
+        <div className={"relative z-10 flex flex-col gap-6 p-4 sm:p-6 md:p-8 min-h-[calc(100vh-24px)] sm:min-h-[calc(100vh-32px)] md:min-h-[calc(100vh-48px)] "+(locked?"lg:h-full":"")}>
+          <Nav page={page} setPage={setPage} />
+          {children}
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- TRUST -->
-<div class="trust">
-  <div class="wrap">
-    <span><i class="x">&times;</i> No chat</span>
-    <span><i class="x">&times;</i> No calls</span>
-    <span><i class="x">&times;</i> No pictures</span>
-    <span><i class="ck">&check;</i> Wali-verified</span>
-    <span><i class="ck">&check;</i> Free to use</span>
-  </div>
-</div>
-
-<!-- WHY WE EXIST (Hijrah -> today epoch) -->
-<section class="sec dark">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Why we exist</span>
-      <h2>Marriage worked the same way for 1,400 years.</h2>
-      <p>A family knew a family. Someone vouched. References travelled. A guardian guarded, and the first real meeting was already informed. You knew what you were walking into. Then, in the last thirty years, we moved it onto a screen and threw the structure away.</p>
-    </div>
-    <div class="epoch reveal">
-      <div class="epoch-track">
-        <div class="epoch-old">Family. References. A guardian. A guarded meeting.</div>
-        <div class="epoch-new" title="the last ~30 years, online"></div>
-      </div>
-      <div class="epoch-labels"><span>The Hijrah &middot; 622 CE</span><span>Today</span></div>
-      <p class="epoch-callout"><span class="mk">&nearr;</span> That sliver on the right is the entire online era: the profiles, the chat, the swipe. About thirty years out of fourteen hundred. We are not the strange new thing here. It is.</p>
-    </div>
-    <div style="margin-top:32px" class="reveal"><a href="/revolution/" class="btn btn-ghost">Read the full case for the reset<span class="arr">&rarr;</span></a></div>
-  </div>
-</section>
-
-<!-- SPLIT MANIFESTO (the brand signature) -->
-<section>
-  <div class="split-band">
-    <div class="wrap reveal">
-      <h2>No chat. No calls. No pictures.</h2>
-      <p class="lead">Wali in when it gets real. The app guards the line so you never have to.</p>
-    </div>
-  </div>
-</section>
-
-<!-- INSIDE THE APP (screens showcase = how it works, visually) -->
-<section class="sec tint">
-  <div class="wrap">
-    <div class="sec-head center-h reveal">
-      <span class="kicker center-k">How it works</span>
-      <h2>Five phases. No chat. No noise.</h2>
-      <p>Match with a profile that catches your eye. Read their full profile. Trade the questions that actually matter, deal breakers first. Decide on your own terms. Only then, the wali.</p>
-    </div>
-
-    <div class="zig">
-      <div class="zig-media reveal"><div class="device"><div class="bezel"></div><div class="screen"><div class="notch"></div><iframe src="/screens/discovery_swipe.html" title="Discovery" loading="lazy"></iframe></div></div></div>
-      <div class="zig-copy reveal" data-d="1">
-        <span class="kicker">Phase 1 &middot; Match</span>
-        <h3>Match with profiles that catch your eye.</h3>
-        <p>No faces, no swiping for looks. You see who someone is, filtered by what counts: wali-verified, same madhab, near you.</p>
-      </div>
-    </div>
-
-    <div class="zig rev">
-      <div class="zig-media reveal"><div class="device"><div class="bezel"></div><div class="screen"><div class="notch"></div><iframe src="/screens/qa_thread.html" title="Structured Q&A" loading="lazy"></iframe></div></div></div>
-      <div class="zig-copy reveal" data-d="1">
-        <span class="kicker">Phase 2 &middot; The questions</span>
-        <h3>Read the full profile. Then ask what matters.</h3>
-        <p>The extended profile unlocks, then structured questions, deal breakers first. No chat, nothing off the record. Rate and keep every answer.</p>
-      </div>
-    </div>
-
-    <div class="zig">
-      <div class="zig-media reveal"><div class="device"><div class="bezel"></div><div class="screen"><div class="notch"></div><iframe src="/screens/qa_wali_unlock_brother.html" title="Wali handoff" loading="lazy"></iframe></div></div></div>
-      <div class="zig-copy reveal" data-d="1">
-        <span class="kicker rose">Phase 5 &middot; The wali</span>
-        <h3>The wali walks in already informed.</h3>
-        <p>When you have both decided to move forward, the wali steps in with the full picture. The meeting becomes a confirmation, not an interrogation.</p>
-      </div>
-    </div>
-
-    <div style="margin-top:18px" class="reveal"><a href="/how-it-works/" class="btn btn-ghost">See all five phases<span class="arr">&rarr;</span></a></div>
-  </div>
-</section>
-
-<!-- STATS / arrive sure -->
-<section class="sec dark">
-  <div class="wrap">
-    <div class="sec-head center-h reveal">
-      <span class="kicker center-k">Arrive already sure</span>
-      <h2>Walk in with everything answered.</h2>
-      <p>The fact-finding ordeal becomes a confirmation. The only thing left to find out is chemistry.</p>
-    </div>
-    <div class="stats">
-      <div class="stat reveal"><div class="big blue">5</div><div class="lab">phases settled before the wali is involved</div></div>
-      <div class="stat reveal" data-d="1"><div class="big rose">0</div><div class="lab">messages off the record, ever</div></div>
-      <div class="stat reveal" data-d="2"><div class="big">1</div><div class="lab">thing left to check in person: chemistry</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="sec tint">
-  <div class="wrap">
-    <div class="price">
-      <div class="reveal">
-        <span class="kicker">The honest part</span>
-        <div class="price-num"><span class="cur">$</span>6.99</div>
-        <div class="tag">One time &middot; the man pays &middot; that is the whole model</div>
-      </div>
-      <div class="reveal" data-d="1">
-        <h3 style="font-size:clamp(1.5rem,2.6vw,2rem)">Free to find, vet, and decide. You pay once, to bring the wali in.</h3>
-        <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Finding, reading, and the full Q&amp;A: free and unlimited.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> No subscription. Nothing built to keep you here.</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> We are the only app that earns more when you leave married.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head center-h reveal" style="margin-bottom:8px"><span class="kicker center-k">From the founder</span></div>
-    <div class="letter reveal">
-      <p>I reverted, wanted to marry, and walked straight into the wrong way of doing it: a long engagement, getting to know each other by text, no real wali process. I learned the hard way that what does not start right does not end right.</p>
-      <p>Then I met Muslims from Egypt to Pakistan to Indonesia, and heard the same story everywhere. So I built the thing I wish existed.</p>
-      <a href="/story/" class="btn btn-ghost" style="margin-top:1.4rem">Read the full story<span class="arr">&rarr;</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BAND / WAITLIST -->
-<section class="sec cta-band on-ink" id="join">
-  <div class="wrap">
-    <h2 class="reveal">This is the reset.<br>Be first in.</h2>
-    <p class="lead reveal" data-d="1">If you have been waiting for someone to take this as seriously as you do, you can stop waiting.</p>
-    <div class="reveal" data-d="1" style="margin-top:1.8rem;display:flex;justify-content:center;"><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="d9fe8d14-ca6c-4922-8dc9-c57c178e4f43"></script></div>
-    <p class="tagline reveal" data-d="1">Certainty first. Chemistry last.</p>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="cols">
-      <div class="about">
-        <a class="brand" href="/"><img src="/assets/logo.png" alt="" style="width:28px;height:28px" />Muslim Matching</a>
-        <p style="margin-top:1rem;max-width:30ch;font-size:.9rem">Halal nikah for serious Muslims. Certainty first. Chemistry last.</p>
-      </div>
-      <div>
-        <h4>The app</h4>
-        <a href="/how-it-works/">How it works</a>
-        <a href="/revolution/">The revolution</a>
-        <a href="#join">Join the waitlist</a>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <a href="/story/">Our story</a><a href="/blog/">Blog</a>
-        <a href="#">Privacy</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 Muslim Matching</span>
-      <span>Building now</span>
-    </div>
-  </div>
-</footer>
-
-<script src="/app.js"></script>
+  );
+}
+function App(){
+  const [page,setPage] = useState("home");
+  const locked = page === "home";
+  return (
+    <Shell page={page} setPage={setPage} locked={locked}>
+      {page==="home" && <HomeFunnel/>}
+      {page==="how" && <HowItWorks setPage={setPage}/>}
+      {page==="revolution" && <Revolution setPage={setPage}/>}
+      {page==="pricing" && <Pricing setPage={setPage}/>}
+      {page==="story" && <Story setPage={setPage}/>}
+      {page==="blog" && <Blog setPage={setPage}/>}
+    </Shell>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
 </body>
 </html>
