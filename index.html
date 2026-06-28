@@ -189,7 +189,7 @@ function Nav({ page, setPage }){
       {/* desktop tabs */}
       <div className="hidden md:flex items-center gap-5">
         {TABS.map(([k,l])=>(
-          <button key={k} onClick={()=>setPage(k)} className="text-sm transition-opacity whitespace-nowrap pb-0.5"
+          <button key={k} onClick={()=>{if(k==='blog'){location.href='/blog/';return;}setPage(k);}} className="text-sm transition-opacity whitespace-nowrap pb-0.5"
             style={ page===k ? {color:INK, fontWeight:600, borderBottom:'2px solid '+INK} : {color:'#374151', fontWeight:500} }>{l}</button>
         ))}
       </div>
@@ -203,7 +203,7 @@ function Nav({ page, setPage }){
       {open && (
         <div className="md:hidden absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-xl p-2 flex flex-col gap-0.5 z-40" style={{border:'1px solid '+DIVIDER}}>
           {TABS.map(([k,l])=>(
-            <button key={k} onClick={()=>go(k)} className="text-left text-[15px] px-3.5 py-3 rounded-xl transition-colors"
+            <button key={k} onClick={()=>{if(k==='blog'){location.href='/blog/';return;}go(k);}} className="text-left text-[15px] px-3.5 py-3 rounded-xl transition-colors"
               style={ page===k ? {background:'#F3F2F8', color:INK, fontWeight:600} : {color:'#374151', fontWeight:500} }>{l}</button>
           ))}
           <button onClick={()=>go('home')} className="mt-1 text-white text-[15px] font-semibold px-4 py-3 rounded-xl text-center" style={{background:INK}}>Find your Nasib</button>
