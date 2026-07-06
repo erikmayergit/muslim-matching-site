@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Salams App: A Deen-First Look for Muslims</title>
+<meta name="description" content="An honest look at the Salams app for marriage-minded Muslims: where its swipe model and walī gaps fall short, and what a deen-first alternative looks like." />
+<link rel="canonical" href="https://muslim-matching.com/blog/salams/" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8EQRTMVTN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P8EQRTMVTN');
+</script>
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="apple-touch-icon" href="/assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,400..900;1,400..900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{ --ink:#1A1A2E; --ink-muted:#5A5A6E; --divider:#E5E5E5; --field:#F5F5F7; }
+  *{font-family:'General Sans',system-ui,-apple-system,sans-serif;}
+  .display{font-family:'Mona Sans','General Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;}
+  .serif{font-family:'Amiri',Georgia,serif;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+  body{background:#fff;color:#1A1A2E;}
+  .fade-up{animation:fadeUp .5s cubic-bezier(0.23,1,0.32,1) both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  /* Headline: full padded width on mobile; tighten to an 18ch measure ≥640px. */
+  @media (min-width:640px){ .post-title{max-width:18ch;} }
+  .prose{max-width:68ch;}
+  .prose>*:first-child{margin-top:0;}
+  .prose p{margin-top:1.2em;font-size:1.075rem;line-height:1.78;color:#5A5A6E;}
+  .prose strong{color:#1A1A2E;font-weight:600;}
+  .prose em{font-style:italic;}
+  .prose h2{font-family:'Mona Sans','General Sans',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;margin-top:1.9em;color:#1A1A2E;}
+  .prose h3{font-family:'Amiri',Georgia,serif;font-weight:700;font-size:1.4rem;line-height:1.25;margin-top:1.5em;color:#1A1A2E;}
+  .prose ul,.prose ol{margin-top:1.2em;padding-left:1.35em;color:#5A5A6E;}
+  .prose li{margin-top:.5em;font-size:1.075rem;line-height:1.7;}
+  .prose li::marker{color:#1E3FF5;}
+  .prose a{color:#1E3FF5;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+  .prose a:hover{opacity:.8;}
+  /* Blockquote → Hadith-card feel: FIELD bg, 3px ROSE left border, Amiri. */
+  .prose blockquote{margin:1.7em 0;padding:1em 1.25em;background:#F5F5F7;border-left:3px solid #E84A78;border-radius:0 1rem 1rem 0;}
+  .prose blockquote p{font-family:'Amiri',Georgia,serif;font-size:1.35rem;line-height:1.5;color:#1A1A2E;margin-top:0;}
+  .prose blockquote p+p{margin-top:.5em;}
+  .prose code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.88em;background:#F5F5F7;padding:.12em .4em;border-radius:6px;color:#1A1A2E;}
+  .prose pre{background:#1A1A2E;color:#fff;padding:1.1em 1.3em;border-radius:1rem;overflow-x:auto;margin:1.5em 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.86rem;}
+  .prose pre code{background:none;padding:0;color:inherit;}
+  .prose hr{border:none;border-top:1px solid #E5E5E5;margin:2.4em 0;}
+  .prose img{border-radius:18px;margin:1.8em 0;}
+  /* Inline-rendered hadith block (when markdown carries arabic/translation/source). */
+  .hadith{background:#F5F5F7;border-left:3px solid #E84A78;border-radius:1rem;padding:1.25rem 1.4rem;margin:1.7em 0;}
+  .hadith .ar{font-family:'Amiri',Georgia,serif;direction:rtl;text-align:right;font-size:1.6rem;line-height:2.1;color:#1A1A2E;}
+  .hadith .tr{font-style:italic;font-size:1.05rem;margin-top:.75rem;color:#1A1A2E;}
+  .hadith .src{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.06em;margin-top:.55rem;color:#5A5A6E;}
+  @media (prefers-reduced-motion: reduce){ .fade-up{animation:none;} }
+</style>
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muslim Matching" />
+<meta property="og:title" content="Salams App: A Deen-First Look for Muslims" />
+<meta property="og:description" content="An honest look at the Salams app for marriage-minded Muslims: where its swipe model and walī gaps fall short, and what a deen-first alternative looks like." />
+<meta property="og:url" content="https://muslim-matching.com/blog/salams/" />
+<meta property="og:image" content="https://muslim-matching.com/assets/og.jpg" />
+<meta property="article:published_time" content="2026-07-06T06:01:23.817Z" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Salams App: A Deen-First Look for Muslims" />
+<meta name="twitter:description" content="An honest look at the Salams app for marriage-minded Muslims: where its swipe model and walī gaps fall short, and what a deen-first alternative looks like." />
+<meta name="twitter:image" content="https://muslim-matching.com/assets/og.jpg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Salams App: An Honest Look for Marriage-Minded Muslims","description":"An honest look at the Salams app for marriage-minded Muslims: where its swipe model and walī gaps fall short, and what a deen-first alternative looks like.","datePublished":"2026-07-06T06:01:23.817Z","dateModified":"2026-07-06T06:01:23.817Z","inLanguage":"en","author":{"@type":"Organization","name":"Muslim Matching","url":"https://muslim-matching.com/"},"publisher":{"@type":"Organization","name":"Muslim Matching","logo":{"@type":"ImageObject","url":"https://muslim-matching.com/assets/og.jpg"}},"image":"https://muslim-matching.com/assets/og.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://muslim-matching.com/blog/salams/"}}
+</script>
+</head>
+<body>
+
+<header class="px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 md:pt-6">
+  <nav class="max-w-5xl mx-auto bg-white/65 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 flex items-center gap-2 sm:gap-6">
+    <a href="/" class="flex items-center gap-2 shrink-0 min-w-0">
+      <img src="/assets/logo.png" alt="Muslim Matching" style="height:28px;width:auto;display:block" />
+      <span class="display text-[15px] whitespace-nowrap hidden sm:inline" style="color:#1A1A2E">Muslim Matching</span>
+    </a>
+    <div class="hidden md:flex items-center gap-5">
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">How it works</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">The revolution</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Pricing</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Our story</a>
+        <a href="/blog/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Blog</a>
+    </div>
+    <a href="/" class="ml-auto shrink-0 text-white text-[13px] sm:text-sm font-medium px-3.5 sm:px-5 py-2 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap" style="background:#1A1A2E">Find your Nasib</a>
+  </nav>
+</header>
+
+<main class="px-4 sm:px-6">
+  <article class="max-w-5xl mx-auto pt-10 sm:pt-14 fade-up">
+    <header class="text-center mx-auto" style="max-width:760px">
+      <nav class="flex items-center justify-center gap-2 text-[13px] mb-5" style="color:#5A5A6E" aria-label="Breadcrumb">
+        <a href="/" class="hover:opacity-70" style="color:#5A5A6E">Home</a><span>/</span>
+        <a href="/blog/" class="hover:opacity-70" style="color:#5A5A6E">Blog</a><span>/</span>
+        <span style="color:#1A1A2E">Guide</span>
+      </nav>
+      <div class="mono text-[10px] sm:text-[11px] mb-4 break-words" style="color:#1E3FF5;letter-spacing:0.1em;text-transform:uppercase">Guide &middot; 9 min read &middot; 6 July 2026</div>
+      <h1 class="post-title display mx-auto text-2xl sm:text-5xl leading-[1.12] break-words" style="color:#1A1A2E">Salams App: An Honest Look for Marriage-Minded Muslims</h1>
+    </header>
+    <div class="prose mx-auto mt-10 sm:mt-12">
+<!-- deen:preface -->
+<p>﷽</p>
+<p><em>In the name of Allah, the Most Merciful, the Bestower of Mercy.</em></p>
+<p><em>We try to follow and explain from the Qur&#39;an and the authentic Hadith, upon the understanding of the three rightly-guided generations (the Salaf as-Salih). All good is from Allah alone, and any mistake or shortcoming is from ourselves.</em></p>
+<!-- /deen:preface -->
+
+<p><strong>TL;DR:</strong> Salams (formerly Minder) is a large, mainstream Muslim dating and marriage app with a wide user base and video features, but its swipe-first design and light stance on guardianship and free-mixing make it a weak fit for a serious, deen-first search for a spouse. If your goal is nikah on the terms Allah laid down, you want a platform built around intention, character, and the walī from the first step.</p>
+<h2>What Salams actually is</h2>
+<p>Salams began life as Minder, a Muslim answer to the mainstream dating apps. It later rebranded to Salams, borrowing the warmth of the Islamic greeting. The name is well chosen. The Prophet (sallallahu alayhi wa sallam) tied the spreading of salam to love between believers, as reported in <a href="https://sunnah.com/muslim:54">Sahih Muslim 54</a>. A greeting of peace is a good thing. The question is whether the product around that name is built to bring you to a lawful marriage or simply to keep you engaged.</p>
+<p>On the surface Salams offers what most people expect from a modern app: a large pool of profiles, filters for sect, practice level, and location, plus video calling and icebreaker prompts. It markets itself as marriage-focused rather than casual, which is a genuine step above the openly secular apps. That is worth acknowledging honestly.</p>
+<p>Still, the core mechanic is the swipe. You are shown one candidate after another and asked to make a quick keep-or-discard judgement. That single design decision shapes everything downstream, and it pulls against the way a Muslim is taught to approach marriage.</p>
+<h2>Where the swipe model works against your deen</h2>
+<p>Marriage in Islam is not entertainment and it is not a numbers game to be optimised. Allah describes the purpose of a spouse in the clearest terms: &quot;And among His signs is that He created for you mates from among yourselves, that you may find tranquillity in them, and He placed between you affection and mercy&quot; (<a href="https://quran.com/30/21">Qur&#39;an 30:21</a>). Tranquillity, affection, and mercy are the fruit of character and shared faith, not of a fast yes-or-no reflex.</p>
+<p>The Prophet (sallallahu alayhi wa sallam) gave the criterion directly: &quot;A woman is married for four things: her wealth, her lineage, her beauty, and her religion. So choose the one with religion, may your hands be rubbed with dust,&quot; reported in <a href="https://sunnah.com/bukhari:5090">Sahih al-Bukhari 5090</a>. Deen is the deciding factor. A swipe interface, by design, foregrounds surface impressions and trains the eye to judge on the very things this hadith tells you to look past. That is the deep problem with the format, and rebranding it with a peaceful name does not change the mechanic underneath.</p>
+<p>There is a second cost. Endless swiping breeds a disposable mindset. When the next profile is always one flick away, patience and seriousness erode. People start collecting matches instead of pursuing a marriage. For someone who wants to be married and to guard their chastity, that is the opposite of helpful.</p>
+<h2>The walī question that most apps sidestep</h2>
+<p>Here is the issue serious sisters should weigh most carefully. A woman&#39;s nikah is not valid without her walī. The Prophet (sallallahu alayhi wa sallam) said, &quot;There is no marriage without a guardian,&quot; an authentic narration recorded in <a href="https://sunnah.com/abudawud:2085">Sunan Abi Dawud 2085</a> and <a href="https://sunnah.com/tirmidhi:1101">Jami&#39; at-Tirmidhi 1101</a>. He also said, &quot;Any woman who marries without the permission of her guardian, her marriage is invalid,&quot; repeated three times, in the same collections. This is not a cultural preference or an old formality. It is a condition of a valid marriage upon the understanding of the Salaf.</p>
+<p>Most mainstream Muslim apps, Salams included, treat the guardian as an optional afterthought at best. The default flow is a private, one-to-one chat between two strangers, with the family arriving late, if at all. That structure quietly normalises the very thing the Shariah built the walī to prevent: a woman drawn into an emotional attachment with a man before any responsible party has vetted him.</p>
+<p>A platform that respects your deen should make the walī part of the process, not a box you might tick later. If an app has no meaningful place for a guardian, it is asking you to run your marriage search on terms Allah did not sanction. You can read more on why this matters in our guide to <a href="/guides/wali-in-marriage">the role of the walī in marriage</a>.</p>
+<h2>Free-mixing, private chats, and fitnah</h2>
+<p>The honest concern with any open-chat app is what happens in the messages. Prolonged private conversation between a non-mahram man and woman, with no oversight and no clear intention to marry soon, is a doorway to fitnah. The Prophet (sallallahu alayhi wa sallam) warned, &quot;No man is alone with a woman but that the Shaytan is the third of them,&quot; recorded in <a href="https://sunnah.com/tirmidhi:2165">Jami&#39; at-Tirmidhi 2165</a> and graded authentic. A private DM thread that runs for weeks is a form of that seclusion, even through a screen.</p>
+<p>Allah commands the believers to guard their gaze and their chastity (<a href="https://quran.com/24/30">Qur&#39;an 24:30</a>), and He tells us not even to approach the paths that lead to unlawfulness (<a href="https://quran.com/17/32">Qur&#39;an 17:32</a>). A getting-to-know-you process is permitted and encouraged before nikah, but within limits: a clear intention to marry, purposeful questions about deen and character, and where possible the involvement of the family or a trusted third party. A design that hands two strangers an unlimited, unwatched chat channel makes it far too easy to slide past those limits. Speed and privacy are marketed as convenience. In practice they are where the risk lives.</p>
+<h2>What a deen-first alternative looks like</h2>
+<p>The fix is not to abandon technology. It is to use a platform whose defaults match the Sunnah instead of fighting it. That is the entire reason <a href="/">Muslim Matching</a> exists, and where our approach differs from Salams.</p>
+<ul>
+<li><strong>Intention over impression.</strong> The starting point is what a person is like, what they practise, and what they want from marriage. There is no face-first swiping, because faces are not the criterion the Prophet (sallallahu alayhi wa sallam) told us to judge by. The wedge is character and deen.</li>
+<li><strong>The walī built in.</strong> For a sister, the guardian is part of the process by design, not an afterthought bolted on before the nikah. That honours the condition the Shariah made non-negotiable.</li>
+<li><strong>Purposeful, not endless.</strong> The aim is to reach a lawful marriage, not to maximise time in the app. A serious pool of people who actually want nikah beats a huge pool of people passing time.</li>
+<li><strong>Bounded conversation.</strong> Getting to know a prospective spouse should be focused and, where possible, overseen, keeping it within the limits Allah set rather than drifting into the open-ended private chatting that breeds attachment before commitment.</li>
+</ul>
+<p>Allah encourages marriage plainly: &quot;And marry the unmarried among you and the righteous among your male and female slaves. If they should be poor, Allah will enrich them from His bounty&quot; (<a href="https://quran.com/24/32">Qur&#39;an 24:32</a>). Marriage is half the deen and a means of protection. The tool you use to pursue it should push you toward that protection, not toward months of low-commitment browsing.</p>
+<p>If you want the full picture of the process itself, from first contact to the contract, see our guides on <a href="/guides/how-to-get-married-in-islam">how to get married in Islam</a> and <a href="/guides/nikah-contract">the nikah contract</a>.</p>
+<h2>Is Salams haram to use?</h2>
+<p>Be careful here, because this is a matter of application, not a blanket verdict, and the ruling on any given use depends on your intention and conduct. An app is a tool. Using a marriage platform to find a spouse, with a sincere intention, involving your walī, keeping conversation clean and purposeful, and moving toward nikah, is a lawful use of a lawful means. Using the same app to chat idly with the opposite sex, to swipe for validation, or to carry on a private relationship with no serious intent, is not.</p>
+<p>The problem with a swipe-and-DM design is that it makes the second path the easy one and the first path the effort. A platform whose defaults already sit inside the Shariah simply removes that friction. If you are uncertain about a specific situation, for example whether a particular arrangement counts as an impermissible seclusion, ask a qualified scholar rather than settling it yourself. Do not take a comparison article as a fatwa.</p>
+<h2>Frequently Asked Questions</h2>
+<h3>Is Salams the same as Minder?</h3>
+<p>Yes. Salams is the rebranded name of the app formerly known as Minder. The name changed and features were added, but the core swipe-based matching model carried over.</p>
+<h3>Does Salams involve the walī in a woman&#39;s marriage?</h3>
+<p>Not as a built-in requirement. Like most mainstream apps, its default flow is direct private messaging between two people, with family involvement left to the users. Since a valid nikah for a woman requires her guardian, as in the authentic narration &quot;there is no marriage without a guardian&quot; (<a href="https://sunnah.com/abudawud:2085">Sunan Abi Dawud 2085</a>), a serious sister should insist on involving her walī regardless of what the app defaults to.</p>
+<h3>Is using a Muslim dating app allowed in Islam?</h3>
+<p>Using a lawful means to find a lawful spouse is permitted when the intention is marriage, conversation stays clean and purposeful, seclusion is avoided, and the walī is involved. The design of some apps makes those conditions harder to keep. Choose a platform whose defaults help you obey the limits Allah set in <a href="https://quran.com/24/30">Qur&#39;an 24:30</a>.</p>
+<h3>What should I look for in a marriage app as a practising Muslim?</h3>
+<p>Look for a platform that centres deen and character over appearance, that makes room for the guardian, that attracts people who genuinely want nikah, and that keeps the getting-to-know process bounded rather than open-ended. The criterion the Prophet (sallallahu alayhi wa sallam) gave was to choose the one with religion, in <a href="https://sunnah.com/bukhari:5090">Sahih al-Bukhari 5090</a>.</p>
+<h3>How is Muslim Matching different from Salams?</h3>
+<p>Muslim Matching is built around intention, character, and deen rather than swiping on surface impressions, and it treats the walī as part of the process rather than an afterthought. The goal is to reach a lawful marriage, not to keep you scrolling. You can <a href="/">join the Muslim Matching waitlist</a> to start.</p>
+<h3>How do I keep the whole process halal from the start?</h3>
+<p>Make your intention marriage, involve your walī early if you are a sister, keep questions focused on deen, character, and compatibility, avoid private seclusion including prolonged one-to-one chatting, and move toward the nikah without dragging things out. For the step-by-step, see our guide on <a href="/guides/choosing-a-spouse-deen">choosing a spouse by deen</a>.</p>
+
+    </div>
+    <aside class="mt-12 mx-auto" style="max-width:68ch">
+        <div class="bg-white rounded-3xl shadow-xl p-8 sm:p-10 text-center" style="border:1px solid #E5E5E5">
+          <div class="mono text-[11px] mb-2" style="color:#1E3FF5;letter-spacing:0.14em;text-transform:uppercase">Certainty first · Chemistry last</div>
+          <h3 class="display text-2xl sm:text-3xl leading-tight" style="color:#1A1A2E">Get to know someone the halal way.</h3>
+          <p class="text-[15px] sm:text-base leading-relaxed mt-3 mx-auto" style="color:#5A5A6E;max-width:52ch">No chat, no calls, no pictures. By the time your walī meets them, the only thing left to check is chemistry. Muslim Matching is free to use, and we are building it now.</p>
+          <a href="/" class="inline-block mt-6 text-white text-[15px] font-semibold px-7 py-3.5 rounded-2xl transition-transform hover:-translate-y-0.5" style="background:#1E3FF5">Find your Nasib&nbsp;&rarr;</a>
+        </div>
+      </aside>
+    <div class="mt-10 mx-auto text-center" style="max-width:68ch">
+      <a href="/blog/" class="mono text-[11px] hover:opacity-70" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">&larr; All articles</a>
+    </div>
+  </article>
+</main>
+
+<footer class="px-3 sm:px-4 md:px-6 pb-10 mt-16">
+  <div class="max-w-5xl mx-auto rounded-3xl px-6 sm:px-10 py-10" style="background:#F5F5F7">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+      <div class="max-w-xs">
+        <a href="/" class="flex items-center gap-2">
+          <img src="/assets/logo.png" alt="" style="height:28px;width:auto;display:block" />
+          <span class="display text-[15px]" style="color:#1A1A2E">Muslim Matching</span>
+        </a>
+        <p class="text-[14px] mt-4 leading-relaxed" style="color:#5A5A6E">Halal nikah for serious Muslims. Certainty first. Chemistry last.</p>
+      </div>
+      <div class="flex gap-12">
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">The app</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">How it works</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Pricing</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Find your Nasib</a>
+          </div>
+        </div>
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">Company</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Our story</a>
+            <a href="/blog/" class="hover:opacity-70" style="color:#1A1A2E">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-10 pt-6 mono text-[11px]" style="border-top:1px solid #E5E5E5;color:#5A5A6E;letter-spacing:0.06em">
+      <span>&copy; 2026 Muslim Matching</span><span>Building now</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
