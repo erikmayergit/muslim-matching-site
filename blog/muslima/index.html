@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muslima Reviewed: A Deen-First Alternative</title>
+<meta name="description" content="An honest look at Muslima, its login and app, and where it falls short for serious Muslims, plus a face-free, wali-inclusive alternative built for nikah." />
+<link rel="canonical" href="https://muslim-matching.com/blog/muslima/" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8EQRTMVTN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P8EQRTMVTN');
+</script>
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="apple-touch-icon" href="/assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,400..900;1,400..900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{ --ink:#1A1A2E; --ink-muted:#5A5A6E; --divider:#E5E5E5; --field:#F5F5F7; }
+  *{font-family:'General Sans',system-ui,-apple-system,sans-serif;}
+  .display{font-family:'Mona Sans','General Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;}
+  .serif{font-family:'Amiri',Georgia,serif;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+  body{background:#fff;color:#1A1A2E;}
+  .fade-up{animation:fadeUp .5s cubic-bezier(0.23,1,0.32,1) both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  /* Headline: full padded width on mobile; tighten to an 18ch measure ≥640px. */
+  @media (min-width:640px){ .post-title{max-width:18ch;} }
+  .prose{max-width:68ch;}
+  .prose>*:first-child{margin-top:0;}
+  .prose p{margin-top:1.2em;font-size:1.075rem;line-height:1.78;color:#5A5A6E;}
+  .prose strong{color:#1A1A2E;font-weight:600;}
+  .prose em{font-style:italic;}
+  .prose h2{font-family:'Mona Sans','General Sans',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;margin-top:1.9em;color:#1A1A2E;}
+  .prose h3{font-family:'Amiri',Georgia,serif;font-weight:700;font-size:1.4rem;line-height:1.25;margin-top:1.5em;color:#1A1A2E;}
+  .prose ul,.prose ol{margin-top:1.2em;padding-left:1.35em;color:#5A5A6E;}
+  .prose li{margin-top:.5em;font-size:1.075rem;line-height:1.7;}
+  .prose li::marker{color:#1E3FF5;}
+  .prose a{color:#1E3FF5;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+  .prose a:hover{opacity:.8;}
+  /* Blockquote → Hadith-card feel: FIELD bg, 3px ROSE left border, Amiri. */
+  .prose blockquote{margin:1.7em 0;padding:1em 1.25em;background:#F5F5F7;border-left:3px solid #E84A78;border-radius:0 1rem 1rem 0;}
+  .prose blockquote p{font-family:'Amiri',Georgia,serif;font-size:1.35rem;line-height:1.5;color:#1A1A2E;margin-top:0;}
+  .prose blockquote p+p{margin-top:.5em;}
+  .prose code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.88em;background:#F5F5F7;padding:.12em .4em;border-radius:6px;color:#1A1A2E;}
+  .prose pre{background:#1A1A2E;color:#fff;padding:1.1em 1.3em;border-radius:1rem;overflow-x:auto;margin:1.5em 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.86rem;}
+  .prose pre code{background:none;padding:0;color:inherit;}
+  .prose hr{border:none;border-top:1px solid #E5E5E5;margin:2.4em 0;}
+  .prose img{border-radius:18px;margin:1.8em 0;}
+  /* Inline-rendered hadith block (when markdown carries arabic/translation/source). */
+  .hadith{background:#F5F5F7;border-left:3px solid #E84A78;border-radius:1rem;padding:1.25rem 1.4rem;margin:1.7em 0;}
+  .hadith .ar{font-family:'Amiri',Georgia,serif;direction:rtl;text-align:right;font-size:1.6rem;line-height:2.1;color:#1A1A2E;}
+  .hadith .tr{font-style:italic;font-size:1.05rem;margin-top:.75rem;color:#1A1A2E;}
+  .hadith .src{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.06em;margin-top:.55rem;color:#5A5A6E;}
+  @media (prefers-reduced-motion: reduce){ .fade-up{animation:none;} }
+</style>
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muslim Matching" />
+<meta property="og:title" content="Muslima Reviewed: A Deen-First Alternative" />
+<meta property="og:description" content="An honest look at Muslima, its login and app, and where it falls short for serious Muslims, plus a face-free, wali-inclusive alternative built for nikah." />
+<meta property="og:url" content="https://muslim-matching.com/blog/muslima/" />
+<meta property="og:image" content="https://muslim-matching.com/assets/og.jpg" />
+<meta property="article:published_time" content="2026-08-10T06:01:22.791Z" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Muslima Reviewed: A Deen-First Alternative" />
+<meta name="twitter:description" content="An honest look at Muslima, its login and app, and where it falls short for serious Muslims, plus a face-free, wali-inclusive alternative built for nikah." />
+<meta name="twitter:image" content="https://muslim-matching.com/assets/og.jpg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Muslima Reviewed: A Deen-First Alternative Worth Knowing","description":"An honest look at Muslima, its login and app, and where it falls short for serious Muslims, plus a face-free, wali-inclusive alternative built for nikah.","datePublished":"2026-08-10T06:01:22.791Z","dateModified":"2026-08-10T06:01:22.791Z","inLanguage":"en","author":{"@type":"Organization","name":"Muslim Matching","url":"https://muslim-matching.com/"},"publisher":{"@type":"Organization","name":"Muslim Matching","logo":{"@type":"ImageObject","url":"https://muslim-matching.com/assets/og.jpg"}},"image":"https://muslim-matching.com/assets/og.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://muslim-matching.com/blog/muslima/"}}
+</script>
+</head>
+<body>
+
+<header class="px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 md:pt-6">
+  <nav class="max-w-5xl mx-auto bg-white/65 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 flex items-center gap-2 sm:gap-6">
+    <a href="/" class="flex items-center gap-2 shrink-0 min-w-0">
+      <img src="/assets/logo.png" alt="Muslim Matching" style="height:28px;width:auto;display:block" />
+      <span class="display text-[15px] whitespace-nowrap hidden sm:inline" style="color:#1A1A2E">Muslim Matching</span>
+    </a>
+    <div class="hidden md:flex items-center gap-5">
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">How it works</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">The revolution</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Pricing</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Our story</a>
+        <a href="/blog/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Blog</a>
+    </div>
+    <a href="/" class="ml-auto shrink-0 text-white text-[13px] sm:text-sm font-medium px-3.5 sm:px-5 py-2 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap" style="background:#1A1A2E">Find your Nasib</a>
+  </nav>
+</header>
+
+<main class="px-4 sm:px-6">
+  <article class="max-w-5xl mx-auto pt-10 sm:pt-14 fade-up">
+    <header class="text-center mx-auto" style="max-width:760px">
+      <nav class="flex items-center justify-center gap-2 text-[13px] mb-5" style="color:#5A5A6E" aria-label="Breadcrumb">
+        <a href="/" class="hover:opacity-70" style="color:#5A5A6E">Home</a><span>/</span>
+        <a href="/blog/" class="hover:opacity-70" style="color:#5A5A6E">Blog</a><span>/</span>
+        <span style="color:#1A1A2E">Guide</span>
+      </nav>
+      <div class="mono text-[10px] sm:text-[11px] mb-4 break-words" style="color:#1E3FF5;letter-spacing:0.1em;text-transform:uppercase">Guide &middot; 9 min read &middot; 10 August 2026</div>
+      <h1 class="post-title display mx-auto text-2xl sm:text-5xl leading-[1.12] break-words" style="color:#1A1A2E">Muslima Reviewed: A Deen-First Alternative Worth Knowing</h1>
+    </header>
+    <div class="prose mx-auto mt-10 sm:mt-12">
+<!-- deen:preface -->
+<p>﷽</p>
+<p><em>In the name of Allah, the Most Merciful, the Bestower of Mercy.</em></p>
+<p><em>We try to follow and explain from the Qur&#39;an and the authentic Hadith, upon the understanding of the three rightly-guided generations (the Salaf as-Salih). All good is from Allah alone, and any mistake or shortcoming is from ourselves.</em></p>
+<!-- /deen:preface -->
+
+<p><strong>TL;DR:</strong> Muslima.com is a large, long-running Muslim matchmaking site run by Cupid Media, useful for reach but light on the things that decide a marriage: intention, wali involvement, and a clean process free of open-ended chatting. If you want breadth, Muslima works. If you want a face-free, deen-first platform built around the sunnah of marriage, <a href="/">Muslim Matching</a> was made for exactly that.</p>
+<h2>What Muslima Actually Is</h2>
+<p>Muslima is one of the oldest Muslim marriage websites still operating. It sits inside the Cupid Media network, the same company that runs dozens of niche dating sites across different communities. That heritage matters. Muslima was built on a general dating-site template and then branded for Muslims, rather than designed from the ground up around how a Muslim marriage is actually supposed to happen.</p>
+<p>In practice you get a familiar structure: create an account, fill in a profile, upload photos, browse a large pool of members across many countries, and pay for a premium tier to message freely. The catalogue is big. That is its genuine strength. If your only goal is to see many profiles quickly, Muslima delivers volume.</p>
+<p>The weakness is the same as the strength. Volume without a filter for seriousness produces a lot of noise. Many members are casually browsing, some are not marriage-focused at all, and the platform does little to distinguish a person seeking nikah within the year from someone passing time.</p>
+<h2>Muslima Login and App: What People Search For</h2>
+<p>Two of the most common Muslima-related queries are about signing in and about the mobile app, so let us answer them plainly.</p>
+<p><strong>Muslima login.</strong> You sign in at the Muslima website with the email and password you registered with. If you are locked out, the password reset link on the login page is the standard route. Cupid Media accounts are per-site, so a login for one of their other properties will not carry over.</p>
+<p><strong>Muslima app.</strong> Cupid Media has historically offered an Android app for its sites, with mobile access otherwise handled through the browser. App availability, ratings, and features shift over time and differ by region and device, so the current listing on your app store is the only reliable source. That inconsistency is worth noting: a platform serious about your marriage should be dependable in the one place you use it most, your phone.</p>
+<p>None of this is a criticism of the technology itself. The point is narrower. Login and app convenience tell you nothing about whether a platform is built to protect your deen. That is the question that should actually decide where you invest your time.</p>
+<h2>The Deen-First Problem With Photo-Led Platforms</h2>
+<p>Here is where an honest review has to slow down. The dominant model on Muslima, as on most sites of its kind, is photo-first browsing. You see a face, then decide whether to learn anything else. That order is backwards for a Muslim seeking marriage.</p>
+<p>The Prophet, salla Allahu alayhi wa sallam, taught that people marry for four things: wealth, lineage, beauty, and religion, and he instructed the believer to choose the one of religion, as reported in <a href="https://sunnah.com/bukhari:5090">Sahih al-Bukhari 5090</a>. Beauty is not condemned, but it is placed last, and religion is made the deciding factor. A platform that leads with photos inverts that priority by design. It trains the eye before it engages the heart and the mind.</p>
+<p>This is the core of the <a href="/guides/face-free-marriage-search">face-free approach</a>: remove appearance as the opening filter so that intention, character, and deen do the sorting first. It is not prudishness. It is simply putting the Prophet&#39;s own ranking into the structure of the search. Muslima does not do this, and no amount of premium features changes that basic orientation.</p>
+<p>Seeing a prospective spouse before nikah is permitted and even encouraged once there is genuine intent, as the Prophet advised a man to look before proceeding in <a href="https://sunnah.com/ibnmajah:1865">Sunan Ibn Majah 1865</a>. The point is sequence and intention, not a public gallery browsed for entertainment.</p>
+<h2>Where Muslima Falls Short for Serious Seekers</h2>
+<h3>The wali is an afterthought</h3>
+<p>A woman&#39;s nikah is not valid without her wali. The Prophet, salla Allahu alayhi wa sallam, said there is no marriage without a guardian, an authentic narration recorded in <a href="https://sunnah.com/abudawud:2085">Sunan Abi Dawud 2085</a>. General-purpose platforms treat guardianship as, at best, an optional field. The whole flow assumes an individual acting alone. That structure quietly nudges a woman toward doing exactly what the Shariah tells her not to do: proceeding without her guardian. A platform that respects the deen builds the <a href="/guides/wali-in-marriage">wali&#39;s role</a> into the process rather than leaving it to the user to remember.</p>
+<h3>It normalises open-ended chatting</h3>
+<p>Unlimited messaging with anyone, for as long as you like, with no framework and no accountability, is a recipe for the slow slide into a &quot;talking stage&quot; that has no place in our deen. Private, drawn-out, romantic conversation between a non-mahram man and woman is not a neutral feature. It is precisely the door the Shariah closes. Allah commands the believers to lower their gaze and guard their chastity in <a href="https://quran.com/24/30">Qur&#39;an 24:30</a>, and the Prophet warned that when a man and a woman are alone, the shaytan is the third among them, as reported in <a href="https://sunnah.com/tirmidhi:2165">Sunan al-Tirmidhi 2165</a>. Digital seclusion is still seclusion.</p>
+<h3>Seriousness is not filtered</h3>
+<p>Because anyone can join and browse, the marriage-serious member and the time-waster occupy the same pool. You carry the burden of sorting them, often after wasted weeks. A platform designed for nikah should filter for intention at the door.</p>
+<h2>What a Muslima Alternative Should Do Instead</h2>
+<p>A credible alternative is not just a different logo on the same dating template. It should be built around the marriage the sunnah describes. That means a few concrete things.</p>
+<p>First, it should lead with character and deen rather than appearance, so the first thing you learn about someone is who they are, not how they look. Marriage in Islam is a means to tranquillity and mercy, as Allah describes in <a href="https://quran.com/30/21">Qur&#39;an 30:21</a>, and that begins with knowing a person&#39;s religion and manners.</p>
+<p>Second, it should treat the wali as part of the process, not a checkbox. Involving the guardian from the start protects the woman and gives the whole affair the barakah of being done the right way.</p>
+<p>Third, it should keep communication purposeful and within limits, oriented toward a timely decision rather than endless chatting. The Prophet urged that when someone whose religion and character please you comes forward, the matter be concluded, warning that delay invites fitnah and corruption, as recorded in <a href="https://sunnah.com/tirmidhi:1084">Sunan al-Tirmidhi 1084</a>.</p>
+<p>Fourth, it should filter for people who actually want to marry, so your time is spent among the serious.</p>
+<p>This is the gap <a href="/">Muslim Matching</a> was built to fill. It is face-free by design, it expects the wali to be part of a sister&#39;s search, and it is structured to move toward a real <a href="/guides/how-to-get-married-in-islam">nikah</a> rather than to keep you scrolling.</p>
+<h2>Muslima vs Muslim Matching at a Glance</h2>
+<p><strong>Reach.</strong> Muslima has the larger raw membership after many years of operation. If sheer numbers are your only metric, that is its edge.</p>
+<p><strong>Orientation.</strong> Muslima is a dating-site template branded for Muslims. Muslim Matching is built around the sunnah of marriage from the start.</p>
+<p><strong>First filter.</strong> Muslima leads with photos. Muslim Matching is face-free, leading with deen and character.</p>
+<p><strong>Wali.</strong> Optional and peripheral on Muslima. Expected and supported on Muslim Matching.</p>
+<p><strong>Communication.</strong> Open-ended on Muslima. Purposeful and bounded on Muslim Matching.</p>
+<p>Neither review here is about hype. If Muslima&#39;s scale suits you and you impose your own discipline, the wali, the limits, the intention, you can use it responsibly. But you are working against the grain of the platform. On a deen-first alternative, the platform works with you.</p>
+<h2>How to Choose Well, Whichever You Use</h2>
+<p>Whatever site you land on, the deen does not change to fit the tool. Keep three anchors fixed.</p>
+<p>Keep your intention clean. You are seeking nikah for the sake of Allah, not entertainment or attention. Purify that first, because the Prophet said actions are but by intentions, as reported in <a href="https://sunnah.com/bukhari:1">Sahih al-Bukhari 1</a>.</p>
+<p>Keep the wali in the loop from the beginning, sisters. Do not let a platform&#39;s design push you into acting alone. Bring your guardian in early and let him help vet and communicate.</p>
+<p>Keep the process moving toward a decision. Set a limit on how long you will exchange messages before involving families and meeting appropriately with a mahram present. Do not drift.</p>
+<p>Get these right and the choice of platform becomes secondary. Get them wrong and no platform, Muslima or otherwise, will save you from wasted years.</p>
+<h2>Frequently Asked Questions</h2>
+<h3>Is Muslima a halal way to find a spouse?</h3>
+<p>Muslima is a tool, and the ruling depends on how you use it. The platform itself normalises photo-led browsing and open-ended private chatting, both of which pull against the Shariah. If you use it, you must impose the limits yourself: involve the wali, avoid seclusion and flirtatious messaging, and move toward a proper meeting and nikah promptly. A platform that builds those limits in for you removes much of that risk.</p>
+<h3>How do I log in to Muslima?</h3>
+<p>Sign in with your registered email and password on the Muslima website. If you cannot get in, use the password reset link on the login page. Accounts are specific to that site and do not carry across other Cupid Media properties.</p>
+<h3>Does Muslima have an app?</h3>
+<p>Cupid Media has offered a mobile app for its sites, with browser access otherwise. Availability and features vary by region and device and change over time, so check your app store for the current listing. Convenience aside, app quality tells you nothing about whether a platform protects your deen, which is the more important question.</p>
+<h3>What is the best Muslima alternative?</h3>
+<p>The best alternative for a serious, practising Muslim is one built around marriage the way the sunnah describes it: face-free, wali-inclusive, and oriented toward a timely nikah rather than endless chatting. That is what <a href="/">Muslim Matching</a> is designed to be. Choose based on how a platform handles your deen, not just how many profiles it holds.</p>
+<h3>Do I really need a wali if I found someone myself online?</h3>
+<p>Yes. A woman&#39;s nikah requires her guardian regardless of how the introduction happened, based on the Prophet&#39;s statement that there is no marriage without a wali, an authentic narration in <a href="https://sunnah.com/abudawud:2085">Sunan Abi Dawud 2085</a>. Finding a prospect online does not remove that requirement; it simply means you bring your wali in to help from there.</p>
+<h3>Is it permitted to see someone before marriage?</h3>
+<p>Yes, once there is sincere intent to marry, looking at the prospective spouse is encouraged, as the Prophet advised in <a href="https://sunnah.com/ibnmajah:1865">Sunan Ibn Majah 1865</a>. The issue is never a single, purposeful look with intent. The issue is a public gallery browsed casually, and private seclusion, both of which the Shariah closes the door to.</p>
+
+    </div>
+    <aside class="mt-12 mx-auto" style="max-width:68ch">
+        <div class="bg-white rounded-3xl shadow-xl p-8 sm:p-10 text-center" style="border:1px solid #E5E5E5">
+          <div class="mono text-[11px] mb-2" style="color:#1E3FF5;letter-spacing:0.14em;text-transform:uppercase">Certainty first · Chemistry last</div>
+          <h3 class="display text-2xl sm:text-3xl leading-tight" style="color:#1A1A2E">Get to know someone the halal way.</h3>
+          <p class="text-[15px] sm:text-base leading-relaxed mt-3 mx-auto" style="color:#5A5A6E;max-width:52ch">No chat, no calls, no pictures. By the time your walī meets them, the only thing left to check is chemistry. Muslim Matching is free to use, and we are building it now.</p>
+          <a href="/" class="inline-block mt-6 text-white text-[15px] font-semibold px-7 py-3.5 rounded-2xl transition-transform hover:-translate-y-0.5" style="background:#1E3FF5">Find your Nasib&nbsp;&rarr;</a>
+        </div>
+      </aside>
+    <div class="mt-10 mx-auto text-center" style="max-width:68ch">
+      <a href="/blog/" class="mono text-[11px] hover:opacity-70" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">&larr; All articles</a>
+    </div>
+  </article>
+</main>
+
+<footer class="px-3 sm:px-4 md:px-6 pb-10 mt-16">
+  <div class="max-w-5xl mx-auto rounded-3xl px-6 sm:px-10 py-10" style="background:#F5F5F7">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+      <div class="max-w-xs">
+        <a href="/" class="flex items-center gap-2">
+          <img src="/assets/logo.png" alt="" style="height:28px;width:auto;display:block" />
+          <span class="display text-[15px]" style="color:#1A1A2E">Muslim Matching</span>
+        </a>
+        <p class="text-[14px] mt-4 leading-relaxed" style="color:#5A5A6E">Halal nikah for serious Muslims. Certainty first. Chemistry last.</p>
+      </div>
+      <div class="flex gap-12">
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">The app</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">How it works</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Pricing</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Find your Nasib</a>
+          </div>
+        </div>
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">Company</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Our story</a>
+            <a href="/blog/" class="hover:opacity-70" style="color:#1A1A2E">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-10 pt-6 mono text-[11px]" style="border-top:1px solid #E5E5E5;color:#5A5A6E;letter-spacing:0.06em">
+      <span>&copy; 2026 Muslim Matching</span><span>Building now</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
