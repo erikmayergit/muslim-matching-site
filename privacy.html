@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Muslim Matching Privacy Policy</title>
+<meta name="description" content="The Muslim Matching Privacy Policy: what we collect, why we use it, who can see it, how long we keep it, and your rights." />
+<link rel="canonical" href="https://muslim-matching.com/privacy" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8EQRTMVTN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P8EQRTMVTN');
+</script>
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="apple-touch-icon" href="/assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,400..900;1,400..900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{ --ink:#1A1A2E; --ink-muted:#5A5A6E; --divider:#E5E5E5; --field:#F5F5F7; }
+  *{font-family:'General Sans',system-ui,-apple-system,sans-serif;}
+  .display{font-family:'Mona Sans','General Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;}
+  .serif{font-family:'Amiri',Georgia,serif;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+  body{background:#fff;color:#1A1A2E;}
+  .fade-up{animation:fadeUp .5s cubic-bezier(0.23,1,0.32,1) both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  /* Headline: full padded width on mobile; tighten to an 18ch measure ≥640px. */
+  @media (min-width:640px){ .post-title{max-width:18ch;} }
+  .prose{max-width:68ch;}
+  .prose>*:first-child{margin-top:0;}
+  .prose p{margin-top:1.2em;font-size:1.075rem;line-height:1.78;color:#5A5A6E;}
+  .prose strong{color:#1A1A2E;font-weight:600;}
+  .prose em{font-style:italic;}
+  .prose h2{font-family:'Mona Sans','General Sans',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;margin-top:1.9em;color:#1A1A2E;}
+  .prose h3{font-family:'Amiri',Georgia,serif;font-weight:700;font-size:1.4rem;line-height:1.25;margin-top:1.5em;color:#1A1A2E;}
+  .prose ul,.prose ol{margin-top:1.2em;padding-left:1.35em;color:#5A5A6E;}
+  .prose li{margin-top:.5em;font-size:1.075rem;line-height:1.7;}
+  .prose li::marker{color:#1E3FF5;}
+  .prose a{color:#1E3FF5;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+  .prose a:hover{opacity:.8;}
+  /* Blockquote → Hadith-card feel: FIELD bg, 3px ROSE left border, Amiri. */
+  .prose blockquote{margin:1.7em 0;padding:1em 1.25em;background:#F5F5F7;border-left:3px solid #E84A78;border-radius:0 1rem 1rem 0;}
+  .prose blockquote p{font-family:'Amiri',Georgia,serif;font-size:1.35rem;line-height:1.5;color:#1A1A2E;margin-top:0;}
+  .prose blockquote p+p{margin-top:.5em;}
+  .prose code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.88em;background:#F5F5F7;padding:.12em .4em;border-radius:6px;color:#1A1A2E;}
+  .prose pre{background:#1A1A2E;color:#fff;padding:1.1em 1.3em;border-radius:1rem;overflow-x:auto;margin:1.5em 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.86rem;}
+  .prose pre code{background:none;padding:0;color:inherit;}
+  .prose hr{border:none;border-top:1px solid #E5E5E5;margin:2.4em 0;}
+  .prose img{border-radius:18px;margin:1.8em 0;}
+  /* Inline-rendered hadith block (when markdown carries arabic/translation/source). */
+  .hadith{background:#F5F5F7;border-left:3px solid #E84A78;border-radius:1rem;padding:1.25rem 1.4rem;margin:1.7em 0;}
+  .hadith .ar{font-family:'Amiri',Georgia,serif;direction:rtl;text-align:right;font-size:1.6rem;line-height:2.1;color:#1A1A2E;}
+  .hadith .tr{font-style:italic;font-size:1.05rem;margin-top:.75rem;color:#1A1A2E;}
+  .hadith .src{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.06em;margin-top:.55rem;color:#5A5A6E;}
+  @media (prefers-reduced-motion: reduce){ .fade-up{animation:none;} }
+
+  /* Legal and support pages: tables, the objection box, open markers. */
+  .legal{max-width:72ch;}
+  .legal h1,.legal h2,.legal h3{text-wrap:balance;}
+  .legal p,.legal li{text-wrap:pretty;overflow-wrap:break-word;}
+  .legal h2,.legal h3{scroll-margin-top:1.5rem;}
+  .legal a{overflow-wrap:anywhere;}
+  .legal ul{list-style:disc;}
+  .legal ol{list-style:decimal;}
+  .legal ul ul,.legal ol ul{list-style:circle;margin-top:.5em;}
+  .legal blockquote{border-left-color:#1E3FF5;}
+  .legal blockquote p{font-family:'General Sans',system-ui,-apple-system,sans-serif;font-size:1.075rem;line-height:1.7;color:#1A1A2E;}
+  .legal blockquote p+p{margin-top:.6em;}
+  .legal table{width:100%;border-collapse:collapse;margin-top:1.4em;font-size:.97rem;line-height:1.6;}
+  .legal th,.legal td{text-align:left;vertical-align:top;padding:.65em .75em;border-bottom:1px solid #E5E5E5;overflow-wrap:break-word;}
+  .legal th{background:#F5F5F7;color:#1A1A2E;font-weight:600;}
+  .legal td{color:#5A5A6E;}
+  .legal mark.open-marker{background:#FFF4CC;color:#1A1A2E;padding:.05em .3em;border-radius:4px;outline:1px dashed #C99A00;}
+  @media (max-width:639px){
+    .legal table,.legal thead,.legal tbody,.legal tr,.legal th,.legal td{display:block;width:100%;}
+    .legal thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+    .legal tr{border:1px solid #E5E5E5;border-radius:14px;padding:.35em .9em;margin-top:.9em;}
+    .legal td{border:none;padding:.4em 0;}
+    .legal td::before{content:attr(data-label);display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#1E3FF5;margin-bottom:.15em;}
+  }
+</style>
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Muslim Matching" />
+<meta property="og:title" content="Muslim Matching Privacy Policy" />
+<meta property="og:description" content="The Muslim Matching Privacy Policy: what we collect, why we use it, who can see it, how long we keep it, and your rights." />
+<meta property="og:url" content="https://muslim-matching.com/privacy" />
+<meta property="og:image" content="https://muslim-matching.com/assets/og.jpg" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Muslim Matching Privacy Policy" />
+<meta name="twitter:description" content="The Muslim Matching Privacy Policy: what we collect, why we use it, who can see it, how long we keep it, and your rights." />
+<meta name="twitter:image" content="https://muslim-matching.com/assets/og.jpg" />
+</head>
+<body>
+
+<header class="px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 md:pt-6">
+  <nav aria-label="Main" class="max-w-5xl mx-auto bg-white/65 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 flex items-center gap-2 sm:gap-6">
+    <a href="/" class="flex items-center gap-2 shrink-0 min-w-0">
+      <img src="/assets/logo.png" alt="Muslim Matching" style="height:28px;width:auto;display:block" />
+      <span class="display text-[15px] whitespace-nowrap hidden sm:inline" style="color:#1A1A2E">Muslim Matching</span>
+    </a>
+    <div class="hidden md:flex items-center gap-5">
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">How it works</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">The revolution</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Pricing</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Our story</a>
+        <a href="/blog/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Blog</a>
+    </div>
+    <a href="/" class="ml-auto shrink-0 text-white text-[13px] sm:text-sm font-medium px-3.5 sm:px-5 py-2 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap" style="background:#1A1A2E">Find your Nasib</a>
+  </nav>
+</header>
+
+<main class="px-4 sm:px-6">
+  <article class="max-w-5xl mx-auto pt-10 sm:pt-14 fade-up">
+    <header class="text-center mx-auto" style="max-width:760px">
+      <nav class="flex items-center justify-center gap-2 text-[13px] mb-5" style="color:#5A5A6E" aria-label="Breadcrumb">
+        <a href="/" class="hover:opacity-70" style="color:#5A5A6E">Home</a><span>/</span>
+        <span style="color:#1A1A2E" aria-current="page">Privacy Policy</span>
+      </nav>
+      <h1 class="post-title display mx-auto text-2xl sm:text-5xl leading-[1.12] break-words" style="color:#1A1A2E">Muslim Matching Privacy Policy</h1>
+    </header>
+    <div class="prose legal mx-auto mt-10 sm:mt-12">
+<p><strong>Last updated:</strong> 1 November 2026</p>
+<h2 id="s-summary">Summary</h2>
+<ul>
+<li>Muslim Matching is an app for Muslims who are looking for marriage. Boring Businesses, LLC runs it.</li>
+<li>We collect what you tell us, so that we can build your profile and run requests, matches and vetting. This includes your faith, your background and anything you choose to tell us about your health. We use these sensitive details only with your explicit consent. You can withdraw it at any time.</li>
+<li>Other members see your card. It has no photos. Only a match sees your fuller profile. Your walī&#39;s phone number goes only to the brother, at the end of a completed vetting.</li>
+<li>There are no ads, no tracking and no analytics. We do not sell or share your personal information.</li>
+<li>A few companies help us run the app: Supabase (our database, in Ireland), Resend (sign-in emails, and report alerts to our team), RevenueCat (subscriptions), Expo (app updates) and Anthropic (an AI check of your texts before they are saved). Apple and Google handle sign-in and payments.</li>
+<li>You can delete your account at any time in the app: You → Settings → Manage account → Delete account.</li>
+<li>To get a copy of your data, or for any other privacy request, email us (section 20).</li>
+<li>Muslim Matching is only for adults. You must be 18 or older.</li>
+</ul>
+<h2 id="s-1-who-we-are">1. Who we are</h2>
+<p>Muslim Matching is run by <strong>Boring Businesses, LLC</strong>, a limited liability company registered in Delaware, USA. In the App Store, the app&#39;s seller appears as &quot;Boring Businesses LLC&quot;. In this policy, &quot;we&quot;, &quot;us&quot; and &quot;our&quot; mean this company. &quot;You&quot; means a person who uses the app. We also call users &quot;members&quot;.</p>
+<p>We decide how and why your information is used. In data protection law, this makes us the &quot;controller&quot;.</p>
+<ul>
+<li><strong>Postal address:</strong> 131 Continental Dr, Suite 305, Newark, DE 19713, USA. This is the address of our registered agent, who forwards our mail to us.</li>
+<li><strong>Register:</strong> Delaware Division of Corporations, file number 3423805.</li>
+<li><strong>Privacy requests and support:</strong> <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a>, or in the app: You → Help &amp; support.</li>
+<li><strong>Data protection officer:</strong> We have not appointed a data protection officer.</li>
+</ul>
+<h3 id="s-1-1-eu-representative">1.1 EU representative</h3>
+<p>The GDPR applies to us because we offer Muslim Matching to people in the EU (GDPR Art. 3(2)). Our representative in the EU (GDPR Art. 27) is:</p>
+<ul>
+<li><strong>Name:</strong> <mark class="open-marker">[EU REPRESENTATIVE: FULL NAME]</mark></li>
+<li><strong>Postal address:</strong> <mark class="open-marker">[EU REPRESENTATIVE: POSTAL ADDRESS IN THE EU]</mark></li>
+<li><strong>Email:</strong> <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a></li>
+</ul>
+<p>You and data protection authorities can contact our representative about any question on how we use personal information. The same person is also our legal representative in the EU under the Digital Services Act (Art. 13).</p>
+<h2 id="s-2-what-this-policy-covers">2. What this policy covers</h2>
+<p>This policy covers the Muslim Matching app for iPhone, the Android app when it launches, and the support we give by email. It covers only the app, not our website.</p>
+<p>Muslim Matching is available worldwide, so we wrote this policy for users in every country. It follows the strictest rules that apply to us: the EU General Data Protection Regulation (GDPR), the UK GDPR and US state privacy laws. We give every user the same rights, wherever they live.</p>
+<h2 id="s-3-what-we-collect-and-where-it-comes-from">3. What we collect, and where it comes from</h2>
+<p>You type or choose most of what we hold. Before you sign in, your answers stay on your phone. When you sign in, the app sends them to our database. After that, the app saves each change you make.</p>
+<h3 id="s-3-1-account-and-sign-in">3.1 Account and sign-in</h3>
+<table role="table">
+<thead role="rowgroup">
+<tr role="row">
+<th role="columnheader">Information</th>
+<th role="columnheader">Where it comes from</th>
+</tr>
+</thead>
+<tbody role="rowgroup"><tr role="row">
+<td role="cell" data-label="Information">Your email address. With Sign in with Apple, this can be a private relay address from Apple.</td>
+<td role="cell" data-label="Where it comes from">You type it, or Apple or Google gives it to us when you sign in with them.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Sign-in codes (6 digits). Each code expires after 1 hour.</td>
+<td role="cell" data-label="Where it comes from">We email the code to you when you sign in with your email address.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Your account ID: a random number that identifies your account. Other members&#39; apps receive it with your card.</td>
+<td role="cell" data-label="Where it comes from">We create it when you first sign in.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Your Apple or Google account ID.</td>
+<td role="cell" data-label="Where it comes from">Apple or Google, when you sign in with them.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Your name from Apple or Google. Apple can share your name the first time you sign in; the app puts your first name in the name field, and you can change it. Google shares your name and a link to your profile picture (section 17).</td>
+<td role="cell" data-label="Where it comes from">Apple or Google.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Sign-in and security records: your IP address, your device and browser type, and when you signed in.</td>
+<td role="cell" data-label="Where it comes from">Our database provider creates them automatically when you use the app.</td>
+</tr>
+</tbody></table>
+<h3 id="s-3-2-your-card-other-members-can-see-it">3.2 Your card (other members can see it)</h3>
+<p>Your card is your profile in Browse. It has no photos. It shows an avatar that you build.</p>
+<table role="table">
+<thead role="rowgroup">
+<tr role="row">
+<th role="columnheader">Information</th>
+<th role="columnheader">Details</th>
+</tr>
+</thead>
+<tbody role="rowgroup"><tr role="row">
+<td role="cell" data-label="Information">First name</td>
+<td role="cell" data-label="Details">Up to 40 characters.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Age</td>
+<td role="cell" data-label="Details">We work it out from your date of birth. Other members see only your age, never the date.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Gender</td>
+<td role="cell" data-label="Details">Brother or sister. It is not printed on the card, but it decides who sees you: brothers see sisters, and sisters see brothers.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Country where you live</td>
+<td role="cell" data-label="Details">The app suggests a country from your phone&#39;s region setting. It does not use GPS or your IP address.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Background (ethnicity)</td>
+<td role="cell" data-label="Details">For example &quot;South Asian&quot; or &quot;Pakistan&quot;.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Height and weight</td>
+<td role="cell" data-label="Details">For example 178 cm, 74 kg.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Avatar look</td>
+<td role="cell" data-label="Details">Skin tone and hair colour.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Religious dress and grooming</td>
+<td role="cell" data-label="Details">Hijab, niqab or burqa, hijab style and makeup outside (sisters); beard (brothers); dressing style.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">How you follow Islam</td>
+<td role="cell" data-label="Details">Quran, Prophet ﷺ, Salaf.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Sect</td>
+<td role="cell" data-label="Details">Sunni, Shia, Sufi, Ahmadiyya or Just Muslim. If you choose &quot;Prefer not to say&quot;, the card shows nothing.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Revert or born Muslim</td>
+<td role="cell" data-label="Details">For example &quot;I reverted&quot;.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Marital status and children</td>
+<td role="cell" data-label="Details">Never married, divorced, widowed or annulled; married (brothers only); whether you have children.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Languages</td>
+<td role="cell" data-label="Details">For example &quot;Arabic&quot; or &quot;Urdu&quot;.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Bio, profession and education</td>
+<td role="cell" data-label="Details">Short texts that you write: up to 140, 40 and 40 characters.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Premium badge (&quot;VIP&quot;)</td>
+<td role="cell" data-label="Details">Shows other members that you have Premium.</td>
+</tr>
+</tbody></table>
+<h3 id="s-3-3-your-private-answers-only-you-and-our-team">3.3 Your private answers (only you and our team)</h3>
+<ul>
+<li>Your date of birth.</li>
+<li>How long you have wanted to get married.</li>
+<li>Your answers to the reflection questions at sign-up (for example, &quot;Why aren&#39;t you married yet?&quot;), and how committed you are.</li>
+<li>Your settings: who can see your card, and whether you are taking a break.</li>
+<li>Sisters only: your walī&#39;s name, phone number and relationship to you (section 8).</li>
+</ul>
+<h3 id="s-3-4-your-fuller-profile-only-your-matches-see-it">3.4 Your fuller profile (only your matches see it)</h3>
+<p>These answers add depth to your profile. Only the other person in an active or completed match can see them. They never show in Browse.</p>
+<ul>
+<li>Your salah (how often you pray).</li>
+<li>Your education, work pattern, field of work and income band.</li>
+<li>Your madhab, mindset, religious practices, the scholars you listen to, and how long you have been practising.</li>
+<li>&quot;Anything someone should know before they swipe?&quot; (free text, up to 500 characters).</li>
+<li>Your marriage plans, what you are open to (for example, polygyny), the hadiths you choose, who you are looking for, your hard nos and your mahr range.</li>
+<li>Your personality, your hobbies and &quot;About&quot; (free text, up to 2,000 characters).</li>
+</ul>
+<h3 id="s-3-5-requests-matches-and-vetting">3.5 Requests, matches and vetting</h3>
+<ul>
+<li><strong>Match requests:</strong> who you sent a request to, who sent you one, and when. For a rematch request, the reason you write (up to 300 characters).</li>
+<li><strong>Match records:</strong> who the match is between, its stage and deadlines, when it ended, who ended it and why. If you write a reason when you end a match, we store it (up to 280 characters).</li>
+<li><strong>Profile Feedback:</strong> the reflection you write on the other person&#39;s full profile.</li>
+<li><strong>Vetting answers</strong> in five phases: Deal Breakers (which includes things about you), Worldview, Marriage Views, Lifestyle and Next Steps. You choose topics and write your stance on each one, for example on the topic &quot;Health&quot; or &quot;Debt&quot;. Each stance can be up to 800 characters.</li>
+<li><strong>Your reactions:</strong> which of the other person&#39;s answers you opened, and how you rated each one (concern, neutral or resonates). Only you see these.</li>
+<li><strong>Your decisions:</strong> your choice at each step to move forward, and to involve the walī.</li>
+<li><strong>Concerns and clarifications:</strong> up to 280 characters each.</li>
+<li><strong>Drafts:</strong> the app saves your unsent answers while you write. Only you see them.</li>
+<li><strong>An activity log</strong> of actions in a match, such as &quot;answer opened&quot; or &quot;draft saved&quot;, with the time. Only our team can see it.</li>
+</ul>
+<h3 id="s-3-6-browse">3.6 Browse</h3>
+<ul>
+<li><strong>Filters and sort order</strong> that you save (for example, age 22–30, sect, background and countries).</li>
+<li><strong>Passes:</strong> when you swipe left, we hide that profile from you for 30 days.</li>
+<li><strong>When you were last active:</strong> nobody sees it, but it orders the &quot;Recently active&quot; sort.</li>
+</ul>
+<h3 id="s-3-7-premium-and-payments">3.7 Premium and payments</h3>
+<ul>
+<li><strong>Subscription status:</strong> your plan, the store, when it ends and whether it renews.</li>
+<li><strong>Purchase records</strong> that RevenueCat sends us from Apple or Google, such as the product, price, currency, store country and transaction numbers.</li>
+<li><strong>The sisters&#39; oath:</strong> if you use &quot;I can&#39;t afford Premium&quot;, we store which version of the oath text you affirmed, and when.</li>
+<li><strong>We never see your card or bank details.</strong> You pay Apple or Google directly.</li>
+</ul>
+<h3 id="s-3-8-safety">3.8 Safety</h3>
+<ul>
+<li><strong>Reports you send:</strong> the reason you choose, any details you write (up to 1,000 characters), where in the app you were, and the match, if there is one. We keep reports about you in the same way.</li>
+<li><strong>Blocks:</strong> who blocked whom, and when.</li>
+<li><strong>Filter blocks:</strong> when our filter stops a text, we do not save the text. If the AI check stopped it (section 13), Anthropic keeps its copy for the time in section 10: up to 30 days, or up to 2 years if Anthropic&#39;s safety systems flag it. We may keep a short record: where it happened, the type of rule (or that the AI model declined to judge the text, or gave no clear answer), and a coded fingerprint (a &quot;hash&quot;) of the text, not the text itself.</li>
+<li><strong>Filter use count:</strong> to stop misuse, we count how often your app uses the filter. We keep one record: the start of the current 10-minute window and the number of checks in it. Above 60 checks in 10 minutes, saving pauses until the window ends.</li>
+<li><strong>Suspensions:</strong> if our team suspends an account, we record when and why.</li>
+</ul>
+<h3 id="s-3-9-support">3.9 Support</h3>
+<ul>
+<li><strong>Help &amp; support tickets:</strong> the topic (technical issue, billing issue or question) and your message (up to 2,000 characters).</li>
+<li><strong>Attachments:</strong> an image (PNG or JPEG) or a PDF of up to 5 MB, if you add one. Only our team can open it.</li>
+<li><strong>Emails</strong> that you send us, and our replies.</li>
+</ul>
+<h3 id="s-3-10-what-the-app-sends-automatically">3.10 What the app sends automatically</h3>
+<ul>
+<li><strong>App updates (Expo):</strong> when the app checks for an update, it sends Expo a random installation ID, your phone&#39;s platform, version details of the app and your IP address. After a crash, it also sends the last error message (up to 1,024 characters). The installation ID stays the same each time you open the app, and your phone&#39;s backups include it.</li>
+<li><strong>Subscriptions (RevenueCat):</strong> after you sign in, the app sends RevenueCat your account ID. RevenueCat&#39;s software can also receive basic technical details, such as your phone&#39;s platform, the app version and your IP address.</li>
+<li><strong>Server logs (Supabase):</strong> our database provider logs each request with details such as the IP address, the device and browser type, and the time.</li>
+<li><strong>Sign-in (Apple and Google):</strong> when you sign in with Apple or Google, the app exchanges sign-in details with them.</li>
+</ul>
+<h3 id="s-3-11-what-stays-on-your-phone">3.11 What stays on your phone</h3>
+<p>We do not collect the following. It stays on your phone.</p>
+<ul>
+<li><strong>App lock:</strong> if you turn on Passcode (You → Settings → Passcode), your phone checks your Face ID, Touch ID or passcode. The app only learns whether the check passed. Nothing goes to us.</li>
+<li><strong>Your phone&#39;s region:</strong> the app uses it only to suggest your country. Only the country you choose leaves your phone.</li>
+<li><strong>Your answers before you sign in.</strong></li>
+<li><strong>Your sign-in session</strong>, until you sign out.</li>
+<li><strong>A hint that shows how you last signed in</strong> (&quot;you last logged in with …&quot;), with your email address partly hidden. It stays after you sign out and after you delete your account, until you delete the app.</li>
+</ul>
+<h3 id="s-3-12-what-we-do-not-collect">3.12 What we do not collect</h3>
+<ul>
+<li>We do not ask for photos of you. The only images we receive are files that you attach to a support ticket. With Google sign-in, we keep a link to your Google profile picture (section 17).</li>
+<li>No chat messages, calls or voice. The app has no chat.</li>
+<li>No GPS or precise location.</li>
+<li>No contacts from your address book.</li>
+<li>No advertising ID.</li>
+<li>No face or fingerprint data. Face ID and Touch ID stay on your phone.</li>
+<li>No payment card details.</li>
+</ul>
+<p>The app does not use sign-in by text message (SMS), push notifications, web checkout or analytics today. We will update this policy before we switch any of these on.</p>
+<h2 id="s-4-sensitive-information-and-your-explicit-consent">4. Sensitive information and your explicit consent</h2>
+<p>Some of what you share is &quot;special category data&quot; under the GDPR, and &quot;sensitive personal information&quot; under US state laws. We take extra care with it.</p>
+<p><strong>What it is:</strong></p>
+<ul>
+<li><strong>Religious beliefs and practice:</strong> how you follow Islam, your sect, whether you reverted, your religious dress and grooming, your salah, madhab, practices and the scholars you listen to, your hadiths, and the oath, if you take it.</li>
+<li><strong>Ethnic origin:</strong> your background. Your avatar&#39;s skin tone can also show it.</li>
+<li><strong>Health:</strong> anything you choose to write about your health, for example under the vetting topic &quot;Health&quot;, or in &quot;Anything someone should know before they swipe?&quot;.</li>
+<li><strong>Opinions and beliefs</strong> in your vetting answers, for example on worldview topics such as &quot;LGBTQ+ in society&quot; or &quot;Feminism framing&quot;.</li>
+<li><strong>Possibly your sex life or your past:</strong> some marriage preferences (for example, &quot;Marrying a virgin&quot; or &quot;Open to polygyny&quot;), and anything you choose to write about past relationships or convictions.</li>
+</ul>
+<p>Muslim Matching is an app for Muslims. So the fact that you have an account can itself suggest your religion. We protect all of your account data with this in mind.</p>
+<p><strong>Our legal reason is your explicit consent</strong> (GDPR Art. 6(1)(a) and Art. 9(2)(a)). You give it when you choose to add these details to your profile, or to write them in your answers. We use them for two purposes: to show your profile and find matches, and to keep texts safe with our filter, including the AI check (section 13). The sign-in screen tells you this before you continue: &quot;By continuing you accept our Terms of Use &amp; EULA. We use your details, like your faith, to find matches, and an AI service checks texts for safety. See our Privacy Policy.&quot;</p>
+<p>You choose what you share. Some answers are optional. For your sect, you can choose &quot;Prefer not to say&quot;.</p>
+<p><strong>Who sees it:</strong> section 7 explains this. In short, other members who can see your card see the card details, and only your matches see your deeper answers. Our service providers also handle these details for us (section 7.3), for example the Anthropic AI check (section 13).</p>
+<p><strong>How to withdraw your consent:</strong> you can withdraw it at any time.</p>
+<ul>
+<li>Remove or change the details in You → Edit profile. For your sect, you can choose &quot;Prefer not to say&quot;.</li>
+<li>Or delete your account: You → Settings → Manage account → Delete account.</li>
+<li>You can also email <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a>.</li>
+</ul>
+<p>Some answers are needed for your card, for example how you follow Islam. Muslim Matching cannot build your card or match you without them. To withdraw your consent for those, delete your account, and we delete the answers. Withdrawing does not make our earlier use of them unlawful.</p>
+<p><strong>Please think before you write.</strong> Your match can read what you share, and could copy it. Share health or other sensitive details only if you want your match to know them.</p>
+<h2 id="s-5-why-we-use-your-information-and-our-legal-reasons">5. Why we use your information, and our legal reasons</h2>
+<table role="table">
+<thead role="rowgroup">
+<tr role="row">
+<th role="columnheader">What we do</th>
+<th role="columnheader">Information we use</th>
+<th role="columnheader">Our legal reason under the GDPR</th>
+</tr>
+</thead>
+<tbody role="rowgroup"><tr role="row">
+<td role="cell" data-label="What we do">Create your account, sign you in and keep your account secure</td>
+<td role="cell" data-label="Information we use">Account and sign-in information</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Contract</strong>: we need it to give you the service you signed up for (Art. 6(1)(b)). Security records: <strong>legitimate interests</strong> (Art. 6(1)(f)).</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Show your card in Browse and handle match requests</td>
+<td role="cell" data-label="Information we use">Your card, settings, filters and requests</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Contract</strong>. Sensitive details: your <strong>explicit consent</strong> (Art. 6(1)(a) and Art. 9(2)(a)).</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Run matches and vetting, including deadlines and the walī handoff</td>
+<td role="cell" data-label="Information we use">Your fuller profile, match and vetting information, and walī details</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Contract</strong>. Sensitive details: your <strong>explicit consent</strong>. The walī&#39;s details: <strong>legitimate interests</strong> (section 8).</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Provide Premium and the sisters&#39; oath</td>
+<td role="cell" data-label="Information we use">Subscription status, purchase records and the oath</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Contract</strong>. Sensitive details (the oath is a religious affirmation): your <strong>explicit consent</strong>.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Keep members safe: the text filter, reports, blocks, suspensions, and keeping under-18s out</td>
+<td role="cell" data-label="Information we use">Safety information, and the content and profiles involved</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Legitimate interests</strong>. Sensitive details in this content: your <strong>explicit consent</strong>, or where needed, <strong>legal claims</strong> (Art. 9(2)(f)).</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Answer your support requests</td>
+<td role="cell" data-label="Information we use">Tickets, attachments and emails</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Contract</strong> and <strong>legitimate interests</strong>. Sensitive details: your <strong>explicit consent</strong>.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Deliver app updates and fix crashes</td>
+<td role="cell" data-label="Information we use">Installation ID, device and app details, IP address and error messages</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Legitimate interests</strong>.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Protect the service from misuse and attacks</td>
+<td role="cell" data-label="Information we use">Sign-in records and server logs</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Legitimate interests</strong>.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Keep records that the law requires, and answer lawful requests from authorities</td>
+<td role="cell" data-label="Information we use">Only what the law requires</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Legal obligation</strong> (Art. 6(1)(c)).</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="What we do">Keep records of ended matches and of reports, to handle complaints, disputes and legal claims</td>
+<td role="cell" data-label="Information we use">Match records and reports</td>
+<td role="cell" data-label="Our legal reason under the GDPR"><strong>Legitimate interests</strong>.</td>
+</tr>
+</tbody></table>
+<p><strong>Our legitimate interests are:</strong></p>
+<ul>
+<li>keeping members safe, and keeping the service free from abuse;</li>
+<li>protecting accounts and our systems;</li>
+<li>keeping the app working, and fixing problems;</li>
+<li>letting a sister involve her walī, as the service promises;</li>
+<li>handling complaints, disputes and legal claims.</li>
+</ul>
+<p>We use this legal reason only when your rights do not outweigh these interests. You can object to it (section 12).</p>
+<p><strong>What we do not do:</strong> we do not use your information for advertising. We do not sell it. We do not use it to train AI models. We do not send marketing emails or newsletters. If we ever want to, we will ask for your consent first and update this policy. We use your email address only to sign you in, to reply to you, and to tell you about important changes, such as changes to this policy.</p>
+<h2 id="s-6-what-you-must-give-us-and-what-is-optional">6. What you must give us, and what is optional</h2>
+<ul>
+<li><strong>Needed for an account:</strong> a way to sign in (email, Apple or Google), your first name, gender, date of birth and country, and the main sign-up answers, including your faith answers. Without them, we cannot create your card or match you.</li>
+<li><strong>Needed at some steps:</strong> the app tells you when a step needs an answer. For example, a sister must add her walī&#39;s name and phone number before her final decision to move forward.</li>
+<li><strong>Optional:</strong> your bio, profession and education; your fuller profile (you can skip it); details in a report, except when you choose &quot;Something else&quot;; and attachments to support tickets.</li>
+<li>No law requires you to give us information. If you choose not to give something that a feature needs, you cannot use that feature.</li>
+</ul>
+<h2 id="s-7-who-can-see-your-information">7. Who can see your information</h2>
+<h3 id="s-7-1-other-members">7.1 Other members</h3>
+<ul>
+<li><strong>Your card:</strong> signed-in members of the opposite gender can see it in Browse, if all of these are true:<ul>
+<li>&quot;Who can see my profile&quot; is set to &quot;Everyone&quot; (the default). If you choose &quot;Only people I request&quot;, your card shows only to people you have sent a request to, while the request is waiting;</li>
+<li>you are not taking a break;</li>
+<li>neither of you has blocked the other;</li>
+<li>your account is not suspended.</li>
+</ul>
+</li>
+<li><strong>When you send a request:</strong> if the other person does not have Premium, they first see only your first name, age and country.</li>
+<li><strong>Your fuller profile:</strong> only the other person in an active or completed match.</li>
+<li><strong>In a match:</strong> the other person reads your Profile Feedback (after you have both written it), your vetting answers (after you have both sent your answers for that phase), and any concern or clarification that you write. If you send a rematch request, the other person reads your reason if they have Premium.</li>
+<li><strong>After a match ends:</strong> the other person keeps a small card of you in their Unmatches list (first name, age, country, avatar and Premium badge), and can still open your card. This continues even if you take a break or change who can see your card. It stops when either of you blocks the other or deletes their account, or when either account is suspended.</li>
+<li><strong>After a completed vetting:</strong> you and your match both keep each other&#39;s fuller profile, until one of you blocks the other or deletes their account, or either account is suspended.</li>
+<li><strong>Your end-of-match reason:</strong> if you end a match during vetting, the other person sees the reason you write. If you end it at the Profile stage, the reason is optional, and the other person sees only a standard message, but we still store your reason.</li>
+<li><strong>Your first name outside the app:</strong> a member can use the share button in Browse to send your first name and the words &quot;on Muslim Matching&quot; to someone else.</li>
+<li><strong>Copies:</strong> a member can take screenshots of what they see, or copy it. The app cannot stop this.</li>
+<li><strong>Your saved filters:</strong> they decide where you appear when other members sort Browse by &quot;I&#39;m in all their filters&quot;. So a member could guess some of your filters by changing their own answers.</li>
+</ul>
+<h3 id="s-7-2-our-team">7.2 Our team</h3>
+<p>Today, only our founder reads the information we hold, and only when he needs to: to run the service, answer support requests, review reports and keep members safe. When he travels, a backup person reviews new reports, so that we can still act on them within 24 hours.</p>
+<p>Our team does not use AI tools to read members&#39; personal information. Separately, an AI model from Anthropic checks members&#39; texts before they are saved (sections 7.3 and 13).</p>
+<h3 id="s-7-3-our-service-providers">7.3 Our service providers</h3>
+<p>These companies process information for us, only on our instructions. Each one must protect your information at least as well as this policy says we do.</p>
+<table role="table">
+<thead role="rowgroup">
+<tr role="row">
+<th role="columnheader">Company</th>
+<th role="columnheader">What it does for us</th>
+<th role="columnheader">Information it handles</th>
+<th role="columnheader">Where</th>
+</tr>
+</thead>
+<tbody role="rowgroup"><tr role="row">
+<td role="cell" data-label="Company">Supabase, Inc.</td>
+<td role="cell" data-label="What it does for us">Runs our database, sign-in system, file storage and server code</td>
+<td role="cell" data-label="Information it handles">Everything in section 3 that reaches our servers</td>
+<td role="cell" data-label="Where">Data stored in Ireland (EU), on Amazon Web Services. Supabase also runs our text check (section 13) in Ireland. Supabase is a US company; its support staff can access data from other countries.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Company">Resend (Plus Five Five, Inc.)</td>
+<td role="cell" data-label="What it does for us">Sends the emails with your sign-in codes. Also sends our team an alert email for each new report, so that we can act on it within 24 hours.</td>
+<td role="cell" data-label="Information it handles">Your email address, the email with the code, and delivery details. A report alert holds only the report&#39;s number, its category, the screen, the times, whether details were written, and how many reports are open against the reported member. It holds no member ID, name, email address or report text.</td>
+<td role="cell" data-label="Where">Sends the emails from the EU (Ireland). Stores email logs in the United States.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Company">RevenueCat, Inc.</td>
+<td role="cell" data-label="What it does for us">Manages subscriptions</td>
+<td role="cell" data-label="Information it handles">Your account ID, purchase records, and basic device and network details</td>
+<td role="cell" data-label="Where">United States</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Company">Expo (650 Industries, Inc.)</td>
+<td role="cell" data-label="What it does for us">Delivers app updates</td>
+<td role="cell" data-label="Information it handles">Installation ID, device and app details, IP address and crash error messages</td>
+<td role="cell" data-label="Where">United States</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Company">Anthropic, PBC</td>
+<td role="cell" data-label="What it does for us">Checks the texts in section 13 before they are saved, for contact details, plans to meet, and flirting, sexual or abusive language. Anthropic may not use the texts to train its AI models.</td>
+<td role="cell" data-label="Information it handles">Only the text being saved: what you write, and the answers and chips that you choose. This can include sensitive details, such as your faith, your background or your health. We send it from our server, without your name, your account ID, your IP address or the field that the text comes from.</td>
+<td role="cell" data-label="Where">Stores data in the United States. The check runs in the United States. Anthropic staff in other countries can access data for safety reviews, support and incidents.</td>
+</tr>
+</tbody></table>
+<p>When you email us, our business email provider, Namecheap, stores your emails and our replies for us, only on our instructions.</p>
+<h3 id="s-7-4-apple-and-google">7.4 Apple and Google</h3>
+<p>Apple and Google are independent companies. They handle these things for you under their own privacy policies:</p>
+<ul>
+<li><strong>Apple:</strong> Sign in with Apple, App Store purchases and subscriptions, and the prompt that asks you to rate the app. See <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer">Apple&#39;s privacy policy</a>.</li>
+<li><strong>Google:</strong> Google sign-in, and Google Play purchases when the Android app launches. See <a href="https://policies.google.com/privacy" rel="noopener noreferrer">Google&#39;s privacy policy</a>.</li>
+</ul>
+<h3 id="s-7-5-legal-reasons-and-safety">7.5 Legal reasons and safety</h3>
+<p>We may share information when the law requires it, for example to obey a valid court order. We may also share it to protect someone from serious harm, or to defend legal claims. If another company takes over Muslim Matching, your information would pass to that company, and it would have to respect this policy. We would tell you first.</p>
+<h3 id="s-7-6-no-selling-and-no-sharing-for-ads">7.6 No selling, and no sharing for ads</h3>
+<p>We do not sell your personal information. We do not share it for advertising. We do not give it to data brokers.</p>
+<h2 id="s-8-your-walis-information">8. Your walī&#39;s information</h2>
+<p>This section is for sisters and for their walīs. A walī is a sister&#39;s guardian, for example her father or her brother. A walī does not use the app himself.</p>
+<ul>
+<li><strong>Who is responsible:</strong> Boring Businesses, LLC (section 1).</li>
+<li><strong>What we hold:</strong> the walī&#39;s name, phone number and relationship to the sister (Father, Brother, Uncle, Grandfather, Son, Imam or Other).</li>
+<li><strong>Where it comes from:</strong> the sister enters it in You → Settings → Walī. She must add it before her final decision to move forward in a vetting. We do not get it from anywhere else.</li>
+<li><strong>Why we hold it:</strong> in Muslim Matching, the walī comes in at the end. When a sister and a brother both finish all five vetting phases, and both choose to move forward to the walī, the brother receives the walī&#39;s details. He can then contact her family in the proper way.</li>
+<li><strong>Who sees it, and when:</strong><ul>
+<li>Nobody sees it while the sister builds her profile or goes through vetting. It is never on her card.</li>
+<li>Only the brother of a completed match receives it, and only at the end, after both have chosen to involve the walī.</li>
+<li>He keeps access only while neither of them has blocked the other, and neither account is suspended.</li>
+<li>The sister sees that her walī&#39;s details were shared.</li>
+<li>Our team can see it when needed (section 7.2).</li>
+</ul>
+</li>
+<li><strong>Our legal reason:</strong> legitimate interests: the sister&#39;s interest, and ours, in letting her involve her walī, as the service promises (GDPR Art. 6(1)(f)). For the sister, it is also part of our contract with her (Art. 6(1)(b)).</li>
+<li><strong>Where it is stored:</strong> in our database in Ireland (sections 7.3 and 9).</li>
+<li><strong>Automatic decisions:</strong> we make none about walīs.</li>
+<li><strong>How long we keep it:</strong> the sister&#39;s copy stays until she changes it or deletes her account. The copy given to a brother also stays until she deletes her account. If the brother saved the number outside the app, we cannot delete that copy.</li>
+<li><strong>Sisters:</strong> when you add your walī, you confirm with a tick box that he agreed to share his contact details. Please also show him this section.</li>
+<li><strong>Walīs:</strong> we do not contact walīs ourselves; we ask sisters to tell their walī about this section. You have the same rights as members (section 12). You can ask for a copy of your details, ask us to correct or delete them, object to our use of them, or complain to a data protection authority. Email <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a>. If we delete your details, the sister must add a walī again before she can finish a vetting.</li>
+</ul>
+<h2 id="s-9-sending-information-to-other-countries">9. Sending information to other countries</h2>
+<ul>
+<li>Our database is in Ireland, in the EU. Supabase also runs our text check (section 13) there, before the text goes to Anthropic.</li>
+<li>We are a company registered in the United States.</li>
+<li>RevenueCat, Expo and Resend process data in the United States. Supabase is a US company, and its staff can access data from outside the EU. Anthropic checks texts and stores data in the United States, and its staff can access data from other countries. Our business email provider, Namecheap, can also store emails outside the EU. Apple and Google work worldwide.</li>
+<li>So people in the United States and other countries can access your information. Privacy laws there may protect it less than the laws where you live.</li>
+<li>When information leaves the EU, the UK or Switzerland, we use one of these safeguards:<ul>
+<li>the European Commission&#39;s Standard Contractual Clauses (with the UK Addendum for UK data); or</li>
+<li>the EU-US Data Privacy Framework, with its UK and Swiss extensions, when the company receiving the data is certified under it.</li>
+</ul>
+</li>
+<li>For Anthropic, we use the Standard Contractual Clauses in Anthropic&#39;s data processing terms, with their UK and Swiss addenda.</li>
+<li>You can ask us for a copy of these safeguards. Email <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a>.</li>
+</ul>
+<h2 id="s-10-how-long-we-keep-information">10. How long we keep information</h2>
+<table role="table">
+<thead role="rowgroup">
+<tr role="row">
+<th role="columnheader">Information</th>
+<th role="columnheader">How long we keep it</th>
+</tr>
+</thead>
+<tbody role="rowgroup"><tr role="row">
+<td role="cell" data-label="Information">Your account, card, private answers, fuller profile, settings and saved filters</td>
+<td role="cell" data-label="How long we keep it">Until you delete your account.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Sign-in codes</td>
+<td role="cell" data-label="How long we keep it">1 hour.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Your Premium status and your oath</td>
+<td role="cell" data-label="How long we keep it">Until you delete your account.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Your walī&#39;s details</td>
+<td role="cell" data-label="How long we keep it">See section 8.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">The content of a match that ended: vetting answers, Profile Feedback, concerns, clarifications, drafts and reactions</td>
+<td role="cell" data-label="How long we keep it">We delete it 90 days after the match ended. If a report about that match is still open, we keep it until we have dealt with the report.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">The content of a completed match</td>
+<td role="cell" data-label="How long we keep it">Your own answers stay until you delete your account. A clarification that you wrote in reply to the other person&#39;s concern stays until they delete their account.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Match requests</td>
+<td role="cell" data-label="How long we keep it">A request that nobody answers expires after 30 days. The record of the request stays (see the next two rows).</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Requests that you sent (including rematch reasons), and your decisions in a match</td>
+<td role="cell" data-label="How long we keep it">Until you delete your account.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Match records (who, when, stage, how and why it ended), the activity log, and requests that you received</td>
+<td role="cell" data-label="How long we keep it">We keep them, so that both people keep a correct history and so that we can handle complaints. When you delete your account, we remove your account ID from them.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Passes</td>
+<td role="cell" data-label="How long we keep it">Until you or the other person deletes their account.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Filter-block records</td>
+<td role="cell" data-label="How long we keep it">Until you delete your account.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Filter use count</td>
+<td role="cell" data-label="How long we keep it">Only the latest 10-minute window. We delete it with your account.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Reports</td>
+<td role="cell" data-label="How long we keep it">We keep them after the accounts involved are deleted, without the account IDs.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Report alert emails in our support mailbox</td>
+<td role="cell" data-label="How long we keep it">We delete them after 90 days.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Support tickets and attachments</td>
+<td role="cell" data-label="How long we keep it">Until you delete your account.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Our copy of purchase records from RevenueCat</td>
+<td role="cell" data-label="How long we keep it">We keep them for our accounts. When you delete your account, we remove your account ID and the purchase details from them.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Backups of our database</td>
+<td role="cell" data-label="How long we keep it">Our database provider keeps daily backups for 7 days.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Server and sign-in logs at Supabase, and email logs at Resend</td>
+<td role="cell" data-label="How long we keep it">For the time that each provider sets.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">Texts that Anthropic checks (section 13)</td>
+<td role="cell" data-label="How long we keep it">Anthropic deletes them within 30 days. If Anthropic&#39;s automatic safety systems flag a text as breaking Anthropic&#39;s Usage Policy, Anthropic can keep the text for up to 2 years, and the results of its safety checks for up to 7 years. Anthropic can also keep data when the law requires it, or when it needs the data to stop misuse of its services.</td>
+</tr>
+<tr role="row">
+<td role="cell" data-label="Information">On your phone: your sign-in session, and the &quot;last logged in&quot; hint</td>
+<td role="cell" data-label="How long we keep it">Until you sign out; the hint until you delete the app.</td>
+</tr>
+</tbody></table>
+<p>We do not delete accounts that nobody uses. Your account stays until you delete it. We plan to set fixed time limits for some of this information later, and we will update this policy when we do.</p>
+<h2 id="s-11-deleting-your-account">11. Deleting your account</h2>
+<p><strong>In the app:</strong> You → Settings → Manage account → Delete account. Deletion happens at once and cannot be undone. If you signed in with Apple on an iPhone, the app asks you to confirm with Apple first.</p>
+<p><strong>What happens:</strong></p>
+<ol>
+<li>We hide your card, withdraw your waiting requests, and end your active matches. The other person sees &quot;This match has ended.&quot;</li>
+<li>We ask Apple to remove the link between your Apple account and our app. <mark class="open-marker">[CONFIRM-18: Will the Sign in with Apple secrets (APPLE_*) be set before launch, so that deleting an account revokes the Apple link? The code is built, but it is skipped while the secrets are unset. — Suggested: yes, before App Review; otherwise remove this step.]</mark></li>
+<li>We delete your customer record at RevenueCat. <mark class="open-marker">[CONFIRM-19: Will REVENUECAT_SECRET_API_KEY be set before launch, so that deleting an account deletes the RevenueCat customer? It is unset today. — Suggested: yes; otherwise remove this step and list RevenueCat under &quot;What stays&quot;.]</mark></li>
+<li>We delete your account and the information linked to it: your sign-in details, card, private answers, fuller profile, settings and filters, the requests you sent, your own vetting answers, reactions, decisions and drafts, the concerns you raised and your Profile Feedback, your walī&#39;s details (including any copy given to a brother), your Premium status and oath, your filter-block records and filter use count, passes, and your support tickets and attachments.</li>
+</ol>
+<p><strong>What stays:</strong></p>
+<ul>
+<li>Match records, without your account ID. This includes any reason you wrote when you ended a match, also at the Profile stage, where the other person did not see it.</li>
+<li>A clarification that you wrote in reply to the other person&#39;s concern. It stays with their concern: for a match that ended, until we delete the match content 90 days after the end; for a completed match, until the other person deletes their account.</li>
+<li>Requests that you received, without your account ID. (We delete the requests that you sent.)</li>
+<li>The activity log of your matches, without your account ID.</li>
+<li>Reports that you sent or that others made about you, without the account IDs.</li>
+<li>Our purchase records, without your account ID or the purchase details.</li>
+<li>Backups and logs, until they expire (section 10).</li>
+<li>Texts that Anthropic checked, until Anthropic deletes them: up to 30 days, or up to 2 years if Anthropic&#39;s safety systems flagged them, and the results of its safety checks for up to 7 years (section 10).</li>
+<li>What Apple and Google keep under their own rules.</li>
+<li>Anything that another member copied, for example your walī&#39;s phone number.</li>
+<li>The &quot;last logged in&quot; hint on your phone, until you delete the app.</li>
+</ul>
+<p><strong>Subscriptions:</strong> deleting your account does not cancel a subscription. Apple or Google keeps billing you until you cancel it in your App Store or Google Play settings. Cancel it before you delete your account.</p>
+<p><strong>Without the app:</strong> email <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a> from the email address on your account. We delete the account within one month.</p>
+<p><strong>Taking a break is different.</strong> &quot;Take a break&quot; (You → Settings → Manage account) hides your card and stops new requests. It deletes nothing, and matches that you are vetting carry on.</p>
+<h2 id="s-12-your-rights">12. Your rights</h2>
+<p>You have these rights, wherever you live:</p>
+<ul>
+<li><strong>Access:</strong> ask what we hold about you, and get a copy. This includes things the app does not show you, such as the activity log and filter-block records.</li>
+<li><strong>Correction:</strong> ask us to fix wrong information. You can change most answers yourself in You → Edit profile. Your gender and date of birth can be set only once; to correct them, contact support.</li>
+<li><strong>Deletion:</strong> delete your account in the app, or ask us to delete your information.</li>
+<li><strong>Restriction:</strong> ask us to stop using your information for a time, for example while we check a correction.</li>
+<li><strong>Portability:</strong> get the information you gave us in a common, machine-readable file.</li>
+<li><strong>Objection:</strong> see the box below.</li>
+<li><strong>Withdrawing consent:</strong> at any time (section 4).</li>
+<li><strong>Complaint:</strong> complain to a data protection authority.</li>
+</ul>
+<p><strong>How to use your rights:</strong> email <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a> from the email address on your account. The app has no export button, so we send copies by email. We may ask you to prove that the account is yours. We answer within one month. If a request is complex, we may need up to two more months; if so, we tell you within the first month. Using your rights is free.</p>
+<p><strong>Complaints:</strong> you can complain to the data protection authority in the country where you live, where you work, or where you think the problem happened. In the EU, find your authority on the <a href="https://www.edpb.europa.eu/about-edpb/about-edpb/members_en" rel="noopener noreferrer">European Data Protection Board website</a>. In the UK, it is the <a href="https://ico.org.uk/make-a-complaint/" rel="noopener noreferrer">Information Commissioner&#39;s Office</a>. Please contact us too, so that we can try to fix the problem.</p>
+<blockquote>
+<p><strong>Your right to object</strong></p>
+<p>When we use your information because of our legitimate interests (section 5), you can object at any time, for reasons that come from your situation. We will then stop, unless we have strong legitimate reasons that override your interests, rights and freedoms, or we need the information for legal claims. To object, email <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a>.</p>
+</blockquote>
+<h2 id="s-13-automatic-decisions">13. Automatic decisions</h2>
+<ul>
+<li><strong>The text filter.</strong> When you save a text that other members can see, or a reason for ending a match, our filter checks it automatically, in two steps. First, fixed rules and a word list check it. If they find nothing, an AI model (Claude, from Anthropic) checks it. The AI model gets only the text, without your name or account ID (section 7.3). If either step finds contact details, plans to meet, or flirting, sexual or abusive language, the text is not saved, and the app tells you why. If the AI model declines to judge a text, or gives no clear answer, the text is not saved either, and the app asks you to rephrase it. Such a block does not mean that you broke a rule. Your text stays in the field, so you can change it. If the AI check is not available, only the first step checks the text. The filter decides only about what you are saving at that moment. It does not suspend you or limit your account. No filter catches everything, so member reports remain our backstop.</li>
+<li><strong>People decide about accounts.</strong> We may look at repeated filter blocks, but a person on our team reviews them, reviews reports, and decides on any suspension. No machine suspends an account.</li>
+<li><strong>Fixed rules.</strong> Some things happen automatically under the rules in our Terms of Use. For example, a match closes when a deadline passes, and a request expires after 30 days. These rules are the same for everyone. They are not judgements about you.</li>
+<li><strong>Browse</strong> shows profiles by the filters and the sort order that you choose.</li>
+<li>We do not make any decision about you that is based only on automatic processing and that has a legal or similarly significant effect on you (GDPR Art. 22).</li>
+</ul>
+<h2 id="s-14-security">14. Security</h2>
+<ul>
+<li>Your information travels between the app and our servers over encrypted connections (HTTPS).</li>
+<li>Our database provider encrypts stored data (AES-256).</li>
+<li>Strict access rules protect every table. The app cannot change our tables directly. It goes through server functions that check who you are.</li>
+<li>Other members never receive your date of birth. They see only your age.</li>
+<li>Support attachments are in private storage that only our team can open.</li>
+<li>You can add an app lock: You → Settings → Passcode.</li>
+<li>Your information is not end-to-end encrypted. Our team can access it when needed (section 7.2).</li>
+<li>No system is completely secure. If a breach puts you at risk, we will tell you, as the law requires.</li>
+</ul>
+<h2 id="s-15-under-18s">15. Under 18s</h2>
+<p>Muslim Matching is only for adults. You must be 18 or older. The app does not accept a date of birth that makes you younger than 18. We do not check IDs.</p>
+<p>We do not knowingly collect information from anyone under 18. If you think a member is under 18, report them in the app (&quot;⋯&quot; → Report → &quot;Under 18&quot;), or email us. If we learn that a member is under 18, we close the account and delete their information.</p>
+<h2 id="s-16-no-ads-no-tracking-no-analytics">16. No ads, no tracking, no analytics</h2>
+<ul>
+<li>The app shows no ads.</li>
+<li>The app contains no advertising, analytics or tracking software.</li>
+<li>We do not track you across other companies&#39; apps or websites, and we do not use your phone&#39;s advertising ID. The app does not ask for permission to track you.</li>
+<li>The app does not use cookies.</li>
+</ul>
+<h2 id="s-17-signing-in-with-google">17. Signing in with Google</h2>
+<ul>
+<li><strong>What Google shares with us:</strong> your Google account ID, email address, name, and a link to your profile picture. These come from Google&#39;s basic sign-in permissions (&quot;email&quot; and &quot;profile&quot;). We ask for nothing else: no access to your Gmail, contacts, Drive or calendar.</li>
+<li><strong>How we use it:</strong> we use the information from Google to create your Muslim Matching account and sign you in. Your Google email address becomes your account&#39;s email address. We also use it to reply to you and to tell you about important changes (section 5). Our sign-in system keeps your Google name and picture link with your sign-in record. We do not show them in the app, and we do not use them for anything else.</li>
+<li><strong>Who receives it:</strong> only our database provider, Supabase, which stores it for us (section 7.3). We do not sell Google user data. We do not use it for ads, and we do not use it to train AI. People on our team look at it only when needed for security, to follow the law, or with your agreement.</li>
+<li><strong>How we protect it:</strong> in the same way as all your information (section 14).</li>
+<li><strong>How long we keep it:</strong> until you delete your account. You can also remove Muslim Matching&#39;s access to your Google account at <a href="https://myaccount.google.com/connections" rel="noopener noreferrer">myaccount.google.com/connections</a>.</li>
+<li><strong>Limited Use:</strong> Muslim Matching&#39;s use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener noreferrer">Google API Services User Data Policy</a>, including the Limited Use requirements.</li>
+</ul>
+<h2 id="s-18-extra-information-for-us-residents">18. Extra information for US residents</h2>
+<p>This section applies under the California Consumer Privacy Act and similar laws in other US states.</p>
+<p><strong>Sensitive personal information.</strong> We collect sensitive personal information: your religious or philosophical beliefs, your racial or ethnic origin, information about your health, possibly information about your sex life, and your account sign-in details. We use it only to give you the service that you asked for, to keep members and the service safe, and to prevent fraud and abuse. We do not use it to infer things about you for any other purpose. So we do not offer a separate &quot;Limit the use of my sensitive personal information&quot; option (California Code of Regulations, title 11, § 7027(m)).</p>
+<p><strong>We do not sell or share your personal information.</strong> We have not sold or shared it in the last 12 months. (&quot;Share&quot; here means sharing for cross-context behavioural advertising.) We do not sell or share the personal information of anyone under 16, and we do not allow anyone under 18 to use the app.</p>
+<p><strong>What we collect</strong> (in the categories of California law):</p>
+<ul>
+<li><strong>Identifiers:</strong> email address, account ID, Apple or Google account ID, IP address and installation ID.</li>
+<li><strong>Personal records:</strong> your name and email address.</li>
+<li><strong>Protected characteristics:</strong> age, gender, religion, ethnicity and marital status.</li>
+<li><strong>Commercial information:</strong> subscription and purchase records.</li>
+<li><strong>Internet and app activity:</strong> how you use the app (for example requests, matches and the activity log) and server logs.</li>
+<li><strong>Approximate location:</strong> your country only.</li>
+<li><strong>Sensitive personal information:</strong> as described above.</li>
+<li><strong>Other information you give us:</strong> your profile texts, answers, Profile Feedback, reports and support messages.</li>
+</ul>
+<p><strong>Sources:</strong> you; other members (for example, reports and Profile Feedback about you); Apple and Google (sign-in); and our service providers (purchase records). <strong>Purposes:</strong> section 5. <strong>Who receives it:</strong> the service providers in section 7.3, for the business purposes in section 5. <strong>How long we keep it:</strong> section 10.</p>
+<p><strong>Your rights:</strong> to know what we collect and how we use it, to get a copy, to have it deleted, to have it corrected, and not to be treated differently because you use these rights. The rights to opt out of selling or sharing, and to limit the use of sensitive personal information, do not apply, because we do not sell or share your information and we use it only as described above.</p>
+<p><strong>How to use your rights:</strong> email <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a>. We check your identity through the email address on your account. Someone you authorise can ask for you; we may ask for proof that you authorised them. If we turn down your request, you can appeal: reply to our answer with &quot;Appeal&quot; in the subject line. We answer appeals within 45 days. If you live in a state that allows it, you can also complain to your state&#39;s attorney general.</p>
+<p><strong>Do Not Track:</strong> we do not track you across other websites or apps, so a &quot;Do Not Track&quot; or Global Privacy Control signal changes nothing.</p>
+<p><strong>Direct marketing:</strong> we do not share personal information with other companies for their own direct marketing.</p>
+<h2 id="s-19-changes-to-this-policy">19. Changes to this policy</h2>
+<p>We update this policy when the app or the law changes. We will update it before we switch on any feature that is off today (section 3.12). If a change is important, we will tell you before it takes effect, for example by email or in the app. The date at the top shows when we last changed this policy.</p>
+<h2 id="s-20-contact-us">20. Contact us</h2>
+<ul>
+<li><strong>Privacy requests and support:</strong> <a href="mailto:support@muslim-matching.com">support@muslim-matching.com</a>, or in the app: You → Help &amp; support.</li>
+<li><strong>Post:</strong> Boring Businesses, LLC, 131 Continental Dr, Suite 305, Newark, DE 19713, USA</li>
+</ul>
+    </div>
+  </article>
+</main>
+
+<footer class="px-3 sm:px-4 md:px-6 pb-10 mt-16">
+  <div class="max-w-5xl mx-auto rounded-3xl px-6 sm:px-10 py-10" style="background:#F5F5F7">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+      <div class="max-w-xs">
+        <a href="/" class="flex items-center gap-2">
+          <img src="/assets/logo.png" alt="" style="height:28px;width:auto;display:block" />
+          <span class="display text-[15px]" style="color:#1A1A2E">Muslim Matching</span>
+        </a>
+        <p class="text-[14px] mt-4 leading-relaxed" style="color:#5A5A6E">Halal nikah for serious Muslims. Certainty first. Chemistry last.</p>
+      </div>
+      <div class="flex gap-12">
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">The app</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">How it works</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Pricing</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Find your Nasib</a>
+          </div>
+        </div>
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">Company</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Our story</a>
+            <a href="/blog/" class="hover:opacity-70" style="color:#1A1A2E">Blog</a>
+            <a href="/support" class="hover:opacity-70" style="color:#1A1A2E">Support</a>
+            <a href="/privacy" class="hover:opacity-70" style="color:#1A1A2E">Privacy Policy</a>
+            <a href="/terms" class="hover:opacity-70" style="color:#1A1A2E">Terms of Use</a>
+            <a href="/eula" class="hover:opacity-70" style="color:#1A1A2E">EULA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-10 pt-6 mono text-[11px]" style="border-top:1px solid #E5E5E5;color:#5A5A6E;letter-spacing:0.06em">
+      <span>&copy; 2026 Muslim Matching</span><span>Building now</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
