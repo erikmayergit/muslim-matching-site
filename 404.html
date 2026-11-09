@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Page not found · Muslim Matching</title>
+<meta name="description" content="This page does not exist. Go back to Muslim Matching, halal nikah for serious Muslims." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="apple-touch-icon" href="/assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,400..900;1,400..900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{ --ink:#1A1A2E; --ink-muted:#5A5A6E; --divider:#E5E5E5; --field:#F5F5F7; }
+  *{font-family:'General Sans',system-ui,-apple-system,sans-serif;}
+  .display{font-family:'Mona Sans','General Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;}
+  .serif{font-family:'Amiri',Georgia,serif;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+  body{background:#fff;color:#1A1A2E;}
+  .fade-up{animation:fadeUp .5s cubic-bezier(0.23,1,0.32,1) both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  /* Headline: full padded width on mobile; tighten to an 18ch measure ≥640px. */
+  @media (min-width:640px){ .post-title{max-width:18ch;} }
+  .prose{max-width:68ch;}
+  .prose>*:first-child{margin-top:0;}
+  .prose p{margin-top:1.2em;font-size:1.075rem;line-height:1.78;color:#5A5A6E;}
+  .prose strong{color:#1A1A2E;font-weight:600;}
+  .prose em{font-style:italic;}
+  .prose h2{font-family:'Mona Sans','General Sans',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;margin-top:1.9em;color:#1A1A2E;}
+  .prose h3{font-family:'Amiri',Georgia,serif;font-weight:700;font-size:1.4rem;line-height:1.25;margin-top:1.5em;color:#1A1A2E;}
+  .prose ul,.prose ol{margin-top:1.2em;padding-left:1.35em;color:#5A5A6E;}
+  .prose li{margin-top:.5em;font-size:1.075rem;line-height:1.7;}
+  .prose li::marker{color:#1E3FF5;}
+  .prose a{color:#1E3FF5;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+  .prose a:hover{opacity:.8;}
+  /* Blockquote → Hadith-card feel: FIELD bg, 3px ROSE left border, Amiri. */
+  .prose blockquote{margin:1.7em 0;padding:1em 1.25em;background:#F5F5F7;border-left:3px solid #E84A78;border-radius:0 1rem 1rem 0;}
+  .prose blockquote p{font-family:'Amiri',Georgia,serif;font-size:1.35rem;line-height:1.5;color:#1A1A2E;margin-top:0;}
+  .prose blockquote p+p{margin-top:.5em;}
+  .prose code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.88em;background:#F5F5F7;padding:.12em .4em;border-radius:6px;color:#1A1A2E;}
+  .prose pre{background:#1A1A2E;color:#fff;padding:1.1em 1.3em;border-radius:1rem;overflow-x:auto;margin:1.5em 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.86rem;}
+  .prose pre code{background:none;padding:0;color:inherit;}
+  .prose hr{border:none;border-top:1px solid #E5E5E5;margin:2.4em 0;}
+  .prose img{border-radius:18px;margin:1.8em 0;}
+  /* Inline-rendered hadith block (when markdown carries arabic/translation/source). */
+  .hadith{background:#F5F5F7;border-left:3px solid #E84A78;border-radius:1rem;padding:1.25rem 1.4rem;margin:1.7em 0;}
+  .hadith .ar{font-family:'Amiri',Georgia,serif;direction:rtl;text-align:right;font-size:1.6rem;line-height:2.1;color:#1A1A2E;}
+  .hadith .tr{font-style:italic;font-size:1.05rem;margin-top:.75rem;color:#1A1A2E;}
+  .hadith .src{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.06em;margin-top:.55rem;color:#5A5A6E;}
+  @media (prefers-reduced-motion: reduce){ .fade-up{animation:none;} }
+
+  /* Legal and support pages: tables, the objection box, open markers. */
+  .legal{max-width:72ch;}
+  .legal h1,.legal h2,.legal h3{text-wrap:balance;}
+  .legal p,.legal li{text-wrap:pretty;overflow-wrap:break-word;}
+  .legal h2,.legal h3{scroll-margin-top:1.5rem;}
+  .legal a{overflow-wrap:anywhere;}
+  .legal ul{list-style:disc;}
+  .legal ol{list-style:decimal;}
+  .legal ul ul,.legal ol ul{list-style:circle;margin-top:.5em;}
+  .legal blockquote{border-left-color:#1E3FF5;}
+  .legal blockquote p{font-family:'General Sans',system-ui,-apple-system,sans-serif;font-size:1.075rem;line-height:1.7;color:#1A1A2E;}
+  .legal blockquote p+p{margin-top:.6em;}
+  .legal table{width:100%;border-collapse:collapse;margin-top:1.4em;font-size:.97rem;line-height:1.6;}
+  .legal th,.legal td{text-align:left;vertical-align:top;padding:.65em .75em;border-bottom:1px solid #E5E5E5;overflow-wrap:break-word;}
+  .legal th{background:#F5F5F7;color:#1A1A2E;font-weight:600;}
+  .legal td{color:#5A5A6E;}
+  .legal mark.open-marker{background:#FFF4CC;color:#1A1A2E;padding:.05em .3em;border-radius:4px;outline:1px dashed #C99A00;}
+  @media (max-width:639px){
+    .legal table,.legal thead,.legal tbody,.legal tr,.legal th,.legal td{display:block;width:100%;}
+    .legal thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+    .legal tr{border:1px solid #E5E5E5;border-radius:14px;padding:.35em .9em;margin-top:.9em;}
+    .legal td{border:none;padding:.4em 0;}
+    .legal td::before{content:attr(data-label);display:block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:#1E3FF5;margin-bottom:.15em;}
+  }
+</style>
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Muslim Matching" />
+<meta property="og:title" content="Page not found · Muslim Matching" />
+<meta property="og:description" content="This page does not exist. Go back to Muslim Matching, halal nikah for serious Muslims." />
+<meta property="og:image" content="https://muslim-matching.com/assets/og.jpg" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Page not found · Muslim Matching" />
+<meta name="twitter:description" content="This page does not exist. Go back to Muslim Matching, halal nikah for serious Muslims." />
+<meta name="twitter:image" content="https://muslim-matching.com/assets/og.jpg" />
+</head>
+<body>
+
+<header class="px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 md:pt-6">
+  <nav aria-label="Main" class="max-w-5xl mx-auto bg-white/65 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 flex items-center gap-2 sm:gap-6">
+    <a href="/" class="flex items-center gap-2 shrink-0 min-w-0">
+      <img src="/assets/logo.png" alt="Muslim Matching" style="height:28px;width:auto;display:block" />
+      <span class="display text-[15px] whitespace-nowrap hidden sm:inline" style="color:#1A1A2E">Muslim Matching</span>
+    </a>
+    <div class="hidden md:flex items-center gap-5">
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">How it works</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">The revolution</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Pricing</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Our story</a>
+        <a href="/blog/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Blog</a>
+    </div>
+    <a href="/" class="ml-auto shrink-0 text-white text-[13px] sm:text-sm font-medium px-3.5 sm:px-5 py-2 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap" style="background:#1A1A2E">Find your Nasib</a>
+  </nav>
+</header>
+
+<main class="px-4 sm:px-6">
+  <section class="max-w-2xl mx-auto text-center pt-20 sm:pt-28 pb-8 fade-up">
+    <div class="mono text-[11px]" style="color:#1E3FF5;letter-spacing:0.12em;text-transform:uppercase">Error 404</div>
+    <h1 class="display text-[clamp(2.2rem,6vw,3.6rem)] leading-[1.05] mt-4" style="color:#1A1A2E;text-wrap:balance">This page doesn&rsquo;t exist</h1>
+    <p class="mt-5 text-[1.075rem] leading-[1.7]" style="color:#5A5A6E;text-wrap:pretty">The link may be old, or the address has a typo. Everything else is still here.</p>
+    <div class="mt-9 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="/" class="text-white text-sm font-medium px-6 py-3 rounded-xl hover:opacity-90 transition-opacity" style="background:#1A1A2E">Go to the home page</a>
+      <a href="/blog/" class="text-sm font-medium px-6 py-3 rounded-xl hover:opacity-70 transition-opacity" style="color:#1A1A2E;background:#F5F5F7">Read the blog</a>
+    </div>
+    <p class="mt-8 text-[14px]" style="color:#5A5A6E">Need help? <a href="/support" class="underline underline-offset-2" style="color:#1E3FF5">Contact support</a></p>
+  </section>
+</main>
+
+<footer class="px-3 sm:px-4 md:px-6 pb-10 mt-16">
+  <div class="max-w-5xl mx-auto rounded-3xl px-6 sm:px-10 py-10" style="background:#F5F5F7">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+      <div class="max-w-xs">
+        <a href="/" class="flex items-center gap-2">
+          <img src="/assets/logo.png" alt="" style="height:28px;width:auto;display:block" />
+          <span class="display text-[15px]" style="color:#1A1A2E">Muslim Matching</span>
+        </a>
+        <p class="text-[14px] mt-4 leading-relaxed" style="color:#5A5A6E">Halal nikah for serious Muslims. Certainty first. Chemistry last.</p>
+      </div>
+      <div class="flex gap-12">
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">The app</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">How it works</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Pricing</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Find your Nasib</a>
+          </div>
+        </div>
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">Company</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Our story</a>
+            <a href="/blog/" class="hover:opacity-70" style="color:#1A1A2E">Blog</a>
+            <a href="/support" class="hover:opacity-70" style="color:#1A1A2E">Support</a>
+            <a href="/privacy" class="hover:opacity-70" style="color:#1A1A2E">Privacy Policy</a>
+            <a href="/terms" class="hover:opacity-70" style="color:#1A1A2E">Terms of Use</a>
+            <a href="/eula" class="hover:opacity-70" style="color:#1A1A2E">EULA</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-10 pt-6 mono text-[11px]" style="border-top:1px solid #E5E5E5;color:#5A5A6E;letter-spacing:0.06em">
+      <span>&copy; 2026 Muslim Matching</span><span>Building now</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
