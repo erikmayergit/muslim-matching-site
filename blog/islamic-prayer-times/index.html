@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Islamic Prayer Times: The Five Windows Explained</title>
+<meta name="description" content="Islamic prayer times explained: the five daily windows set by the sun, the Qur&#39;an and Sunnah behind them, and why calculation methods differ between apps." />
+<link rel="canonical" href="https://muslim-matching.com/blog/islamic-prayer-times/" />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P8EQRTMVTN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P8EQRTMVTN');
+</script>
+<link rel="icon" type="image/png" href="/assets/logo.png" />
+<link rel="apple-touch-icon" href="/assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,400..900;1,400..900&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root{ --ink:#1A1A2E; --ink-muted:#5A5A6E; --divider:#E5E5E5; --field:#F5F5F7; }
+  *{font-family:'General Sans',system-ui,-apple-system,sans-serif;}
+  .display{font-family:'Mona Sans','General Sans',system-ui,sans-serif;font-weight:800;letter-spacing:-0.02em;}
+  .serif{font-family:'Amiri',Georgia,serif;}
+  .mono{font-family:'JetBrains Mono',ui-monospace,monospace;}
+  body{background:#fff;color:#1A1A2E;}
+  .fade-up{animation:fadeUp .5s cubic-bezier(0.23,1,0.32,1) both;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  /* Headline: full padded width on mobile; tighten to an 18ch measure ≥640px. */
+  @media (min-width:640px){ .post-title{max-width:18ch;} }
+  .prose{max-width:68ch;}
+  .prose>*:first-child{margin-top:0;}
+  .prose p{margin-top:1.2em;font-size:1.075rem;line-height:1.78;color:#5A5A6E;}
+  .prose strong{color:#1A1A2E;font-weight:600;}
+  .prose em{font-style:italic;}
+  .prose h2{font-family:'Mona Sans','General Sans',sans-serif;font-weight:800;letter-spacing:-0.02em;font-size:clamp(1.5rem,3vw,2rem);line-height:1.15;margin-top:1.9em;color:#1A1A2E;}
+  .prose h3{font-family:'Amiri',Georgia,serif;font-weight:700;font-size:1.4rem;line-height:1.25;margin-top:1.5em;color:#1A1A2E;}
+  .prose ul,.prose ol{margin-top:1.2em;padding-left:1.35em;color:#5A5A6E;}
+  .prose li{margin-top:.5em;font-size:1.075rem;line-height:1.7;}
+  .prose li::marker{color:#1E3FF5;}
+  .prose a{color:#1E3FF5;text-decoration:underline;text-underline-offset:2px;text-decoration-thickness:1px;}
+  .prose a:hover{opacity:.8;}
+  /* Blockquote → Hadith-card feel: FIELD bg, 3px ROSE left border, Amiri. */
+  .prose blockquote{margin:1.7em 0;padding:1em 1.25em;background:#F5F5F7;border-left:3px solid #E84A78;border-radius:0 1rem 1rem 0;}
+  .prose blockquote p{font-family:'Amiri',Georgia,serif;font-size:1.35rem;line-height:1.5;color:#1A1A2E;margin-top:0;}
+  .prose blockquote p+p{margin-top:.5em;}
+  .prose code{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.88em;background:#F5F5F7;padding:.12em .4em;border-radius:6px;color:#1A1A2E;}
+  .prose pre{background:#1A1A2E;color:#fff;padding:1.1em 1.3em;border-radius:1rem;overflow-x:auto;margin:1.5em 0;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.86rem;}
+  .prose pre code{background:none;padding:0;color:inherit;}
+  .prose hr{border:none;border-top:1px solid #E5E5E5;margin:2.4em 0;}
+  .prose img{border-radius:18px;margin:1.8em 0;}
+  /* Inline-rendered hadith block (when markdown carries arabic/translation/source). */
+  .hadith{background:#F5F5F7;border-left:3px solid #E84A78;border-radius:1rem;padding:1.25rem 1.4rem;margin:1.7em 0;}
+  .hadith .ar{font-family:'Amiri',Georgia,serif;direction:rtl;text-align:right;font-size:1.6rem;line-height:2.1;color:#1A1A2E;}
+  .hadith .tr{font-style:italic;font-size:1.05rem;margin-top:.75rem;color:#1A1A2E;}
+  .hadith .src{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.7rem;letter-spacing:.06em;margin-top:.55rem;color:#5A5A6E;}
+  @media (prefers-reduced-motion: reduce){ .fade-up{animation:none;} }
+</style>
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Muslim Matching" />
+<meta property="og:title" content="Islamic Prayer Times: The Five Windows Explained" />
+<meta property="og:description" content="Islamic prayer times explained: the five daily windows set by the sun, the Qur&#39;an and Sunnah behind them, and why calculation methods differ between apps." />
+<meta property="og:url" content="https://muslim-matching.com/blog/islamic-prayer-times/" />
+<meta property="og:image" content="https://muslim-matching.com/assets/og.jpg" />
+<meta property="article:published_time" content="2026-11-16T06:01:37.900Z" />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Islamic Prayer Times: The Five Windows Explained" />
+<meta name="twitter:description" content="Islamic prayer times explained: the five daily windows set by the sun, the Qur&#39;an and Sunnah behind them, and why calculation methods differ between apps." />
+<meta name="twitter:image" content="https://muslim-matching.com/assets/og.jpg" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Islamic Prayer Times: The Five Windows and How They Are Set","description":"Islamic prayer times explained: the five daily windows set by the sun, the Qur'an and Sunnah behind them, and why calculation methods differ between apps.","datePublished":"2026-11-16T06:01:37.900Z","dateModified":"2026-11-16T06:01:37.900Z","inLanguage":"en","author":{"@type":"Organization","name":"Muslim Matching","url":"https://muslim-matching.com/"},"publisher":{"@type":"Organization","name":"Muslim Matching","logo":{"@type":"ImageObject","url":"https://muslim-matching.com/assets/og.jpg"}},"image":"https://muslim-matching.com/assets/og.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://muslim-matching.com/blog/islamic-prayer-times/"}}
+</script>
+</head>
+<body>
+
+<header class="px-3 sm:px-4 md:px-6 pt-3 sm:pt-4 md:pt-6">
+  <nav class="max-w-5xl mx-auto bg-white/65 backdrop-blur-md rounded-2xl shadow-sm pl-3 sm:pl-4 pr-2 py-2 flex items-center gap-2 sm:gap-6">
+    <a href="/" class="flex items-center gap-2 shrink-0 min-w-0">
+      <img src="/assets/logo.png" alt="Muslim Matching" style="height:28px;width:auto;display:block" />
+      <span class="display text-[15px] whitespace-nowrap hidden sm:inline" style="color:#1A1A2E">Muslim Matching</span>
+    </a>
+    <div class="hidden md:flex items-center gap-5">
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">How it works</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">The revolution</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Pricing</a>
+        <a href="/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Our story</a>
+        <a href="/blog/" class="text-sm whitespace-nowrap pb-0.5 hover:opacity-70 transition-opacity" style="color:#374151;font-weight:500">Blog</a>
+    </div>
+    <a href="/" class="ml-auto shrink-0 text-white text-[13px] sm:text-sm font-medium px-3.5 sm:px-5 py-2 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap" style="background:#1A1A2E">Find your Nasib</a>
+  </nav>
+</header>
+
+<main class="px-4 sm:px-6">
+  <article class="max-w-5xl mx-auto pt-10 sm:pt-14 fade-up">
+    <header class="text-center mx-auto" style="max-width:760px">
+      <nav class="flex items-center justify-center gap-2 text-[13px] mb-5" style="color:#5A5A6E" aria-label="Breadcrumb">
+        <a href="/" class="hover:opacity-70" style="color:#5A5A6E">Home</a><span>/</span>
+        <a href="/blog/" class="hover:opacity-70" style="color:#5A5A6E">Blog</a><span>/</span>
+        <span style="color:#1A1A2E">Guide</span>
+      </nav>
+      <div class="mono text-[10px] sm:text-[11px] mb-4 break-words" style="color:#1E3FF5;letter-spacing:0.1em;text-transform:uppercase">Guide &middot; 9 min read &middot; 16 November 2026</div>
+      <h1 class="post-title display mx-auto text-2xl sm:text-5xl leading-[1.12] break-words" style="color:#1A1A2E">Islamic Prayer Times: The Five Windows and How They Are Set</h1>
+    </header>
+    <div class="prose mx-auto mt-10 sm:mt-12">
+<!-- deen:preface -->
+<p>﷽</p>
+<p><em>In the name of Allah, the Most Merciful, the Bestower of Mercy.</em></p>
+<p><em>We try to follow and explain from the Qur&#39;an and the authentic Hadith, upon the understanding of the three rightly-guided generations (the Salaf as-Salih). All good is from Allah alone, and any mistake or shortcoming is from ourselves.</em></p>
+<!-- /deen:preface -->
+
+<p><strong>TL;DR:</strong> The five daily prayers each have a fixed window tied to the position of the sun: Fajr from true dawn until sunrise, Dhuhr from when the sun passes its zenith, Asr through the late afternoon, Maghrib at sunset, and Isha from the disappearance of twilight. Prayer time apps estimate these windows using twilight angles, so the calculation method matters.</p>
+<h2>The five times are set by Allah, not by a timetable</h2>
+<p>The prayer is not a flexible appointment that we fit around our day. Allah fixed it at set times and made keeping those times part of the obligation itself. He said that the prayer has been &quot;decreed upon the believers a decree of specified times&quot; (<a href="https://quran.com/4/103">Qur&#39;an 4:103</a>).</p>
+<p>The anchor for the daily windows is the movement of the sun. Allah commanded: &quot;Establish prayer at the decline of the sun until the darkness of the night, and the Qur&#39;an of dawn. Indeed, the recitation of dawn is ever witnessed&quot; (<a href="https://quran.com/17/78">Qur&#39;an 17:78</a>). He also tied the prayer to the ends of the day: &quot;And establish prayer at the two ends of the day and at the approach of the night&quot; (<a href="https://quran.com/11/114">Qur&#39;an 11:114</a>). And He singled out the middle prayer for special care: &quot;Guard strictly the prayers, especially the middle prayer&quot; (<a href="https://quran.com/2/238">Qur&#39;an 2:238</a>).</p>
+<p>So when we talk about Islamic prayer times, we are really talking about reading the sky correctly. The clock is only a tool that translates the sun&#39;s position into the numbers on your phone.</p>
+<h2>What each prayer window actually is</h2>
+<p>The clearest single text on the windows is the narration of Abdullah ibn Amr, where the Prophet, peace be upon him, described each one by what you can observe outside. It is recorded in <a href="https://sunnah.com/muslim:612">Sahih Muslim 612</a>. The two-day demonstration where the angel Jibril led the Prophet at the start and end of each window is also preserved and graded hasan sahih in <a href="https://sunnah.com/tirmidhi:149">Jami at-Tirmidhi 149</a>.</p>
+<h3>Fajr</h3>
+<p>Fajr begins at true dawn, the spreading white light across the horizon, and ends at sunrise. True dawn (al-fajr as-sadiq) is distinct from the false dawn, a vertical glow that appears briefly and then fades. The window closes the moment the disc of the sun begins to rise.</p>
+<h3>Dhuhr</h3>
+<p>Dhuhr starts when the sun passes its highest point and begins to decline from the zenith. It is not fixed to &quot;noon&quot; on your clock; it depends on your longitude and the season. Its window runs until the shadow of an object equals the object&#39;s own length, which is where Asr begins.</p>
+<h3>Asr</h3>
+<p>Asr begins, by the stronger evidence, when the shadow of an object equals its length (plus the small shadow that already existed at midday), and it continues until sunset. The Prophet urged praying it early and warned severely against losing it, saying that whoever misses Asr, his deeds are rendered void, in <a href="https://sunnah.com/bukhari:553">Sahih al-Bukhari 553</a>.</p>
+<h3>Maghrib</h3>
+<p>Maghrib begins immediately at sunset, once the full disc of the sun has gone below the horizon, and lasts until the red twilight in the west disappears. It is the one window that should not be delayed, since the time is relatively short.</p>
+<h3>Isha</h3>
+<p>Isha begins when the red twilight vanishes and the sky is dark. Its preferred window runs until roughly the middle of the night, and in necessity extends until true dawn. Delaying Isha a little is permitted and was at times preferred by the Prophet, but sleeping through it out of neglect is not.</p>
+<h2>How prayer time calculators estimate the windows</h2>
+<p>Maghrib and sunrise are easy to compute, because they correspond to the visible edge of the sun at the horizon. Fajr and Isha are harder, because they depend on how far the sun is below the horizon when dawn breaks or when twilight finally fades. That depth is measured as an angle, and different committees of scholars and astronomers settled on slightly different angles. This is where the differences between apps come from.</p>
+<p>Common conventions include:</p>
+<ul>
+<li><strong>Muslim World League:</strong> Fajr at 18 degrees, Isha at 17 degrees.</li>
+<li><strong>Umm al-Qura (Makkah):</strong> Fajr at 18.5 degrees, with Isha fixed at 90 minutes after Maghrib.</li>
+<li><strong>Egyptian General Authority:</strong> Fajr at 19.5 degrees, Isha at 17.5 degrees.</li>
+<li><strong>ISNA (North America):</strong> Fajr and Isha at 15 degrees.</li>
+</ul>
+<p>None of these angles is &quot;the Sunnah&quot; in itself. They are human attempts to estimate a visible phenomenon the Shariah described in plain terms. The safest practice, where you can manage it, is to verify Fajr and Maghrib against the actual sky in your area, especially for Fajr, since several popular settings have been found to give a time earlier than the true dawn. If a local masjid committee that you trust has studied this, follow their timetable. For high-latitude regions where twilight does not disappear in summer, the matter is a genuine point of difference among scholars, and you should take the ruling of a qualified scholar rather than guess.</p>
+<h2>The Asr difference, explained without taking sides unfairly</h2>
+<p>There are two well-known positions on when Asr begins. The majority hold it begins when an object&#39;s shadow equals its own length, which is the plain reading of the narration in <a href="https://sunnah.com/muslim:612">Sahih Muslim 612</a> and the demonstration in <a href="https://sunnah.com/tirmidhi:149">Jami at-Tirmidhi 149</a>. A second view, associated with the Hanafi school, delays Asr until the shadow is twice the object&#39;s length.</p>
+<p>The stronger evidence supports the first (shadow equal to length), and most prayer time apps default to it. That said, this is a recognised scholarly difference, not a case of one side following the Sunnah and the other abandoning it. If your community prays on the later time, you are not sinning. Know which calculation your app is using so you are not confused when two timetables disagree by half an hour in the afternoon.</p>
+<h2>Why guarding the times is a measure of a person</h2>
+<p>Prayer on time is not a minor detail of the deen. When the Prophet, peace be upon him, was asked which deed is most beloved to Allah, he answered: &quot;Prayer at its proper time,&quot; as reported in <a href="https://sunnah.com/bukhari:527">Sahih al-Bukhari 527</a>. He also gave glad tidings for the two prayers that are hardest on the nafs, Fajr and Asr, saying that whoever prays the two cool prayers will enter Paradise, in <a href="https://sunnah.com/bukhari:574">Sahih al-Bukhari 574</a>.</p>
+<p>This is why, for anyone thinking seriously about marriage, how a person treats the prayer times tells you more than almost anything they could say about themselves. A man or woman who guards Fajr, who arranges work and sleep and travel around the five times, has already shown you how they handle duty when no one is watching. That is a far better signal than a polished self-description. We wrote more on this in our guide to <a href="/guides/signs-of-good-character-in-a-spouse">the signs of good character in a spouse</a>, because consistency in worship is one of the clearest windows into how someone will carry responsibility in a home.</p>
+<p>This is also the standard we build around at Muslim Matching. The platform is deen-first by design, which means the conversation starts with practice and intention, not surface impressions. If that is the kind of process you want, you can <a href="/">join the Muslim Matching waitlist</a> and begin from the right place.</p>
+<h2>Practical habits for keeping the times</h2>
+<p>Knowing the windows is only useful if it changes your day. A few habits help:</p>
+<ul>
+<li>Fix your app&#39;s calculation method once, confirm it against a trusted local source, and stop second-guessing it daily.</li>
+<li>Set an adhan reminder a few minutes before each window rather than at the moment it starts, so you can make wudu and pray early.</li>
+<li>Treat Fajr as the hinge of your schedule. Sleeping early is a Sunnah that exists partly to protect it.</li>
+<li>When travelling or crossing time zones, update your location so the sun-based times recalculate. The obligation follows where you are, not where you came from.</li>
+</ul>
+<p>For a reader who wants to see how the prayer fits into the larger framework of worship and daily life, our overview of <a href="/guides/consistent-prayer-routine">building a consistent prayer routine</a> covers the practical side in more detail.</p>
+<h2>Frequently Asked Questions</h2>
+<h3>Why do prayer time apps show different times for the same city?</h3>
+<p>Because Fajr and Isha depend on how far the sun sits below the horizon, and different authorities use slightly different angles. Maghrib and sunrise rarely differ, but Fajr and Isha can vary by ten to twenty minutes. Pick a method verified by people you trust locally and stay consistent.</p>
+<h3>Is the earliest time always the best time to pray?</h3>
+<p>As a rule, yes. Praying at the start of the window is the more beloved practice, supported by the hadith that the most beloved deed is &quot;prayer at its proper time&quot; in <a href="https://sunnah.com/bukhari:527">Sahih al-Bukhari 527</a>. The main recognised exceptions are delaying Isha a little and, in extreme heat, delaying Dhuhr until it cools, both of which have a basis in the Sunnah.</p>
+<h3>What is the difference between true dawn and false dawn for Fajr?</h3>
+<p>False dawn is a faint vertical glow that rises and then fades, leaving darkness again. True dawn, which begins Fajr, is a horizontal whiteness that spreads along the horizon and does not recede. Fajr is tied to the true dawn, so some apps that compute it too early can place it during the false dawn period.</p>
+<h3>How is Asr calculated and why are there two times?</h3>
+<p>The stronger position begins Asr when an object&#39;s shadow equals its length, based on <a href="https://sunnah.com/muslim:612">Sahih Muslim 612</a>. The Hanafi position begins it when the shadow is twice the length. Both are long-standing scholarly views. Follow the evidence while respecting those who pray on the later time.</p>
+<h3>What do people at high latitudes do when twilight never disappears?</h3>
+<p>In places where the sky does not fully darken in summer, there is no single agreed timetable. Scholars have offered several solutions, such as estimating by the nearest moderate latitude or by the last night the signs were visible. This is a real area of difference, so follow a qualified scholar or a reliable local committee rather than deciding alone.</p>
+<h3>Does missing a prayer time mean the prayer is lost?</h3>
+<p>If you miss a prayer through genuine sleep or forgetfulness, you pray it as soon as you wake or remember, and there is no sin in that. Deliberately letting the window pass without excuse is a serious matter. The point of learning the times is to protect yourself from ever reaching that, by praying inside each window on purpose.</p>
+
+    </div>
+    <aside class="mt-12 mx-auto" style="max-width:68ch">
+        <div class="bg-white rounded-3xl shadow-xl p-8 sm:p-10 text-center" style="border:1px solid #E5E5E5">
+          <div class="mono text-[11px] mb-2" style="color:#1E3FF5;letter-spacing:0.14em;text-transform:uppercase">Certainty first · Chemistry last</div>
+          <h3 class="display text-2xl sm:text-3xl leading-tight" style="color:#1A1A2E">Get to know someone the halal way.</h3>
+          <p class="text-[15px] sm:text-base leading-relaxed mt-3 mx-auto" style="color:#5A5A6E;max-width:52ch">No chat, no calls, no pictures. By the time your walī meets them, the only thing left to check is chemistry. Muslim Matching is free to use, and we are building it now.</p>
+          <a href="/" class="inline-block mt-6 text-white text-[15px] font-semibold px-7 py-3.5 rounded-2xl transition-transform hover:-translate-y-0.5" style="background:#1E3FF5">Find your Nasib&nbsp;&rarr;</a>
+        </div>
+      </aside>
+    <div class="mt-10 mx-auto text-center" style="max-width:68ch">
+      <a href="/blog/" class="mono text-[11px] hover:opacity-70" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">&larr; All articles</a>
+    </div>
+  </article>
+</main>
+
+<footer class="px-3 sm:px-4 md:px-6 pb-10 mt-16">
+  <div class="max-w-5xl mx-auto rounded-3xl px-6 sm:px-10 py-10" style="background:#F5F5F7">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8">
+      <div class="max-w-xs">
+        <a href="/" class="flex items-center gap-2">
+          <img src="/assets/logo.png" alt="" style="height:28px;width:auto;display:block" />
+          <span class="display text-[15px]" style="color:#1A1A2E">Muslim Matching</span>
+        </a>
+        <p class="text-[14px] mt-4 leading-relaxed" style="color:#5A5A6E">Halal nikah for serious Muslims. Certainty first. Chemistry last.</p>
+      </div>
+      <div class="flex gap-12">
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">The app</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">How it works</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Pricing</a>
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Find your Nasib</a>
+          </div>
+        </div>
+        <div>
+          <div class="mono text-[11px] mb-3" style="color:#5A5A6E;letter-spacing:0.12em;text-transform:uppercase">Company</div>
+          <div class="flex flex-col gap-2 text-[14px]">
+            <a href="/" class="hover:opacity-70" style="color:#1A1A2E">Our story</a>
+            <a href="/blog/" class="hover:opacity-70" style="color:#1A1A2E">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-between mt-10 pt-6 mono text-[11px]" style="border-top:1px solid #E5E5E5;color:#5A5A6E;letter-spacing:0.06em">
+      <span>&copy; 2026 Muslim Matching</span><span>Building now</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
